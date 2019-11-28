@@ -1,0 +1,91 @@
+<!--
+Author: W3layouts
+Author URL: http://w3layouts.com
+License: Creative Commons Attribution 3.0 Unported
+License URL: http://creativecommons.org/licenses/by/3.0/
+-->
+
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+    <title>Infinitude Corporate Category Bootstrap Responsive Web Template | About :: W3layouts</title>
+    <!-- Meta tag Keywords -->
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta charset="UTF-8" />
+    <meta name="keywords" content="Infinitude Responsive web template, Bootstrap Web Templates, Flat Web Templates, Android Compatible web template, Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, SonyEricsson, Motorola web design" />
+    <script>
+        addEventListener("load", function() {
+            setTimeout(hideURLbar, 0);
+        }, false);
+
+        function hideURLbar() {
+            window.scrollTo(0, 1);
+        }
+
+    </script>
+    <!-- //Meta tag Keywords -->
+    <!-- Custom-Files -->
+    <link rel="stylesheet" href="../css/bootstrap.css">
+    <!-- Bootstrap-Core-CSS -->
+    <link rel="stylesheet" href="../css/style.css" type="text/css" media="all" />
+    <!-- Style-CSS -->
+    <!-- font-awesome-icons -->
+    <link href="../css/font-awesome.css" rel="stylesheet">
+    <!-- //font-awesome-icons -->
+
+</head>
+
+<body>
+  <?php
+  include'../inc/nav_public.php';
+  ?>
+        <div class="container py-md-5">
+            <div class="about-hny-info text-left pr-lg-5">
+                <h3 class="tittle-w3ls mb-3"><span class="pink">Nos</span> Stages</h3>
+                <p class="sub-tittle mt-3 mb-4 pr-lg-5">Integer pulvinar leo id viverra feugiat. Pellentesque libero ut justo, semper at tempus vel, ultrices in ligula. Lorem ipsum dolor sit amet sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.Sed do eiusmod tempor incididunt ut labore et dolore
+                    magna
+                    aliqua. Ut enim ad minim veniam, quis nostrud exercitation</p>
+            </div>
+        </div>
+            <div class="container py-md-5">
+                <div class="row inner_sec_info">
+
+                    <div class="col-md-6 banner_bottom_grid help">
+                        <img src="../images/image_balade.jpg" alt=" " class="img-fluid">
+                    </div>
+                    <div class="col-md-6 banner_bottom_left">
+                        <h3>
+                        <span class="pink">Les Stages</span> d'equitations</a></h3>
+                        <p>Pellentesque convallis diam consequat magna vulputate malesuada. Cras a ornare elit. Nulla viverra pharetra sem, eget
+                        pulvinar neque pharetra ac.</p>
+                        <p>Lorem Ipsum convallis diam consequat magna vulputate malesuada. Cras a ornare elit. Nulla viverra pharetra sem, eget
+                        pulvinar neque pharetra ac.</p>
+                        <a class="btn more black mt-3" href="planning.php" role="button">Nos tarif</a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="container py-md-5">
+                <div class="row inner_sec_info">
+
+
+                    <div class="col-md-6 banner_bottom_left">
+                        <h3>
+                        <span class="pink">Les Stages</span> d'attelage</a></h3>
+                        <p>Pellentesque convallis diam consequat magna vulputate malesuada. Cras a ornare elit. Nulla viverra pharetra sem, eget
+                        pulvinar neque pharetra ac.</p>
+                        <p>Lorem Ipsum convallis diam consequat magna vulputate malesuada. Cras a ornare elit. Nulla viverra pharetra sem, eget
+                        pulvinar neque pharetra ac.</p>
+                        <a class="btn more black mt-3" href="planning.php" role="button">Nos tarif</a>
+                    </div>
+                    <div class="col-md-6 banner_bottom_grid help">
+                        <img src="../images/image_inscription.jpg" alt=" " class="img-fluid">
+                    </div>
+                </div>
+            </div>
+            <?php include'../inc/footer_public.php'; ?>
+
+</body>
+
+</html>

@@ -1,0 +1,19 @@
+input
+{
+  margin:0.5%;
+  width: 300px;
+  border-radius: 5px;
+}
+
+.float
+{
+  float: left;
+  margin-left:40%;
+  margin-top: -6.4%;
+}
+
+.select
+{
+  width: 300px;
+  font-size: 2em;
+}
