@@ -47,16 +47,16 @@ $mdp_confirm = $_POST['pass_confirm_inscription'];
       }
       else
       {
-        header("location:../public/inscription_test.php?erreur=mdp_confirm");
+        header("location:../public/inscription.php?erreur=mdp_confirm");
       }
     }
     else
     {
-      header("location:../public/inscription_test.php?erreur=adresse_mail");
+      header("location:../public/inscription.php?erreur=adresse_mail");
     }
   }
 else {
-  header("location:../public/inscription_test.php?erreur=termes");
+  header("location:../public/inscription.php?erreur=termes");
 }
 
 
