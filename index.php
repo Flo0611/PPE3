@@ -1,6 +1,8 @@
 <?php
 ini_set("display_errors","off");
 session_start();
+include'inc/bdd.inc.php';
+include'all.class.php';
  ?>
 <!DOCTYPE html>
 <html lang="fr">
@@ -210,59 +212,91 @@ session_start();
     <!-- /projects -->
     <section class="projects py-5" id="gallery">
         <div class="container py-md-5">
-            <h3 class="tittle-w3ls text-left mb-5"><span class="pink">Nos chevaux</span> titrés</h3>
+          <h3 class="tittle-w3ls text-left mb-5"><span class="pink">Nos chevaux</span> titrés</h3>
+          <div class="row news-grids  text-center">
             <div class="row news-grids mt-md-5 mt-4 text-center">
-                <div class="col-md-4 gal-img">
-                    <a href="#gal1"><img src="images/g1.jpg" alt="w3pvt" class="img-fluid"></a>
-                    <div class="gal-info">
-                        <h5>Tonerre<span class="decription">Course</span></h5>
-                    </div>
+
+
+          <?php
+          $un_cheval = new chevaux(" ", " ", " ", " ", " ", " ", " ", " ");
+          $une_photo = new photo_cheval(" ", " "," ");
+          $une_race = new race_chevaux(" ", " ");
+
+          $req = $un_cheval->select_by_id_limit3_chevaux($conn);
+          while ($res = $req->fetch())
+          {
+            $id_cheval = $res['id_chevaux'];
+            $nom = $res['nom_chevaux'];
+            $prenom = $res['prenom_chevaux'];
+            $sexe = $res['sexe_chevaux'];
+            $race = $res['race_chevaux'];
+            $daten = $res['daten_chevaux'];
+            $datea = $res['datea_chevaux'];
+            $id_photo = $res['photo_chevaux'];
+
+            $req_photo = $une_photo->select_photo_cheval($id_photo, $conn);
+            $photo = $req_photo->fetch();
+
+            $req_race = $une_race->select_lib_race_chevaux($race, $conn);
+            $race_cheval = $req_race->fetch();
+
+            ?>
+
+
+            <div class="col-md-4 gal-img">
+                <a href="#gal<?php echo $id_cheval ?>"><img src="images/uploads-chevaux/<?php echo $photo['lib_photo'] ?>"  alt="w3pvt" class="img-fluid-chevaux"></a>
+                <div class="gal-info">
+                    <h5><?php echo $prenom." ".$nom ?><span class="decription"><?php echo $race_cheval['lib_race_chevaux']?></span></h5>
                 </div>
-                <div class="col-md-4 gal-img">
-                    <a href="#gal2"><img src="images/g2.jpg" alt="w3pvt" class="img-fluid"></a>
-                    <div class="gal-info">
-                        <h5>Olia<span class="decription">Course</span></h5>
+            </div>
+
+
+
+
+
+            <!-- popup-->
+            <div id="gal<?php echo $id_cheval ?>" class="pop-overlay">
+                <div class="popup">
+                    <img src="images/uploads-chevaux/<?php echo $photo['lib_photo'] ?>" alt="Popup Image" class="img-fluid-pop-up"  />
+                    <div class="mt-4 desc-chevaux-popup">
+                      <h1 style="font-size:1.5em;"><b><?php echo $prenom." ".$nom; ?></b></h1><br>
+                      <p>
+                        <span class="label-pop-up">Sexe : </span> <span class="text-popup"><b><?php echo $sexe ?></b></span><br>
+                        <span class="label-pop-up">Race : </span> <span class="text-popup"><b><?php echo $race_cheval['lib_race_chevaux'] ?></b></span><br>
+                        <span class="label-pop-up">Date de naissance : </span> <span class="text-popup"><b><?php echo $daten ?></b></span><br>
+                        <span class="label-pop-up">Date d'arriver au centre : </span> <span class="text-popup"><b><?php echo $datea ?></b></span><br>
+                      </p>
+
+                      <form action="../traitement/ajout_favoris_chevaux.trait.php?id_cheval=<?php echo $id_cheval ?>" method="POST">
+                        <button type="submit" class="btn btn-warning" style="margin-top:5%;"
+                        <?php if (empty($_SESSION))
+                        {
+                          ?>
+                          disabled
+                          <?php
+                        } ?>>Ajouter aux favoris</button>
+
+                        <?php if (empty($_SESSION))
+                        {
+                          ?>
+                          <p style="color:rgba(255,0,0,0.7)">Vous devez être connecté pour pouvoir<br> ajouter un cheval en favoris.</p>
+                          <?php
+                        } ?>
+
+                      </form>
+
                     </div>
-                </div>
-                <div class="col-md-4 gal-img">
-                    <a href="#gal3"><img src="images/g3.jpg" alt="w3pvt" class="img-fluid"></a>
-                    <div class="gal-info">
-                        <h5>Potter<span class="decription">Course</span></h5>
-                    </div>
+                    <a class="close" href="#gallery">&times;</a>
                 </div>
 
 
-            </div>
-            <!-- popup-->
-            <div id="gal1" class="pop-overlay">
-                <div class="popup">
-                    <img src="images/g1.jpg" alt="Popup Image" class="img-fluid" />
-                    <p class="mt-4">Nulla viverra pharetra se, eget pulvinar neque pharetra ac int. placerat placerat dolor.</p>
-                    <a class="close" href="#gallery">&times;</a>
                 </div>
-            </div>
-            <!-- //popup -->
-            <!-- popup-->
-            <div id="gal2" class="pop-overlay">
-                <div class="popup">
-                    <img src="images/g2.jpg" alt="Popup Image" class="img-fluid" />
-                    <p class="mt-4">Nulla viverra pharetra se, eget pulvinar neque pharetra ac int. placerat placerat dolor.</p>
-                    <a class="close" href="#gallery">&times;</a>
-                </div>
-            </div>
-            <!-- //popup -->
-            <!-- popup-->
-            <div id="gal3" class="pop-overlay">
-                <div class="popup">
-                    <img src="images/g3.jpg" alt="Popup Image" class="img-fluid" />
-                    <p class="mt-4">Nulla viverra pharetra se, eget pulvinar neque pharetra ac int. placerat placerat dolor.</p>
-                    <a class="close" href="#gallery">&times;</a>
-                </div>
-            </div>
-            <!-- //popup3 -->
+            <?php
+          }
+          ?>
+  </div>
 
-        </div>
-    </section>
+  </section>
     <!-- //projects -->
     <!-- /blogs -->
     <section class="blog-posts" id="blog">
