@@ -12,6 +12,7 @@ session_start();
     <meta charset="UTF-8" />
     <meta name="keywords" content="Infinitude Responsive web template, Bootstrap Web Templates, Flat Web Templates, Android Compatible web template, Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, SonyEricsson, Motorola web design" />
     <script>
+
         addEventListener("load", function() {
             setTimeout(hideURLbar, 0);
         }, false);
@@ -214,19 +215,19 @@ session_start();
                 <div class="col-md-4 gal-img">
                     <a href="#gal1"><img src="images/g1.jpg" alt="w3pvt" class="img-fluid"></a>
                     <div class="gal-info">
-                        <h5>View Project<span class="decription">Website</span></h5>
+                        <h5>Tonerre<span class="decription">Course</span></h5>
                     </div>
                 </div>
                 <div class="col-md-4 gal-img">
                     <a href="#gal2"><img src="images/g2.jpg" alt="w3pvt" class="img-fluid"></a>
                     <div class="gal-info">
-                        <h5>View Project<span class="decription">Website</span></h5>
+                        <h5>Olia<span class="decription">Course</span></h5>
                     </div>
                 </div>
                 <div class="col-md-4 gal-img">
                     <a href="#gal3"><img src="images/g3.jpg" alt="w3pvt" class="img-fluid"></a>
                     <div class="gal-info">
-                        <h5>View Project<span class="decription">Website</span></h5>
+                        <h5>Potter<span class="decription">Course</span></h5>
                     </div>
                 </div>
 

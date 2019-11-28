@@ -145,6 +145,12 @@ public function compte_nb_chevaux($conn)
   return $req;
 }
 
+public function select_by_id_limit3_chevaux($conn)
+{
+  $sql = "SELECT id_chevaux, nom_chevaux, prenom_chevaux, sexe_chevaux, race_chevaux, daten_chevaux, datea_chevaux, photo_chevaux from chevaux limit 3";
+  $req = $conn->query($sql);
+  return $req;
+}
 
   }
 
