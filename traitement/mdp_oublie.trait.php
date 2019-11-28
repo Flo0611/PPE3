@@ -20,10 +20,7 @@ if (isset($_POST['confirmer']))
     $res = $req->fetch();
 
     $id_recup = $res['id_membre'];
-
-    //envoi du mail
-
-    $to = "$adresse_mail"; //On envoi le mail a l'adresse mail rentrée avec le formulaire
+$to = "$adresse_mail"; //On envoi le mail a l'adresse mail rentrée avec le formulaire
     $email_subject = "Mot de passe oublie - Centre equestre de brive";
     $email_body = "Vous avez fait une demande de re-initialisation de votre mot de passe \n\n
     Pour changer votre mot de passe veuillez vous rendre sur ce lien : centre.equestre.myd0main.fr/public/changementmdp.php?15437=143&94827=65971@&1=$id_recup \n
