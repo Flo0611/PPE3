@@ -20,13 +20,10 @@ if (isset($_POST['confirmer']))
     $res = $req->fetch();
 
     $id_recup = $res['id_membre'];
-
-    //envoi du mail
-
-    $to = "$adresse_mail"; //On envoi le mail a l'adresse mail rentrée avec le formulaire
+$to = "$adresse_mail"; //On envoi le mail a l'adresse mail rentrée avec le formulaire
     $email_subject = "Mot de passe oublie - Centre equestre de brive";
     $email_body = "Vous avez fait une demande de re-initialisation de votre mot de passe \n\n
-    Pour changer votre mot de passe veuillez vous rendre sur ce lien : centre.equestre.myd0main.fr/public/changementmdp.php?15437=143&94827=65971@&1=$id_recup \n
+    Pour changer votre mot de passe veuillez vous rendre sur ce lien : \n centre.equestre.myd0main.fr/public/changementmdp.php?15437=143&94827=65971@&1=$id_recup \n
     Cordialement, \n
     Centre equestre de Brive";
     $headers = "From: Centre equestre de Brive <centre.equestre.brive@myd0main.fr>\n"; // This is the email address the generated message will be from. We recommend using something like noreply@yourdomain.com.
