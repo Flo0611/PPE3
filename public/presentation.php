@@ -62,9 +62,9 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 
 
                 <section id="team">
-                  <div class="container wow fadeInUp">
+                  <div class="container wow fadeInUp " style="border:" allowfullscreen> 
                     <div class="section-header">
-                    <h3 class="tittle-w3ls mb-3"><span class="pink"><u>Notre</u> </span><u>Équipe</u></h3>
+                    <h3 class="tittle-w3ls mb-3" style= "text-align: center"><span class="pink"><u>Notre</u> </span><u>Équipe</u></h3>
                       <p style="font-size: 18px; line-height:1.5rem;">
                         Lorem ipsum dolor sit amet, consectetur adipiscing elit.
                         Mauris at sagittis elit, vitae maximus nibh.
@@ -75,8 +75,7 @@ License URL: http://creativecommons.org/licenses/by/3.0/
                         Quisque ultrices elementum arcu ut eleifend.</p>
                     </div>
 
-                        <div class="row">
-                          <div class="col-lg-3 col-md-6">
+                          <div class="col-lg-3 col-md-6" style= "margin: auto">
                             <div class="member">
                               <div class="pic"><img src="../images/p1.png" alt=""></div>
                               <h4>Pierre Laumie</h4>
@@ -85,8 +84,7 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 
                             </div>
                           </div>
-                          <div class="row">
-                            <div class="col-lg-3 col-md-6">
+                            <div class="col-lg-3 col-md-6" style= "margin: auto">
                               <div class="member">
                                 <div class="pic"><img src="../images/p1.png" alt=""></div>
                                 <h4>Lucie Aurie</h4>
@@ -94,7 +92,7 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 
                               </div>
                             </div>
-                    <div class="row">
+                            <div class="row">
                       <div class="col-lg-3 col-md-6">
                         <div class="member">
                           <div class="pic"><img src="../images/p1.png" alt=""></div>
@@ -103,7 +101,7 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 
                         </div>
                       </div>
-
+                      
                       <div class="col-lg-3 col-md-6">
                         <div class="member">
                           <div class="pic"><img src="../images/p1.png" alt=""></div>
@@ -127,8 +125,9 @@ License URL: http://creativecommons.org/licenses/by/3.0/
                         <span>Enseignantes</span>
                       </div>
                   </div>
-
-                  <div class="col-lg-3 col-md-6">
+      </div>
+                  <div class="row">
+                  <div class="col-lg-3 col-md-6"style= "margin: auto">
                     <div class="member">
                       <div class="pic"><img src="../images/p1.png" alt=""></div>
                       <h4>Henry Jolisat</h4>
@@ -136,7 +135,7 @@ License URL: http://creativecommons.org/licenses/by/3.0/
                     </div>
                 </div>
 
-                <div class="col-lg-3 col-md-6">
+                <div class="col-lg-3 col-md-6"style= "margin: auto">
                   <div class="member">
                     <div class="pic"><img src="../images/p1.png" alt=""></div>
                     <h4>Severine Rooye</h4>
@@ -144,8 +143,25 @@ License URL: http://creativecommons.org/licenses/by/3.0/
                   </div>
               </div>
 
+              <div class="col-lg-3 col-md-6"style= "margin: auto">
+                  <div class="member">
+                    <div class="pic"><img src="../images/p1.png" alt=""></div>
+                    <h4>Caroline Raven</h4>
+                    <span>Soigneuse</span>
+                  </div>
+              </div>
+      </div>
+              <div class="row">
+                  <div class="col-lg-3 col-md-6"style= "margin: auto">
+                    <div class="member">
+                      <div class="pic"><img src="../images/p1.png" alt=""></div>
+                      <h4>Damien Legrand</h4>
+                      <span>Apprenti</span>
+                    </div>
+                </div>
 
-
+              </div>
+              </div>
                     </div>
                   </div>
                   </div>
