@@ -3,7 +3,7 @@
 Class chevaux_fav
 {
 	private $id_chevaux_fav;
-  private $prenom_chevaux_fav;
+  private $prenom_chevaux_favcf;
 
 	Public function __construct($i, $n)
     {
