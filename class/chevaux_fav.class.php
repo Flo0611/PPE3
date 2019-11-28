@@ -7,7 +7,7 @@ Class chevaux_fav
 
 	Public function __construct($i, $n)
     {
-      $this->id_chevaux_fav = $i;
+      $this->id_chevaux_fav = $p;
       $this->prenom_chevaux_fav = $n;
     }
 
