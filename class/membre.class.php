@@ -212,6 +212,12 @@ public function compte_nb_membres($conn)
 	return $req;
 }
 
+public function select_membre_actu_valide($conn)
+{
+	$sql = "SELECT id_membre, nom_membre, prenom_membre, email_membre, tel_membre, adresse_membre, complement_membre, daten_membre, code_p_membre, num_rue_membre FROM membre where valide = 'oui' order by id_membre desc limit 0,3 ";
+	$req = $conn->query($sql);
+	return $req;
+}
 
 
 }

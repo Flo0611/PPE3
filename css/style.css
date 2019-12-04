@@ -629,7 +629,7 @@ p.para-w3pvt {
 /* //banner text */
 
 .banner_bottom {
-    background: #f7f7f7;
+    background: white;
 }
 
 
@@ -808,6 +808,7 @@ ul.list-right-w3pvt-book.team-sing span {
 
 section#gallery {
     position: relative;
+    background-color: #f7f7f7;
 }
 
 .gal-img img {
