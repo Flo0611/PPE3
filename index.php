@@ -181,7 +181,7 @@ include'all.class.php';
   <br>Le bien-être de nos chevaux est un souci de chaque instant et nous nous efforçons de leur accorder les meilleurs soins, que ce soit durant leur carrière chez nous, l’été au pré, ou lors de leur retraite via le programme Équidépart.
 
   Enfin, nous apportons une vraie bouffée d’air frais au coeur de Brive-la-Gaillard et permet aux adhérents de pouvoir se ressourcer et s’échapper, dans un ambiance familiale et conviviale. Que ce soit autour de la carrière et du grand manège lors des concours, ou au club house pour assister - en famille ou entre amis - aux animations.</p>
-                  <a class="btn more black" href="single.php" role="button">+ D'info sur la Présentation</a>
+                  <a class="btn more black" href="public/presentation.php" role="button">+ D'info sur la Présentation</a>
               </div>
           </div>
       </section>
@@ -196,11 +196,11 @@ include'all.class.php';
                     <img src="images/ab.jpg" alt=" " class="img-fluid">
                 </div>
                 <div class="col-md-6 banner_bottom_left mt-lg-0 mt-4">
-                    <h4><a class="link-hny" href=".php">
+                    <h4><a class="link-hny" href="public/pension.php">
                             Un pensionnat disponible pour vos chevaux</a></h4>
                     <p>Pour que vos chevaux soient en bonne santé, des box interrieurs ou exterrieurs sont disponible toute l'année</p>
                     <p>Si vous n'avez pas envie d'enfermer vos chevaux, des prés sont aussi disponible dans notre centre équestre</p>
-                    <a class="btn more black mt-3" href=".php" role="button">En savoir plus</a>
+                    <a class="btn more black mt-3" href="public/pension.php" role="button">En savoir plus</a>
 
                 </div>
             </div>
