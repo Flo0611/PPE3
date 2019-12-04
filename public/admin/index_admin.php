@@ -2,6 +2,7 @@
 ini_set("display_errors", "on");
 include'../../inc/bdd.inc.php';
 include'../../all.class.php';
+include'../../inc/icons.php';
 session_start();
 if (!isset($_SESSION['admin']) OR isset($_SESSION['super_admin']))
 {
@@ -111,7 +112,7 @@ if (!isset($_SESSION['admin']) OR isset($_SESSION['super_admin']))
                   <div class="col-lg-2 col-md-2 col-sm-2 col-xs-6">
                       <div class="div-square">
                            <a href="ajout_chevaux.php" >
-<i class="fa fa-check-circle fa-5x"></i>
+<i class="fas fa-horse fa-5x"></i>
                       <h4>Ajouter des chevaux</h4>
                       </a>
                       </div>
@@ -145,8 +146,8 @@ if (!isset($_SESSION['admin']) OR isset($_SESSION['super_admin']))
                   <div class="col-lg-2 col-md-2 col-sm-2 col-xs-6">
                       <div class="div-square">
                            <a href="blank.php" >
- <i class="fa fa-gear fa-5x"></i>
-                      <h4>Settings</h4>
+ <i class="fas fa-newspaper fa-5x"></i>
+                      <h4>Actualités</h4>
                       </a>
                       </div>
 

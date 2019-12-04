@@ -113,6 +113,17 @@ public function select_actu_recente($conn)
 	return $req;
 }
 
+function resume_xmots($MaChaine,$xmots)
+{
+	 $msg= " ";
+   $ChaineTab=explode(" ",$MaChaine);
+   for($i=0;$i < $xmots;$i++)
+   {
+      $msg.=" "."$ChaineTab[$i]";
+   }
+   return $msg;
+}
+
 
 }
 ?>

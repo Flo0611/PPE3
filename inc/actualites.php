@@ -1,5 +1,5 @@
 <?php
-ini_set("display_errors","on");
+ini_set("display_errors","off");
 include'all.class.php';
 include'inc/bdd.inc.php';
 $une_actu = new actu(" ", " ", " ", " ", " ", " ", " ");
@@ -29,7 +29,9 @@ $une_actu = new actu(" ", " ", " ", " ", " ", " ", " ");
     $req = $une_actu->select_actu_recente($conn);
     while($res = $req->fetch())
     {
+      $id_actu = $res['id_actu'];
       ?>
+<a href="#gal<?php echo $id_actu ?>">
             <div class="testimonial">
               <div class="test-info">
                 <img class="test-pic" src="images/<?php echo $res['photo_actu'] ?>" alt="">
@@ -40,13 +42,17 @@ $une_actu = new actu(" ", " ", " ", " ", " ", " ", " ");
               </div>
 
               <p>
-                <?php echo $res['text_actu'] ?>
+                <?php
+                $msg = $res['text_actu'];
+                echo $une_actu->resume_xmots($msg,25)."..." ; ?>
               </p>
             </div>
+          </a>
 
       <?php
     }
     ?>
+
   </div>
 </div>
 </div>
