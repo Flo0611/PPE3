@@ -72,19 +72,23 @@ if (!isset($_SESSION['admin']) OR isset($_SESSION['super_admin']))
 
 
        				?>
-
-            <form action="../../traitement/ajout_chevaux.trait.php" method="post" enctype="multipart/form-data">
+							<?php
+								$prenom = $_SESSION['prenom'];
+								$nom = $_SESSION['nom'];
+								$date = date('d\/m\/Y');
+							?>
+            <form action="../../traitement/ajout_actualite.trait.php?prenom=<?php echo $prenom ?>&nom=<?php echo $nom ?>&date=<?php echo $date ?>" method="post" enctype="multipart/form-data">
 
 						<label>Publié par :</label><br>
-						<?php echo $_SESSION['prenom']." ".$_SESSION['nom']."<br>" ?>
+						<?php echo $prenom." ".$nom."<br>" ?>
 
             <label>Titre de l'actualité :</label><br>
              <input type="text" name="titre_actu" placeholder="Veuillez entrer le titre de l'actualité"><br>
 
              <label>Description :</label><br>
-             <textarea placeholder="Veuillez entrer une description de l'actualité" style="width:300px"></textarea><br>
+             <textarea name="description_actu" placeholder="Veuillez entrer une description de l'actualité" style="width:300px"></textarea><br>
 
-             <label>Date du post :</label><?php echo "<b> <u>".date('d\/m\/Y')."</u></b><br>" ?>
+             <label>Date du post :</label><?php echo "<b> <u>".$date."</u></b><br>" ?>
 
 						 <label>Ajouter une photo : </label><br>
              <input type="file" name="fileToUpload" id="fileToUpload">

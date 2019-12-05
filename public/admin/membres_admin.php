@@ -25,6 +25,8 @@ if (!isset($_SESSION['admin']) OR isset($_SESSION['super_admin']))
 
    <link href='https://cdn.datatables.net/1.10.20/css/jquery.dataTables.min.css' rel='stylesheet' type='text/css' />
 
+	 <link href='https://cdn.datatables.net/plug-ins/1.10.20/i18n/French.json' rel='stylesheet' type='text/css' />
+
 </head>
 <body>
 
@@ -150,7 +152,10 @@ if (!isset($_SESSION['admin']) OR isset($_SESSION['super_admin']))
         dom: 'Bfrtip',
         buttons: [
             'excel', 'pdf', 'print'
-        ]
+        ],
+				"language": {
+            "url": "//cdn.datatables.net/plug-ins/9dcbecd42ad/i18n/French.json"
+        }
     } );
 } );
     </script>
