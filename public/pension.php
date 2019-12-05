@@ -67,7 +67,7 @@
                           ?>
                           disabled
                           <?php
-                        } ?>>Ajouter aux favoris</button>
+                        } ?>>Soumettre un formulaire</button>
 
                         <?php if (empty($_SESSION))
                         {
@@ -103,7 +103,7 @@
                           ?>
                           disabled
                           <?php
-                        } ?>>Ajouter aux favoris</button>
+                        } ?>>Soumettre un formulaire</button>
 
                         <?php if (empty($_SESSION))
                         {
@@ -139,7 +139,7 @@
                           ?>
                           disabled
                           <?php
-                        } ?>>Ajouter aux favoris</button>
+                        } ?>>Soumettre un formulaire</button>
 
                         <?php if (empty($_SESSION))
                         {
@@ -175,7 +175,7 @@
                           ?>
                           disabled
                           <?php
-                        } ?>>Ajouter aux favoris</button>
+                        } ?>>Soumettre un formulaire</button>
 
                         <?php if (empty($_SESSION))
                         {
