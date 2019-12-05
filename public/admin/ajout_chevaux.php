@@ -81,7 +81,7 @@ if (!isset($_SESSION['admin']) OR isset($_SESSION['super_admin']))
              <input type="text" name="nom_che" class="float" placeholder="Veuillez entrer le nom du cheval"><br>
 
              <label>Date de naissance :</label><br>
-             <input type="text" name="daten_che" placeholder="Veuillez entrer la date de naissance du cheval"><br>
+             <input type="date" name="daten_che" placeholder="Veuillez entrer la date de naissance du cheval"><br>
 
              <label class="float">Race :</label><br>
              <select class="float select" name="race_che">
