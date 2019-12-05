@@ -7,14 +7,8 @@
 <?php include'../inc/nav_public.php'; 
       include'../inc/bdd.inc.php';
       include'../all.class.php';
-      for($i=1;$i<5;$i++)
-      {
-        $a[1]= "Box interne";
-        $a[2]= "Box externes";
-        $a[3]= "Pré ouvert";
-        $a[4]= "Semi pré";
-      }
       ?>
+
 
 
   <section class="projects py-5" id="gallery">
@@ -28,6 +22,21 @@
   Phasellus consequat id urna sed mattis. Maecenas id vehicula sapien.
   Integer ac ligula imperdiet, molestie justo ut, tristique leo. Quisque ultrices elementum arcu ut eleifend.</p><br>
 <!-- popup-->
+<?php
+          for($i=1;$i<5;$i++)
+          {
+          $sql = "SELECT COUNT(*) as nb FROM box
+          WHERE typebox = $i 
+          AND libre = 1";
+          
+          $req = $conn->query($sql);
+          while ($res = $req->fetch())
+          {
+            $libre[$i] = $res['nb'];
+          }
+        }
+          
+            ?>
   <div id="pen1" class="pop-overlay">
                 <div class="popup">
                     <img src="../images/z3.jpg" alt="Popup Image" class="img-fluid-pop-up"  />
@@ -36,7 +45,7 @@
                       <p>
                         <span class="label-pop-up">Prix : </span> <span class="text-popup"><b>30€</b></span><br>
                         <span class="label-pop-up">Surface : </span> <span class="text-popup"><b>10m²</b></span><br>
-                        <span class="label-pop-up">Box disponible : </span> <span class="text-popup"><b>05622000</b></span><br>
+                        <span class="label-pop-up">Box disponible : </span> <span class="text-popup"><b><?php echo $libre[1] ?></b></span><br>
                         <span class="label-pop-up">Description : </span> <span class="text-popup"><b>Box comfortable</b></span><br>
                       </p>
 
@@ -70,10 +79,10 @@
                     <div class="mt-4 desc-chevaux-popup">
                       <h1 style="font-size:1.5em;"><b>Box externes</b></h1><br>
                       <p>
-                        <span class="label-pop-up">Sexe : </span> <span class="text-popup"><b>yolo</b></span><br>
-                        <span class="label-pop-up">Race : </span> <span class="text-popup"><b>wala</b></span><br>
-                        <span class="label-pop-up">Date de naissance : </span> <span class="text-popup"><b>05622000</b></span><br>
-                        <span class="label-pop-up">Date d'arriver au centre : </span> <span class="text-popup"><b>wesh</b></span><br>
+                        <span class="label-pop-up">Prix : </span> <span class="text-popup"><b>30€</b></span><br>
+                        <span class="label-pop-up">Surface : </span> <span class="text-popup"><b>10m²</b></span><br>
+                        <span class="label-pop-up">Box disponible : </span> <span class="text-popup"><b><?php echo $libre[2] ?></b></span><br>
+                        <span class="label-pop-up">Description : </span> <span class="text-popup"><b>Box comfortable</b></span><br>
                       </p>
 
                       <!-- <form action="../traitement/ajout_favoris_chevaux.trait.php?id_cheval=<?php echo $id_cheval ?>" method="POST"> -->
@@ -106,10 +115,10 @@
                     <div class="mt-4 desc-chevaux-popup">
                       <h1 style="font-size:1.5em;"><b>Pré ouvert</b></h1><br>
                       <p>
-                        <span class="label-pop-up">Sexe : </span> <span class="text-popup"><b>yolo</b></span><br>
-                        <span class="label-pop-up">Race : </span> <span class="text-popup"><b>wala</b></span><br>
-                        <span class="label-pop-up">Date de naissance : </span> <span class="text-popup"><b>05622000</b></span><br>
-                        <span class="label-pop-up">Date d'arriver au centre : </span> <span class="text-popup"><b>wesh</b></span><br>
+                        <span class="label-pop-up">Prix : </span> <span class="text-popup"><b>30€</b></span><br>
+                        <span class="label-pop-up">Surface : </span> <span class="text-popup"><b>100m²</b></span><br>
+                        <span class="label-pop-up">Place disponible : </span> <span class="text-popup"><b><?php echo $libre[3] ?></b></span><br>
+                        <span class="label-pop-up">Description : </span> <span class="text-popup"><b>Grand pré</b></span><br>
                       </p>
 
                       <!-- <form action="../traitement/ajout_favoris_chevaux.trait.php?id_cheval=<?php echo $id_cheval ?>" method="POST"> -->
@@ -142,10 +151,10 @@
                     <div class="mt-4 desc-chevaux-popup">
                       <h1 style="font-size:1.5em;"><b>Semi pré</b></h1><br>
                       <p>
-                        <span class="label-pop-up">Sexe : </span> <span class="text-popup"><b>yolo</b></span><br>
-                        <span class="label-pop-up">Race : </span> <span class="text-popup"><b>wala</b></span><br>
-                        <span class="label-pop-up">Date de naissance : </span> <span class="text-popup"><b>05622000</b></span><br>
-                        <span class="label-pop-up">Date d'arriver au centre : </span> <span class="text-popup"><b>wesh</b></span><br>
+                        <span class="label-pop-up">Prix : </span> <span class="text-popup"><b>30€</b></span><br>
+                        <span class="label-pop-up">Surface : </span> <span class="text-popup"><b>100m²</b></span><br>
+                        <span class="label-pop-up">Place disponible : </span> <span class="text-popup"><b><?php echo $libre[4] ?></b></span><br>
+                        <span class="label-pop-up">Description : </span> <span class="text-popup"><b>Grand pré</b></span><br>
                       </p>
 
                       <!-- <form action="../traitement/ajout_favoris_chevaux.trait.php?id_cheval=<?php echo $id_cheval ?>" method="POST"> -->
@@ -173,7 +182,7 @@
 
                 </div>
             <?php
-                      
+
           ?>
   </div>
   </section>
