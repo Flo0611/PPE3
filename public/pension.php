@@ -25,15 +25,26 @@
 <?php
           for($i=1;$i<5;$i++)
           {
-          $sql = "SELECT COUNT(*) as nb FROM box
-          WHERE typebox = $i 
-          AND libre = 1";
+          $sql = "SELECT placemax FROM pension
+          WHERE idpen = $i";
+
+          $req = $conn->query($sql);
+          while ($res = $req->fetch())
+          {
+            $place[$i] = $res['placemax'];
+          }
+
+
+          $sql = "SELECT COUNT(*) as nb FROM chevaux
+          WHERE type_pension_che = $i";
           
           $req = $conn->query($sql);
           while ($res = $req->fetch())
           {
-            $libre[$i] = $res['nb'];
+            $occ[$i] = $res['nb'];
           }
+
+          $libre[$i] = $place[$i] - $occ[$i];
         }
           
             ?>
@@ -44,7 +55,7 @@
                       <h1 style="font-size:1.5em;"><b>Box internes</b></h1><br>
                       <p>
                         <span class="label-pop-up">Prix : </span> <span class="text-popup"><b>30€</b></span><br>
-                        <span class="label-pop-up">Surface : </span> <span class="text-popup"><b>10m²</b></span><br>
+                        <span class="label-pop-up">Surface : </span> <span class="text-popup"><b>12m²</b></span><br>
                         <span class="label-pop-up">Box disponible : </span> <span class="text-popup"><b><?php echo $libre[1] ?></b></span><br>
                         <span class="label-pop-up">Description : </span> <span class="text-popup"><b>Box comfortable</b></span><br>
                       </p>
@@ -80,7 +91,7 @@
                       <h1 style="font-size:1.5em;"><b>Box externes</b></h1><br>
                       <p>
                         <span class="label-pop-up">Prix : </span> <span class="text-popup"><b>30€</b></span><br>
-                        <span class="label-pop-up">Surface : </span> <span class="text-popup"><b>10m²</b></span><br>
+                        <span class="label-pop-up">Surface : </span> <span class="text-popup"><b>12m²</b></span><br>
                         <span class="label-pop-up">Box disponible : </span> <span class="text-popup"><b><?php echo $libre[2] ?></b></span><br>
                         <span class="label-pop-up">Description : </span> <span class="text-popup"><b>Box comfortable</b></span><br>
                       </p>
@@ -113,7 +124,7 @@
                 <div class="popup">
                     <img src="../images/z3.jpg" alt="Popup Image" class="img-fluid-pop-up"  />
                     <div class="mt-4 desc-chevaux-popup">
-                      <h1 style="font-size:1.5em;"><b>Pré ouvert</b></h1><br>
+                      <h1 style="font-size:1.5em;"><b>Pré</b></h1><br>
                       <p>
                         <span class="label-pop-up">Prix : </span> <span class="text-popup"><b>30€</b></span><br>
                         <span class="label-pop-up">Surface : </span> <span class="text-popup"><b>100m²</b></span><br>
@@ -149,7 +160,7 @@
                 <div class="popup">
                     <img src="../images/z3.jpg" alt="Popup Image" class="img-fluid-pop-up"  />
                     <div class="mt-4 desc-chevaux-popup">
-                      <h1 style="font-size:1.5em;"><b>Semi pré</b></h1><br>
+                      <h1 style="font-size:1.5em;"><b>Paddock</b></h1><br>
                       <p>
                         <span class="label-pop-up">Prix : </span> <span class="text-popup"><b>30€</b></span><br>
                         <span class="label-pop-up">Surface : </span> <span class="text-popup"><b>100m²</b></span><br>
@@ -211,7 +222,7 @@
   <div class="card" style="width: 18rem; margin-left:5%;">
     <img class="card-img-top" src="../images/z3.jpg" alt="Card image cap">
     <div class="card-body">
-      <h5 class="card-title">Pré ouvert</h5>
+      <h5 class="card-title">Pré</h5>
       <p class="card-text">Notre centre équestre peut mettre à votre disposition un pensionnat.</p>
       <a href="#pen3" class="btn btn-secondary">En savoir plus</a>
     </div>
@@ -222,7 +233,7 @@
   <div class="card" style="width: 18rem; margin-left:5%;">
     <img class="card-img-top" src="../images/z3.jpg" alt="Card image cap">
     <div class="card-body">
-      <h5 class="card-title">Semi pré</h5>
+      <h5 class="card-title">Paddock</h5>
       <p class="card-text">Notre centre équestre peut mettre à votre disposition un pensionnat.</p>
       <a href="#pen4" class="btn btn-secondary">En savoir plus</a>
     </div>
