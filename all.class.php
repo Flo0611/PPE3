@@ -9,5 +9,6 @@
   require_once'class/chevaux_fav.class.php';
   require_once'class/race_chevaux.class.php';
   require_once'class/actu.class.php';
+  require_once'class/balades.class.php';
 
 ?>

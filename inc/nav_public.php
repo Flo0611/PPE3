@@ -29,6 +29,7 @@ session_start();
       <ul class="sous">
         <li><a href="stage.php">Stages</a></li>
         <li><a href="planning.php">Planning</a></li>
+        <li><a href="balades.php">Balades</a></li>
       </ul>
     </li>
 

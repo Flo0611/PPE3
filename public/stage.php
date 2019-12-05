@@ -45,9 +45,9 @@
             </div>
         </div>
         <?php
-        $une_race = new stage(" ", " ", " ", " ", " ", " ", " ", " ", " ");
+        $une_stage = new stage(" ", " ", " ", " ", " ", " ", " ", " ", " ");
 
-        $req = $une_race->select_stage($conn);
+        $req = $une_stage->select_stage($conn);
         while ($res = $req->fetch())
         {
           $id_stage = $res['idst'];
