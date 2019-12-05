@@ -45,7 +45,7 @@
             </div>
         </div>
         <?php
-        $une_race = new stage(" ", " ", " ", " ", " ", " ", " ");
+        $une_race = new stage(" ", " ", " ", " ", " ", " ", " ", " ", " ");
 
         $req = $une_race->select_stage($conn);
         while ($res = $req->fetch())
@@ -58,6 +58,7 @@
           $pdf_stage = $res['pdfst'];
           $galop_stage = $res['galopst'];
           $titre_stage = $res['titrest'];
+          $photo_stage = $res['photost'];
 
 
          ?>
@@ -65,14 +66,14 @@
                 <div class="row inner_sec_info">
 
                     <div class="col-md-6 banner_bottom_grid help">
-                        <img src="../images/image_balade.jpg" alt=" " class="img-fluid">
+                        <img src="../images/<?php echo $photo_stage; ?>" alt=" " class="img-fluid">
                     </div>
                     <div class="col-md-6 banner_bottom_left">
                         <h3>
-                        <span class="pink">Stages :</span><?php echo $titre_stage; ?> </a></h3>
+                        <span class="pink">Stages : </span><?php echo $titre_stage; ?> </a></h3>
                         <p><?php echo $description_stage; ?></p>
-                        <p><?php echo $galop_stage; ?></p>
-                        <a class="btn more black mt-3" href="planning.php" role="button">Nos tarif</a>
+                        <p> Nombre de Galop : <?php echo $galop_stage; ?></p>
+                        <a class="btn more black mt-3" href="<?php echo $pdf_stage ?>" role="button">Nos tarif</a>
                     </div>
                 </div>
             </div>
