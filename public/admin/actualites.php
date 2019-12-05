@@ -12,7 +12,7 @@ if (!isset($_SESSION['admin']) OR isset($_SESSION['super_admin']))
 <html>
   <head>
     <meta charset="utf-8">
-    <title>Ajouter des chevaux</title>
+    <title>Ajouter une actualitée</title>
 
 <!-- BOOTSTRAP STYLES-->
   <link href="assets/css/bootstrap.css" rel="stylesheet" />
@@ -38,7 +38,7 @@ if (!isset($_SESSION['admin']) OR isset($_SESSION['super_admin']))
           <div id="page-inner">
               <div class="row">
                   <div class="col-md-12">
-                   <h2>Ajouter un cheval </h2>
+                   <h2>Ajouter une actualitée </h2>
                   </div>
               </div>
                <!-- /. ROW  -->
@@ -65,7 +65,7 @@ if (!isset($_SESSION['admin']) OR isset($_SESSION['super_admin']))
        				{
        					?>
        					<div class="alert alert-info" role="alert">
-       			  		Le cheval a bien été ajouter.
+       			  		L'actualité a bien été ajoutée.
        					</div>
        					<?php
        				}
@@ -74,41 +74,17 @@ if (!isset($_SESSION['admin']) OR isset($_SESSION['super_admin']))
        				?>
 
             <form action="../../traitement/ajout_chevaux.trait.php" method="post" enctype="multipart/form-data">
-              <label>Prénom :</label><br>
-             <input type="text" name="prenom_che" placeholder="Veuillez entrer le prénom du cheval"><br>
+              <label>Titre de l'actualité :</label><br>
+             <input type="text" name="titre_actu" placeholder="Veuillez entrer le titre de l'actualité"><br>
 
-             <label class="float">Nom :</label><br>
-             <input type="text" name="nom_che" class="float" placeholder="Veuillez entrer le nom du cheval"><br>
+             <label>Description :</label><br>
+             <textarea placeholder="Veuillez entrer une description de l'actualité" style="width:300px"></textarea><br>
 
-             <label>Date de naissance :</label><br>
-             <input type="text" name="daten_che" placeholder="Veuillez entrer la date de naissance du cheval"><br>
+             <label>Date du post :</label><?php echo "<b> <u>".date('d\/m\/Y')."</u></b><br>" ?>
 
-             <label class="float">Race :</label><br>
-             <select class="float select" name="race_che">
-               <?php
-                $req = $une_race->select_race_chevaux($conn);
-                while($res = $req->fetch())
-                {
-                  $id_race = $res['id_race_chevaux'];
-                  $lib_race = $res['lib_race_chevaux'];
-                  ?>
-                  <option value="<?php echo $id_race ?>"><?php echo $lib_race ?></option>
-                  <?php
-                }
-               ?>
-             </select>
-
-             <label>Date d'arriver au centre</label><br>
-             <input type="text" name="datea_che" value="<?php echo date('d\/m\/Y') ?>"><br>
-
-             <label class="float">Sexe :</label><br>
-             <select class="float select" name="sexe">
-               <option value="nul" selected>Choisissez une option...</option>
-               <option value="male">Mâle</option>
-               <option value="femelle">Femelle</option>
-             </select>
-
+						 <label>Ajouter une photo : </label><br>
              <input type="file" name="fileToUpload" id="fileToUpload">
+
              <button type="submit" class="btn btn-success" name="valider">Valider</button>
 
            </form>
