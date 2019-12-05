@@ -1,7 +1,12 @@
 <?php
+session_start();
 include'../../inc/bdd.inc.php';
 include'../../all.class.php';
 $une_race = new race_chevaux(" ", " ");
+if (!isset($_SESSION['admin']) OR isset($_SESSION['super_admin']))
+{
+	header("location:../../index.php");
+}
 ?>
 <!DOCTYPE html>
 <html>
@@ -60,7 +65,7 @@ $une_race = new race_chevaux(" ", " ");
        				{
        					?>
        					<div class="alert alert-info" role="alert">
-       			  		Le cheval a bien été ajouter.
+       			  		Le cheval a bien été ajouté.
        					</div>
        					<?php
        				}

@@ -1,9 +1,7 @@
-<!--
-Author: W3layouts
-Author URL: http://w3layouts.com
-License: Creative Commons Attribution 3.0 Unported
-License URL: http://creativecommons.org/licenses/by/3.0/
--->
+<?php
+    include"../inc/bdd.inc.php";
+    include"../all.class.php";
+ ?>
 
 <!DOCTYPE html>
 <html lang="fr">
@@ -43,11 +41,26 @@ License URL: http://creativecommons.org/licenses/by/3.0/
         <div class="container py-md-5">
             <div class="about-hny-info text-left pr-lg-5">
                 <h3 class="tittle-w3ls mb-3"><span class="pink">Nos</span> Stages</h3>
-                <p class="sub-tittle mt-3 mb-4 pr-lg-5">Integer pulvinar leo id viverra feugiat. Pellentesque libero ut justo, semper at tempus vel, ultrices in ligula. Lorem ipsum dolor sit amet sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.Sed do eiusmod tempor incididunt ut labore et dolore
-                    magna
-                    aliqua. Ut enim ad minim veniam, quis nostrud exercitation</p>
+                <p class="sub-tittle mt-3 mb-4 pr-lg-5">Les stages à thème sont proposés les lundi, jeudi et vendredi, de 14h à 16h et sont aussi proposés pendant les vacances scolaires.</p>
             </div>
         </div>
+        <?php
+        $une_race = new stage(" ", " ", " ", " ", " ", " ", " ");
+
+        $req = $une_race->select_stage($conn);
+        while ($res = $req->fetch())
+        {
+          $id_stage = $res['idst'];
+          $date_stage = $res['datest'];
+          $heure_stage = $res['heurest'];
+          $description_stage = $res['desst'];
+          $heure_fin_stage = $res['heurefin'];
+          $pdf_stage = $res['pdfst'];
+          $galop_stage = $res['galopst'];
+          $titre_stage = $res['titrest'];
+
+
+         ?>
             <div class="container py-md-5">
                 <div class="row inner_sec_info">
 
@@ -56,34 +69,17 @@ License URL: http://creativecommons.org/licenses/by/3.0/
                     </div>
                     <div class="col-md-6 banner_bottom_left">
                         <h3>
-                        <span class="pink">Les Stages</span> d'equitations</a></h3>
-                        <p>Pellentesque convallis diam consequat magna vulputate malesuada. Cras a ornare elit. Nulla viverra pharetra sem, eget
-                        pulvinar neque pharetra ac.</p>
-                        <p>Lorem Ipsum convallis diam consequat magna vulputate malesuada. Cras a ornare elit. Nulla viverra pharetra sem, eget
-                        pulvinar neque pharetra ac.</p>
+                        <span class="pink">Stages :</span><?php echo $titre_stage; ?> </a></h3>
+                        <p><?php echo $description_stage; ?></p>
+                        <p><?php echo $galop_stage; ?></p>
                         <a class="btn more black mt-3" href="planning.php" role="button">Nos tarif</a>
                     </div>
                 </div>
             </div>
+              <?php
+                     }
+                ?>
 
-            <div class="container py-md-5">
-                <div class="row inner_sec_info">
-
-
-                    <div class="col-md-6 banner_bottom_left">
-                        <h3>
-                        <span class="pink">Les Stages</span> d'attelage</a></h3>
-                        <p>Pellentesque convallis diam consequat magna vulputate malesuada. Cras a ornare elit. Nulla viverra pharetra sem, eget
-                        pulvinar neque pharetra ac.</p>
-                        <p>Lorem Ipsum convallis diam consequat magna vulputate malesuada. Cras a ornare elit. Nulla viverra pharetra sem, eget
-                        pulvinar neque pharetra ac.</p>
-                        <a class="btn more black mt-3" href="planning.php" role="button">Nos tarif</a>
-                    </div>
-                    <div class="col-md-6 banner_bottom_grid help">
-                        <img src="../images/image_inscription.jpg" alt=" " class="img-fluid">
-                    </div>
-                </div>
-            </div>
             <?php include'../inc/footer_public.php'; ?>
 
 </body>

@@ -1,7 +1,12 @@
 <?php
+session_start();
 include'../../inc/bdd.inc.php';
 include'../../all.class.php';
 $une_race = new race_chevaux(" ", " ");
+if (!isset($_SESSION['admin']) OR isset($_SESSION['super_admin']))
+{
+	header("location:../../index.php");
+}
 ?>
 <!DOCTYPE html>
 <html>

@@ -1,7 +1,12 @@
 <?php
+session_start();
 ini_set("display_errors","on");
 include'../../inc/bdd.inc.php';
 include'../../all.class.php';
+if (!isset($_SESSION['admin']) OR isset($_SESSION['super_admin']))
+{
+	header("location:../../index.php");
+}
 ?>
 <!DOCTYPE html>
 <html xmlns="http://www.w3.org/1999/xhtml">
