@@ -10,8 +10,9 @@ Class stage
   private $pdfst;
   private $galopst;
   private $titrest;
+  private $photost;
 
-  Public function __construct($i, $date_s, $h_d, $des_s, $h_f, $pdf_s, $gal_s, $tit_s)
+  Public function __construct($i, $date_s, $h_d, $des_s, $h_f, $pdf_s, $gal_s, $tit_s, $pht_s)
   {
     $this->id_stage = $i;
     $this->date_stage = $date_s;
@@ -21,6 +22,7 @@ Class stage
     $this->pdfst = $pdf_s;
     $this->galopst = $gal_s;
     $this->titrest = $tit_s;
+    $this->photost= $pht_s;
 
   }
 
@@ -66,6 +68,12 @@ Class stage
     Return $this->titrest;
   }
 
+  Public function get_photost()
+  {
+    Return $this->photost;
+  }
+
+
 
   //*******************************SETTER************************************
 
@@ -109,6 +117,11 @@ Class stage
   Public function set_titrest($tit_s)
   {
     $this->titrest = $tit_s;
+  }
+
+  Public function set_photost($pht_s)
+  {
+    $this->photost = $pht_s;
   }
 
   public function select_stage($conn)
