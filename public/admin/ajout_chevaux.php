@@ -65,7 +65,7 @@ if (!isset($_SESSION['admin']) OR isset($_SESSION['super_admin']))
        				{
        					?>
        					<div class="alert alert-info" role="alert">
-       			  		Le cheval a bien été ajouter.
+       			  		Le cheval a bien été ajouté.
        					</div>
        					<?php
        				}
