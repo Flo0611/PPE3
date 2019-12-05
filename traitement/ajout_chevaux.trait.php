@@ -9,7 +9,7 @@ if (isset($_POST['valider']))
   {
     $num_rand = rand(1,1000000);
     include'../inc/upload_file.php';
-    $un_cheval = new chevaux(" ", " ", " ", " ", " ", " ", " ", " ");
+    $un_cheval = new chevaux(" ", " ", " ", " ", " ", " ", " ", " ", " ");
     $une_photo = new photo_cheval(" ", " "," ");
     $nom = $_POST['nom_che'];
     $prenom = $_POST['prenom_che'];

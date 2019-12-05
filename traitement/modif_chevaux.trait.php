@@ -2,7 +2,7 @@
 include'../inc/bdd.inc.php';
 include'../all.class.php';
 
-$un_cheval = new chevaux(" ", " ", " ", " ", " ", " ", " ", " ");
+$un_cheval = new chevaux(" ", " ", " ", " ", " ", " ", " ", " ", " ");
 
 $id_cheval = $_GET['id_cheval'];
 $nom = $_POST['nom_modif'];

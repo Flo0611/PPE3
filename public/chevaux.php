@@ -38,7 +38,7 @@
           <div class="row news-grids  text-center">
 
           <?php
-          $un_cheval = new chevaux(" ", " ", " ", " ", " ", " ", " ", " ");
+          $un_cheval = new chevaux(" ", " ", " ", " ", " ", " ", " ", " ", " ");
           $une_photo = new photo_cheval(" ", " "," ");
           $une_race = new race_chevaux(" ", " ");
 
