@@ -4,7 +4,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <link rel="stylesheet" href="../css/.css">
 <body>
-<?php include'../inc/nav_public.php'; 
+<?php include'../inc/nav_public.php';
       include'../inc/bdd.inc.php';
       include'../all.class.php';
       ?>
@@ -37,7 +37,7 @@
 
           $sql = "SELECT COUNT(*) as nb FROM chevaux
           WHERE type_pension_che = $i";
-          
+
           $req = $conn->query($sql);
           while ($res = $req->fetch())
           {
@@ -46,7 +46,7 @@
 
           $libre[$i] = $place[$i] - $occ[$i];
         }
-          
+
             ?>
   <div id="pen1" class="pop-overlay">
                 <div class="popup">
