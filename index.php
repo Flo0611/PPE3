@@ -187,6 +187,9 @@ include'all.class.php';
       </section>
       <!-- //about -->
 
+
+      <?php include'inc/actualites.php'; //la page actualités.php dans le dossier inc ?>
+
     <!--/ab-->
     <section class="banner_bottom py-5">
         <div class="container py-md-5">
@@ -299,7 +302,7 @@ include'all.class.php';
   </section>
     <!-- //projects -->
     <!-- /blogs -->
-    <section class="blog-posts" id="blog">
+    <section class="blog-posts" id="blog" style="margin-top:5%;">
         <div class="blog-w3pvt-info-content container-fluid">
           <h3 class="tittle-w3ls text-center mb-5"><span class="pink">Installation</span> Aménagements</h3>
             <div class="blog-grids-main row text-left">
