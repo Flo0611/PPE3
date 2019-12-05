@@ -74,7 +74,11 @@ if (!isset($_SESSION['admin']) OR isset($_SESSION['super_admin']))
        				?>
 
             <form action="../../traitement/ajout_chevaux.trait.php" method="post" enctype="multipart/form-data">
-              <label>Titre de l'actualité :</label><br>
+
+						<label>Publié par :</label><br>
+						<?php echo $_SESSION['prenom']." ".$_SESSION['nom']."<br>" ?>
+
+            <label>Titre de l'actualité :</label><br>
              <input type="text" name="titre_actu" placeholder="Veuillez entrer le titre de l'actualité"><br>
 
              <label>Description :</label><br>

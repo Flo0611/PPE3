@@ -10,8 +10,9 @@
     private $daten_cheval;
     private $datea_cheval;
     private $photo_cheval;
+    private $type_pension;
 
-    function __construct($i, $n, $p, $s, $r, $d_n, $d_a, $photo)
+    function __construct($i, $n, $p, $s, $r, $d_n, $d_a, $photo, $pension)
     {
       $this->id_cheval = $i;
       $this->nom_cheval = $n;
@@ -21,6 +22,7 @@
       $this->daten_cheval = $d_n;
       $this->datea_cheval = $d_a;
       $this->photo_cheval = $photo;
+      $this->type_pension = $pension;
     }
 
     //*****************************************GETTER**********************************
@@ -66,6 +68,10 @@
     		Return $this->photo_cheval;
       }
 
+    Public function get_pension_cheval()
+    	{
+    		Return $this->type_pension;
+      }
 
       //*****************************************SETTER**********************************
 
@@ -107,6 +113,11 @@
     Public function set_photo_cheval($photo)
     	{
     		$this->photo_cheval = $photo;
+      }
+
+    Public function set_pension_cheval($pension)
+    	{
+    		$this->type_pension = $pension;
       }
 
 //***********************************Function******************************
