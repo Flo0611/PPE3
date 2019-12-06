@@ -22,14 +22,15 @@ if (!isset($_SESSION['admin']) OR isset($_SESSION['super_admin']))
   <link href="assets/css/custom.css" rel="stylesheet" />
 
   <link href="assets/css/ajout_chevaux.css" rel="stylesheet" />
+	<link href='http://fonts.googleapis.com/css?family=Open+Sans' rel='stylesheet' type='text/css' />
 
 	<link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
   <link rel="stylesheet" href="/resources/demos/style.css">
-  <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
-  <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+
+
 
    <!-- GOOGLE FONTS-->
- <link href='http://fonts.googleapis.com/css?family=Open+Sans' rel='stylesheet' type='text/css' />
+
 </head>
 <body>
 
@@ -86,7 +87,7 @@ if (!isset($_SESSION['admin']) OR isset($_SESSION['super_admin']))
              <input type="text" name="nom_che" class="float" placeholder="Veuillez entrer le nom du cheval"><br>
 
              <label>Date de naissance :</label><br>
-             <input type="text" id="datepicker" name="daten_che" placeholder="Veuillez entrer la date de naissance du cheval"><br>
+             <input type="text" id="datepicker" name="daten_che"><br>
 
              <label class="float">Race :</label><br>
              <select class="float select" name="race_che">
@@ -136,17 +137,18 @@ if (!isset($_SESSION['admin']) OR isset($_SESSION['super_admin']))
     <!-- CUSTOM SCRIPTS -->
   <script src="assets/js/custom.js"></script>
 
+	<script src="https://code.jquery.com/jquery-1.12.4.js"></script>
+	<script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+	<script src="i18n/datepicker-fr.js"></script>
 	<script>
 	$( function() {
-	    $( "#datepicker" ).datepicker({
-	      changeMonth: true,
-	      changeYear: true
-	    });
-	  } );
+		$( "#datepicker" ).datepicker( $.datepicker.regional[ "fr" ] {
+			changeMonth: true,
+			changeYear: true,
+		});
+	} );
 
 	</script>
 
-
-</body>
 </body>
 </html>
