@@ -127,23 +127,10 @@
                           <h1 style="font-size:1.5em;"><b><input style="margin-right:2%;" type="text" name="prenom_modif" value="<?php echo $prenom?>"><input type="text" name="nom_modif" value="<?php echo $nom?>"></b></h1><br>
                           <p>
                             <span class="label-pop-up">Sexe : </span> <span class="text-popup">
-                              <select class="float select" name="sexe">
-                                <?php if ($sexe == "femelle")
-                                {
-                                  ?>
-                                  <option value="femelle" selected>Femelle</option>
-                                  <option value="male">Mâle</option>
-                                  <?php
-                                }
-                                else {
-                                  ?>
-                                  <option value="femelle">Femelle</option>
-                                  <option value="male" selected>Mâle</option>
-                                  <?php
-                                }
-                                ?>
-
-
+                              <select class="float select" name="sexe_modif">
+                                <option value="<?php echo $sexe ?>" selected><?php echo $sexe ?></option>
+                                <option value="mâle">Mâle</option>
+                                <option value="femelle">Femelle</option>
                             </select></span><br>
 
 
