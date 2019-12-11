@@ -153,9 +153,9 @@ if (!isset($_SESSION['admin']) OR isset($_SESSION['super_admin']))
                   </div>
                   <div class="col-lg-2 col-md-2 col-sm-2 col-xs-6">
                       <div class="div-square">
-                           <a href="blank.php" >
- <i class="fa fa-wechat fa-5x"></i>
-                      <h4>Live Talk</h4>
+                           <a href="balades.php" >
+ 													<i class="fa fa-wechat fa-5x"></i>
+                      <h4>Gérer les balades</h4>
                       </a>
                       </div>
 

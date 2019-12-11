@@ -58,7 +58,7 @@
           $galop_balades = $res['galop_bal'];
           $titre_balades = $res['titre_bal'];
           $photo_balades = $res['photo_bal'];
-
+          $duree_balades = $res['duree_bal'];
 
          ?>
             <div class="container py-md-5">

@@ -10,8 +10,9 @@ Class balades
   private $galopbalades;
   private $titrebalades;
   private $photobalades;
+  private $duree_balade;
 
-  Public function __construct($i, $date_bal, $h_bal, $des_bal, $h_f_bal, $gal_bal, $tit_bal, $pht_bal)
+  Public function __construct($i, $date_bal, $h_bal, $des_bal, $h_f_bal, $gal_bal, $tit_bal, $pht_bal, $duree_bal)
   {
     $this->id_balades = $i;
     $this->date_balades = $date_bal;
@@ -21,6 +22,7 @@ Class balades
     $this->galopbalades = $gal_bal;
     $this->titrebalades = $tit_bal;
     $this->photobalades= $pht_bal;
+    $this->duree_balade= $duree_bal;
 
   }
 
@@ -66,6 +68,11 @@ Class balades
     Return $this->photobalades;
   }
 
+    Public function get_duree_balade()
+    {
+      Return $this->duree_balade;
+    }
+
 
 
   //*******************************SETTER************************************
@@ -110,6 +117,13 @@ Class balades
   {
     $this->photobalades = $pht_bal;
   }
+
+  Public function set_duree_balade($duree_bal)
+  {
+    $this->duree_balade = $duree_bal;
+  }
+
+
 
   public function select_balades($conn)
   {
