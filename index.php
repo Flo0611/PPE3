@@ -163,6 +163,24 @@ include'all.class.php';
         <?php
       }
 
+      if ($_GET['news'] == "mail_existe")
+      {
+        ?>
+        <div class="alert alert-danger" role="alert" style="margin-top:-52%; margin-bottom: 48%; width:30%; left:65%;">
+          L'adresse mail rentrée existe déjà, veuillez entrer une autre adresse mail.
+        </div>
+        <?php
+      }
+
+      if ($_GET['news'] == "inscrit")
+      {
+        ?>
+        <div class="alert alert-success" role="alert" style="margin-top:-52%; margin-bottom: 48%; width:30%; left:65%;">
+          Merci de votre inscription, vous recevrez dès a présent toute l'actualité par mail.
+        </div>
+        <?php
+      }
+
       ?>
       <div class="logopers">
 
@@ -369,7 +387,7 @@ include'all.class.php';
     <section class="news-letter-w3pvt py-5">
         <div class="container contact-form mx-auto text-left">
             <h3 class="title-w3ls two text-left mb-3">Newsletter </h3>
-            <form method="post" action="#" class="w3ls-frm">
+            <form method="post" action="traitement/news_letter.trait.php" class="w3ls-frm">
                 <div class="row subscribe-sec">
                     <p class="news-para col-lg-3">Vous voulez être au courant ?</p>
                     <div class="col-lg-6 con-gd">
@@ -377,7 +395,7 @@ include'all.class.php';
 
                     </div>
                     <div class="col-lg-3 con-gd">
-                        <button type="submit" class="btn submit">S'inscrire</button>
+                        <button type="submit" name="inscription_newsletter" class="btn submit">S'inscrire</button>
                     </div>
 
                 </div>

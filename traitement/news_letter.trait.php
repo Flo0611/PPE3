@@ -17,3 +17,26 @@ mail($to,$email_subject,$email_body,$headers);
 
 echo $from."<br>".$to."<br>".$subject."<br>".$corps;
 ?>
+
+
+<?php
+include'../inc/bdd.inc.php';
+include'../all.class.php';
+  if (isset($_POST['inscription_newsletter']))
+  {
+    $une_newsletter = new news_letter(" ", " ");
+    $email = $_POST['mail'];
+    $req = $une_newsletter->select_news_by_mail($email, $conn);
+    $res = $req->fetch();
+    $nb = $res['nb_news'];
+    if ($nb == 0)
+    {
+      $une_newsletter->ajouter_news_letter($email, $conn);
+      header("location:../index.php?news=inscrit");
+    }
+    else
+    {
+      header("location:../index.php?news=mail_existe");
+    }
+  }
+?>
