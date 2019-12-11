@@ -64,8 +64,31 @@ body img {
     -o-border-radius: 4px;
     -ms-border-radius: 4px;
 }
+/*-----------------Note Chevaux-----------------*/
+.listeEtoile ul {
+  margin: 0;
+  padding: 0;
+  list-style-type: none;
+}
+.listeEtoile ul li {
+  display:inline-block;
+  width: 30px;
+  text-align: left;
+  list-style-type: none;
+}
+.listeEtoile ul li img {
+  border: 0;
+  margin: 0;
+  padding: 0;
+}
 
-
+#button-note
+{
+  margin-top:-10%;
+  background-color:orange;
+  cursor: pointer;
+}
+/*-----------------Chevaux-----------------*/
 
 #logo a {
     float: left;
@@ -884,8 +907,8 @@ span.decription {
   border-radius: 5px;
   width: 55%;
   position: relative;
-  margin: 8em auto;
-  padding: 5em 5em;
+  margin: 9% auto;
+  padding: 5% 5%;
 }
 
 .label-pop-up
@@ -898,13 +921,20 @@ span.decription {
 
 .desc-chevaux-popup
 {
-  margin-left:35% !important;
-  margin-top:-25% !important;
+  margin-left:45% !important;
+  margin-top:-55% !important;
+  margin-bottom:10%;
+}
+
+.desc-chevaux-popup-deco
+{
+  margin-left:45% !important;
+  margin-top:-35% !important;
 }
 
 .text-popup
 {
-  margin-left:-20%;
+  margin-left:0;
 }
 
 
@@ -953,6 +983,12 @@ span.decription {
   text-align:center;
   margin-top:1%;
 	border-radius:5px;
+}
+
+#note_chevaux
+{
+  margin-top:5%;
+  margin-left:-60%;
 }
 
 /*-- //popup --*/

@@ -25,10 +25,19 @@
 
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css" integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous">
 
+    <script type="text/javascript" src="../js/etoile.js"></script>
+
+    <script>
+    function test()
+    {
+    	document.getElementById(text_note).innerHTML = "Votre vote a bien été enregistrer ";
+    }
+  </script>
 
 </head>
 
 <body>
+
 
   <?php include'../inc/nav_public.php'; ?>
   <section class="projects py-5" id="gallery">
@@ -41,6 +50,7 @@
           $un_cheval = new chevaux(" ", " ", " ", " ", " ", " ", " ", " ", " ");
           $une_photo = new photo_cheval(" ", " "," ");
           $une_race = new race_chevaux(" ", " ");
+          $une_note = new note(" ", " ", " ", " ");
 
           $req = $un_cheval->select_by_id_chevaux($conn);
           while ($res = $req->fetch())
@@ -78,8 +88,31 @@
             <div id="gal<?php echo $id_cheval ?>" class="pop-overlay">
                 <div class="popup">
                     <img src="../images/uploads-chevaux/<?php echo $photo['lib_photo'] ?>" alt="Popup Image" class="img-fluid-pop-up"  />
-                    <div class="mt-4 desc-chevaux-popup">
-                      <h1 style="font-size:1.5em;"><b><?php echo $prenom." ".$nom; ?></b></h1><br>
+                    <?php
+                      if (isset($_SESSION['membre_connecter']) OR isset($_SESSION['admin']) OR isset($_SESSSION['super_admin']))
+                      {
+                        $req_note = $une_note->moyenne_cheval($id_cheval, $conn);
+                        $res_note = $req_note->fetch();
+                        $moyenne = $res_note['moyenne'];
+                        $moy = round($moyenne, 2);
+                        ?>
+                        <div id="note_chevaux">
+                          <script>
+                            var id = <?php echo $id_cheval ?>;
+                          </script>
+
+                          <div>
+                            <div type="button" id='<?php echo $id_cheval ?>'><script type='text/javascript'>CreateListeEtoile('<?php echo $id_cheval ?>',5);</script></div>
+                          </div>
+                          <input type="button" id="button-note" name="note<?php echo $id_cheval; ?>" value="Noter" onclick="envoiedonnee(<?php echo $id_cheval ?>); test()">
+                          
+                      </div>
+                        <?php
+                      }
+                      ?>
+
+                    <div class="mt-4 <?php if (isset($_SESSION['membre_connecter']) OR isset($_SESSION['admin']) OR isset($_SESSSION['super_admin'])){echo "desc-chevaux-popup";}else{echo "desc-chevaux-popup-deco";} ?>">
+                      <h1 style="font-size:1.5em; margin-left:28%;"><b><?php echo $prenom." ".$nom; ?></b></h1><br>
                       <p>
                         <span class="label-pop-up">Sexe : </span> <span class="text-popup"><b><?php echo $sexe ?></b></span><br>
                         <span class="label-pop-up">Race : </span> <span class="text-popup"><b><?php echo $race_cheval['lib_race_chevaux'] ?></b></span><br>
@@ -87,8 +120,10 @@
                         <span class="label-pop-up">Date d'arriver au centre : </span> <span class="text-popup"><b><?php echo $datea ?></b></span><br>
                       </p>
 
+
+
                       <form action="../traitement/ajout_favoris_chevaux.trait.php?id_cheval=<?php echo $id_cheval ?>" method="POST">
-                        <button type="submit" class="btn btn-warning" style="margin-top:5%;"
+                        <button type="submit" class="btn btn-warning" style="margin-top:5%; margin-left:20%;"
                         <?php if (empty($_SESSION))
                         {
                         	?>
@@ -99,7 +134,7 @@
                         <?php if (empty($_SESSION))
                         {
                           ?>
-                          <p style="color:rgba(255,0,0,0.7)">Vous devez être connecté pour pouvoir<br> ajouter un cheval en favoris.</p>
+                          <p style="color:rgba(255,0,0,0.7); margin-left:20%;">Vous devez être connecté pour pouvoir<br> ajouter un cheval en favoris.</p>
                           <?php
                         } ?>
 
