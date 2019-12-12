@@ -1,5 +1,7 @@
 <?php
 session_start();
+include'../../all.class.php';
+include'../../inc/bdd.inc.php';
 if (!isset($_SESSION['admin']) OR isset($_SESSION['super_admin']))
 {
 	header("location:../../index.php");
@@ -17,6 +19,15 @@ if (!isset($_SESSION['admin']) OR isset($_SESSION['super_admin']))
     <link href="assets/css/font-awesome.css" rel="stylesheet" />
         <!-- CUSTOM STYLES-->
     <link href="assets/css/custom.css" rel="stylesheet" />
+
+		<link rel="stylesheet" href="css/bootstrap.css">
+		<!-- Bootstrap-Core-CSS -->
+		<link rel="stylesheet" href="css/style.css" type="text/css" media="all" />
+
+		<link rel="stylesheet" href="css/menu.css" type="text/css">
+		<!-- Style-CSS -->
+		<!-- font-awesome-icons -->
+		<link href="css/font-awesome.css" rel="stylesheet">
      <!-- GOOGLE FONTS-->
    <link href='http://fonts.googleapis.com/css?family=Open+Sans' rel='stylesheet' type='text/css' />
 </head>
@@ -38,39 +49,38 @@ if (!isset($_SESSION['admin']) OR isset($_SESSION['super_admin']))
                  <!-- /. ROW  -->
 								 <form action="../../traitement/ajout_balade.trait.php" method="post" enctype="multipart/form-data">
  		              <label>Titre de la balade :</label><br>
- 		             <input type="text" name="titre_bal" placeholder="Veuillez entrer le titre de la balade"><br>
+ 		             <input type="text" name="titre_bal" class="encadre" placeholder="Veuillez entrer le titre de la balade"><br>
 
  		             <label class="float">Description de la balade  :</label><br>
- 		             <input type="text" name="description_bal" class="float" placeholder="Veuillez entrer le nom du cheval"><br>
+ 		             <input type="text" name="description_bal" class="float encadre" placeholder="Veuillez entrer le nom du cheval"><br>
 
  		             <label>Date de la balade :</label><br>
- 		             <input type="text" name="date_bal" value="<?php echo date('d\/m\/Y') ?>"><br>
+ 		             <input type="text" name="date_bal" class="encadre" value="<?php echo date('d\/m\/Y') ?>"><br>
 
 								 <label>Début de la balade :</label><br>
-									<input type="text" id="datepicker" name="debut_bal" placeholder="Veuillez entrer la date de la balade"><br>
+									<input type="text" id="datepicker" class="encadre" name="debut_bal" placeholder="Veuillez entrer la date de la balade"><br>
 
+									<label>Nombre de Galop :</label><br>
+ 				             <select class="float encadre" name="galop_bal">
+											 <option value="nul" selected>Choisissez le nombre de Galop...</option>
+ 				               <?php
+											 $un_galop = new galop(" "," ");
+
+ 				                $req_g = $un_galop->select_galop($conn);
+ 				                while($res_g = $req_g->fetch())
+ 				                {
+ 				                  $id_g = $res_g['id_galop'];
+ 				                  $lib_g = $res_g['lib_galop'
+												];
+ 				                  ?>
+ 				                  <option value="<?php echo $id_g ?>"><?php echo $lib_g?></option>
+ 				                  <?php
+ 				                }
+ 				               ?>
+ 				             </select>
+										 <br>
 									<label class="float">Durée de la balade :</label><br>
-
-
-										<select class="float select" name="galop_bal">
-											<option value="nul" selected>Choisissez un Galop...</option>
-											<?php
-											 $req = $une_race->select_race_chevaux($conn);
-											 while($res = $req->fetch())
-											 {
-												 $idg = $res['id_race_chevaux'];
-												 $libg = $res['lib_race_chevaux'];
-												 ?>
-												 <option value="<?php echo $id_race ?>"><?php echo $lib_race ?></option>
-												 <?php
-											 }
-											?>
-										</select>
-										<option value="1">1 heure</option>
-									</select>
-
-									<label class="float">Durée de la balade :</label><br>
-		              <select class="float select" name="Duree_bal">
+		              <select class="float encadre" name="duree_bal">
 		                <option value="nul" selected>Choisissez une heures...</option>
 		                <option value="1">1 heure</option>
 		                <option value="2">2 heures</option>

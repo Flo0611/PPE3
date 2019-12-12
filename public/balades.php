@@ -73,7 +73,8 @@
                         <p><?php echo $description_balades; ?></p>
                         <p> Galop requis : <?php echo $galop_balades; ?></p>
                         <p> Debut de la balade : <?php echo $heure_balades; ?></p>
-                        <p> Fin de la balade : <?php echo $heure_fin_balades; ?></p>
+                        <p> Durée : <?php echo $duree_bal; ?></p>
+
                         <a class="btn more black mt-3" href="" role="button">Disponibilité</a>
                     </div>
                 </div>
