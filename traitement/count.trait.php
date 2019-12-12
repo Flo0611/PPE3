@@ -1,6 +1,6 @@
 <?php
 
-  $un_membre = new membre(" ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ");
+  $un_membre = new membre(" ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ");
   $une_race = new race_chevaux(" ", " ");
   $un_contact = new contact(" ", " ", " ", " ", " ");
   $un_cheval = new chevaux(" ", " ", " ", " ", " ", " ", " ", " ", " ");

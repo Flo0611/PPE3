@@ -50,6 +50,26 @@ public function ajout_cheval_favoris($id_membre, $id_cheval, $conn)
   return $req;
 }
 
+public function supprimer_cheval_favoris($id_membre, $id_cheval, $conn)
+{
+  $sql = "DELETE FROM chevaux_favoris where id_membre = '$id_membre' AND id_cheval = '$id_cheval'";
+  $req = $conn->query($sql);
+  return $req;
+}
+
+Public function select_by_id_membre($id_membre, $conn)
+{
+	$sql = "SELECT * from chevaux_favoris where id_membre = '$id_membre'";
+	$req = $conn->query($sql);
+	return $req;
+}
+
+Public function select_by_id_membre_chevaux($id_membre, $id_cheval, $conn)
+{
+	$sql = "SELECT id_chevaux_fav from chevaux_favoris where id_membre = '$id_membre' AND id_cheval = '$id_cheval'";
+	$req = $conn->query($sql);
+	return $req;
+}
 
 
 }

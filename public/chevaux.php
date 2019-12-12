@@ -52,8 +52,10 @@
           $une_photo = new photo_cheval(" ", " "," ");
           $une_race = new race_chevaux(" ", " ");
           $une_note = new note(" ", " ", " ", " ");
+          $un_cheval_fav = new chevaux_fav(" ", " ");
+          $id_membre = $_SESSION['id_membre'];
 
-          $req = $un_cheval->select_by_id_chevaux($conn);
+          $req = $un_cheval->select_chevaux($conn);
           while ($res = $req->fetch())
           {
             $id_cheval = $res['id_chevaux'];
@@ -102,7 +104,7 @@
                             var id = <?php echo $id_cheval ?>;
                           </script>
                           <?php
-                            $id_membre = $_SESSION['id_membre'];
+
                             $req_verif = $une_note->verif_exist($id_cheval, $id_membre, $conn);
                             $res_verif = $req_verif->fetch();
                             $nb_verif = $res_verif['nb'];
@@ -150,22 +152,38 @@
 
 
                       <form action="../traitement/ajout_favoris_chevaux.trait.php?id_cheval=<?php echo $id_cheval ?>" method="POST">
-                        <button type="submit" class="btn btn-warning" style="margin-top:5%; margin-left:20%;"
-                        <?php if (empty($_SESSION))
-                        {
-                        	?>
-                          disabled
-                          <?php
-                        } ?>>Ajouter aux favoris</button>
-
-                        <?php if (empty($_SESSION))
+                        <?php
+                        $req_fav = $un_cheval_fav->select_by_id_membre_chevaux($id_membre, $id_cheval, $conn);
+                        $res_fav = $req_fav->fetch();
+                        $id_fav = $res_fav['id_chevaux_fav'];
+                        if (empty($id_fav))
                         {
                           ?>
-                          <p style="color:rgba(255,0,0,0.7); margin-left:20%;">Vous devez être connecté pour pouvoir<br> ajouter un cheval en favoris.</p>
-                          <?php
-                        } ?>
+                          <button type="submit" name="ajout_fav" class="btn btn-warning" style="margin-top:5%; margin-left:20%;"
+                          <?php if (empty($_SESSION))
+                          {
+                          	?>
+                            disabled
+                            <?php
+                          } ?>>Ajouter aux favoris</button>
 
-                      </form>
+                          <?php if (empty($_SESSION))
+                          {
+                            ?>
+                            <p style="color:rgba(255,0,0,0.7); margin-left:20%;">Vous devez être connecté pour pouvoir<br> ajouter un cheval en favoris.</p>
+                            <?php
+                          }
+                        }
+                        else
+                        {
+                          ?>
+                          <button type="submit" name="supprimer_fav" class="btn btn-warning" style="margin-top:5%; margin-left:20%;">Supprimer de mes favoris</button>
+                            <?php
+                        }
+                        ?>
+                        </form>
+
+
 
                     </div>
                     <a class="close" href="#gallery">&times;</a>

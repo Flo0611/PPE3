@@ -6,7 +6,7 @@ require_once'../all.class.php';
 
 $id_membre = $_GET['id'];
 
-$un_membre = new membre(" ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ");
+$un_membre = new membre(" ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ");
 
 $req = $un_membre->select_by_id($id_membre, $conn);
 while ($res = $req->fetch()) //sinon tant qu'il y a des resultats on recupere le mot de passe qui correspond dans la bdd

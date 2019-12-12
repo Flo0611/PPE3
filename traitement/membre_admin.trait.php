@@ -1,7 +1,7 @@
 <?php
 include'../all.class.php';
 include'../inc/bdd.inc.php';
-$un_membre = new membre(" ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ");
+$un_membre = new membre(" ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ");
 $id_membre = $_GET['id'];
 
 if ($_GET['action'] == "modifier")
