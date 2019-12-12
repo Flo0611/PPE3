@@ -6,23 +6,21 @@ Class balades
   private $date_balades;
   private $heure_balades;
   private $des_balades;
-  private $heure_fin_balades;
   private $galopbalades;
   private $titrebalades;
   private $photobalades;
-  private $duree_balade;
+  private $duree_balades;
 
-  Public function __construct($i, $date_bal, $h_bal, $des_bal, $h_f_bal, $gal_bal, $tit_bal, $pht_bal, $duree_bal)
+  Public function __construct($i, $date_bal, $h_bal, $des_bal, $gal_bal, $tit_bal, $pht_bal, $duree_bal)
   {
     $this->id_balades = $i;
     $this->date_balades = $date_bal;
     $this->heure_balades = $h_bal;
     $this->des_balades = $des_bal;
-    $this->heure_fin_balades = $h_f_bal;
     $this->galopbalades = $gal_bal;
     $this->titrebalades = $tit_bal;
     $this->photobalades= $pht_bal;
-    $this->duree_balade= $duree_bal;
+    $this->duree_balades= $duree_bal;
 
   }
 
@@ -48,10 +46,6 @@ Class balades
     Return $this->des_balades;
   }
 
-  Public function get_heure_fin_balades()
-  {
-    Return $this->heure_fin_balades;
-  }
 
   Public function get_galopbalades()
   {
@@ -70,7 +64,7 @@ Class balades
 
     Public function get_duree_balade()
     {
-      Return $this->duree_balade;
+      Return $this->duree_balades;
     }
 
 
@@ -98,10 +92,6 @@ Class balades
     $this->des_balades = $des_bal;
   }
 
-  Public function set_heure_fin_stage($h_f_bal)
-  {
-    $this->$heure_fin_balades = $h_f_bal;
-  }
 
   Public function set_galopbalades($gal_bal)
   {
@@ -118,11 +108,17 @@ Class balades
     $this->photobalades = $pht_bal;
   }
 
-  Public function set_duree_balade($duree_bal)
+  Public function set_duree_balades($duree_bal)
   {
-    $this->duree_balade = $duree_bal;
+    $this->duree_balades = $duree_bal;
   }
 
+  public function ajouter_balades($date_bal, $h_bal, $des_bal, $gal_bal, $tit_bal, $pht_bal, $duree_bal, $conn)
+  {
+    $sql = "INSERT INTO balades (id_balades, date_balades, heure_balades, des_balades, galopbalades, titrebalades, photobalades, duree_balades  ) VALUES(NULL, '$date_bal','$h_bal','$des_bal', '$gal_bal', '$tit_bal','$pht_bal','$duree_bal')";
+    $req = $conn->query($sql);
+    return $req;
+  }
 
 
   public function select_balades($conn)

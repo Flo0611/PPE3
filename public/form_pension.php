@@ -55,16 +55,37 @@ include'../all.class.php';
 				<?php
 
 				?>
-				<form class="login100-form validate-form" method="post" action="../traitement/inscription.trait.php">
+				<form class="login100-form validate-form" method="post" action="../traitement/Form_pension_contact.php">
 
 					<span class="login100-form-title p-b-34 p-t-27">
 						Inscription Pension
 					</span>
+					
+
+					<div class="wrap-input100 validate-input" data-validate="Veuillez saisir un nom">
+						<span class="label-input100">Nom Cheval</span>
+						<input class="input100" type="text" name="nom_che" placeholder="Entrez votre nom...">
+						<span class="focus-input100"></span>
+					</div>
+
+					<div class="wrap-input100 validate-input float" data-validate="Veuillez saisir un prénom">
+						<span class="label-input100">Prénom Cheval </span>
+						<input class="input100" type="text" name="prenom_che" placeholder="Entrez votre prénom...">
+						<span class="focus-input100"></span>
+					</div>
+
+
+					<div class="wrap-input100 validate-input" data-validate = "Veuillez entrer une date">
+						<span class="label-input100">Date de naissance Cheval</span>
+						<input class="input100" type="date" name="ddn_che" placeholder="Entrez la date de naissance du cheval...">
+						<span class="focus-input100"></span>
+					</div>
+
 					<div class="wrap-input100 validate-input float">
-						<span class="label-input100">Race du cheval</span>
+						<span class="label-input100">Race du cheval</span><br>
 						<select class="select" name="race_che">
                          <?php
-												 	$une_race = new race_chevaux(" ", " ");
+							$une_race = new race_chevaux(" ", " ");
                             $req = $une_race->select_race_chevaux($conn);
                             while($res = $req->fetch())
                              {
@@ -79,29 +100,9 @@ include'../all.class.php';
 						<span class="focus-input100"></span>
 					</div>
 
-					<div class="wrap-input100 validate-input" data-validate="Veuillez saisir un nom">
-						<span class="label-input100">Nom Cheval</span>
-						<input class="input100" type="text" name="nom_inscription" placeholder="Entrez votre nom...">
-						<span class="focus-input100"></span>
-					</div>
-
-					<div class="wrap-input100 validate-input float" data-validate="Veuillez saisir un prénom">
-						<span class="label-input100">Prénom Cheval </span>
-						<input class="input100" type="text" name="prenom_inscription" placeholder="Entrez votre prénom...">
-						<span class="focus-input100"></span>
-					</div>
-
-
-					<div class="wrap-input100 validate-input" data-validate = "Veuillez entrer une date">
-						<span class="label-input100">Date de naissance Cheval</span>
-						<input class="input100" type="date" name="ddn_inscription" placeholder="Entrez la date de naissance du cheval...">
-						<span class="focus-input100"></span>
-					</div>
-
-
 					<div class="wrap-input100 validate-input" data-validate = "Veuillez entrer votre numéro de téléphone">
-						<span class="label-input100">Sexe </span>
-                        <select class="float select" name="sexe">
+						<span class="label-input100">Sexe </span><br>
+                        <select class="select" name="sexe_che">
                			<option value="nul" selected>Choisissez une option...</option>
                			<option value="male">Mâle</option>
                			<option value="femelle">Femelle</option>
@@ -109,46 +110,6 @@ include'../all.class.php';
 						<span class="focus-input100"></span>
 					</div>
 
-					<div class="wrap-input100 validate-input float" data-validate = "Veuillez entrer votre date de naissance">
-						<span class="label-input100">Date de naissance </span>
-						<input class="input100" type="text" name="date_naiss_inscription" placeholder="00/00/0000">
-						<span class="focus-input100"></span>
-					</div>
-
-					<div class="wrap-input100 validate-input" data-validate = "Veuillez entrer le nom de votre rue">
-						<span class="label-input100">Adresse</span>
-						<input class="input100" type="text" name="adresse_inscription" placeholder="Votre nom de rue">
-						<span class="focus-input100"></span>
-					</div>
-
-					<div class="wrap-input100 float validate-input" data-validate = "Veuillez entrer le numéro de votre bâtiment">
-						<span class="label-input100">N° rue </span>
-						<input class="input100" type="text" name="num_rue_inscription" placeholder="Le numéro de votre bâtiment">
-						<span class="focus-input100"></span>
-					</div>
-
-					<div class="wrap-input100">
-						<span class="label-input100">Complément</span>
-						<input class="input100" type="text" name="complement_inscription" placeholder="Complément d'adresse (étage, numéro d'appartement..)">
-						<span class="focus-input100"></span>
-					</div>
-
-					<div class="wrap-input100 float validate-input" data-validate = "Veuillez entrer votre code postal">
-						<span class="label-input100">Code postale </span>
-						<input class="input100" type="text" name="code_P" placeholder="Votre code postale">
-						<span class="focus-input100"></span>
-					</div>
-
-					<div class="wrap-input88 validate-input" data-validate = "Veuillez entrer le nom de votre ville">
-						<span class="label-input100">Ville</span>
-						<input class="input100" type="text" name="ville" placeholder="Entrez le nom de votre ville">
-						<span class="focus-input100"></span>
-					</div>
-                    <div class="wrap-input88 validate-input" data-validate = "Veuillez entrer une adresse mail valide : xx@xxx.xxx">
-						<span class="label-input100">Email</span>
-						<input class="input100" type="text" name="email_inscription" placeholder="Entrez Votre Email...">
-						<span class="focus-input100"></span>
-					</div>
 
 					<div class="flex-m w-full p-b-33">
 						<div class="contact100-form-checkbox">
@@ -169,13 +130,12 @@ include'../all.class.php';
 					<div class="container-login100-form-btn">
 						<div class="wrap-login100-form-btn">
 							<div class="login100-form-bgbtn"></div>
-							<button class="login100-form-btn" type="submit" name="inscription_button">
-								S'inscrire
+							<button class="login100-form-btn" type="submit" name="envoyer">
+								Envoyer formulaire
 							</button>
 						</div>
 					</div>
-					<div style="margin-left:20%; margin-top:5%;"><p style="color: white;">Vous avez déjà un compte ? Vous pouvez vous connecter <a  style="color:blue; text-decoration:underline" href="connexion.php">ici</a></p></div>
-
+					
 				</form>
 			</div>
 		</div>

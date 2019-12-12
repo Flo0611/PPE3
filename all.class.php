@@ -11,6 +11,6 @@
   require_once'class/actu.class.php';
   require_once'class/balades.class.php';
   require_once'class/newsletter.class.php';
-  require_once'class/note.class.php';
+  require_once'class/galop.class.php';
 
 ?>

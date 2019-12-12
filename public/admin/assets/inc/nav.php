@@ -6,7 +6,7 @@
 
 
             <li>
-                <a href="index_admin.php" ><i class="fa fa-desktop "></i>Dashboard <span class="badge">Included</span></a>
+                <a href="index_admin.php" ><i class="fa fa-desktop "></i>Tableau de bord <span class="badge">Includ</span></a>
             </li>
 
 
