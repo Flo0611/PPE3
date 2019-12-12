@@ -123,13 +123,16 @@ if (!isset($_SESSION['admin']) OR isset($_SESSION['super_admin']))
     <script src="https://cdn.datatables.net/buttons/1.6.0/js/buttons.html5.min.js"></script>
     <script src="https://cdn.datatables.net/buttons/1.6.0/js/buttons.print.min.js"></script>
 
-    <script type="text/javascript">
+		<script type="text/javascript">
     $(document).ready(function() {
     $('#tableau').DataTable( {
         dom: 'Bfrtip',
         buttons: [
             'excel', 'pdf', 'print'
-        ]
+        ],
+				"language": {
+            "url": "//cdn.datatables.net/plug-ins/9dcbecd42ad/i18n/French.json"
+        }
     } );
 } );
     </script>
