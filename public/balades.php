@@ -54,7 +54,6 @@
           $date_balades = $res['date_bal'];
           $heure_balades = $res['heure_bal'];
           $description_balades = $res['des_bal'];
-          $heure_fin_balades = $res['h_f_bal'];
           $galop_balades = $res['galop_bal'];
           $titre_balades = $res['titre_bal'];
           $photo_balades = $res['photo_bal'];
