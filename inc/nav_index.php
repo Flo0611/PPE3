@@ -39,7 +39,7 @@
         <?php if (isset($_SESSION['membre_connecter']))
         { // si on est connecté
           ?>
-          <li><a href="#">Mon compte</a></li>
+          <li><a href="public/info.php">Mon compte</a></li>
           <li><a href="traitement/deco.trait.php">Déconnexion</a></li>
           <?php
         }
