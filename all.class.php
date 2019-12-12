@@ -12,5 +12,7 @@
   require_once'class/balades.class.php';
   require_once'class/newsletter.class.php';
   require_once'class/galop.class.php';
+  require_once'class/pension.class.php';
+  require_once'class/note.class.php';
 
 ?>

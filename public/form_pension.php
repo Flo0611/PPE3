@@ -53,14 +53,14 @@ include'../all.class.php';
 		<div class="container-login100" >
 			<div class="wrap-login100">
 				<?php
-
+				$id_pension = $_GET['pension'];
 				?>
-				<form class="login100-form validate-form" method="post" action="../traitement/Form_pension_contact.php">
+				<form class="login100-form validate-form" method="post" action="../traitement/Form_pension_contact.php?id_pension=<?php echo $id_pension ?>">
 
 					<span class="login100-form-title p-b-34 p-t-27">
 						Inscription Pension
 					</span>
-					
+
 
 					<div class="wrap-input100 validate-input" data-validate="Veuillez saisir un nom">
 						<span class="label-input100">Nom Cheval</span>
@@ -135,7 +135,7 @@ include'../all.class.php';
 							</button>
 						</div>
 					</div>
-					
+
 				</form>
 			</div>
 		</div>

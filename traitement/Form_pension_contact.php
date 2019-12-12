@@ -19,6 +19,7 @@ if(isset($_POST['envoyer'])){
     $ddn_che = $_POST['ddn_che'];
     $race_che = $_POST['race_che'];
     $sexe_che = $_POST['sexe_che'];
+    $pension = $_GET['id_pension'];
     $message = "nom cheval:$nom_che,
      prenom cheval:$prenom_che,
       date de naissance:$ddn_che,
