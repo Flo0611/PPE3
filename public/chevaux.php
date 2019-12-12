@@ -28,9 +28,10 @@
     <script type="text/javascript" src="../js/etoile.js"></script>
 
     <script>
-    function test()
+    function test(id_cheval)
     {
-    	document.getElementById(text_note).innerHTML = "Votre vote a bien été enregistrer ";
+      var test = "gal" + id_cheval;
+      test.document.getElementById("text_note").innerHTML ="Votre vote a bien été enregistrer " ;
     }
   </script>
 
@@ -94,18 +95,44 @@
                         $req_note = $une_note->moyenne_cheval($id_cheval, $conn);
                         $res_note = $req_note->fetch();
                         $moyenne = $res_note['moyenne'];
-                        $moy = round($moyenne, 2);
+                        $moy = round($moyenne, 0);
                         ?>
                         <div id="note_chevaux">
                           <script>
                             var id = <?php echo $id_cheval ?>;
                           </script>
+                          <?php
+                            $id_membre = $_SESSION['id_membre'];
+                            $req_verif = $une_note->verif_exist($id_cheval, $id_membre, $conn);
+                            $res_verif = $req_verif->fetch();
+                            $nb_verif = $res_verif['nb'];
+                            if (!empty($nb_verif))
+                            {
+                              $req_nb_etoile = $une_note->select_nb_etoile($id_cheval, $id_membre, $conn);
+                              $res_nb_etoile = $req_nb_etoile->fetch();
+                              $nb_etoile = $res_nb_etoile['nb_etoile'];
 
-                          <div>
-                            <div type="button" id='<?php echo $id_cheval ?>'><script type='text/javascript'>CreateListeEtoile('<?php echo $id_cheval ?>',5);</script></div>
-                          </div>
-                          <input type="button" id="button-note" name="note<?php echo $id_cheval; ?>" value="Noter" onclick="envoiedonnee(<?php echo $id_cheval ?>); test()">
-                          
+                              ?>
+                              <div>
+                                <div type="button" id='<?php echo $id_cheval ?>'><script type='text/javascript'>CreateListeEtoile('<?php echo $id_cheval ?>',5);GestionHover('<?php echo $id_cheval ?>', <?php echo $nb_etoile ?>, 5);</script></div>
+                              </div>
+                              <input type="button" id="button-note" name="note<?php echo $id_cheval; ?>" value="Noter" onclick="envoiedonnee(<?php echo $id_cheval ?>); test(<?php echo $id_cheval ?>);">
+                              <span id="text_note"></span>
+
+
+                              <?php
+                            }
+                            else
+                            {
+                              ?>
+                              <div>
+                                <div type="button" id='<?php echo $id_cheval ?>'><script type='text/javascript'>CreateListeEtoile('<?php echo $id_cheval ?>',5);</script></div>
+                              </div>
+                              <input type="button" id="button-note" name="note<?php echo $id_cheval; ?>" value="Noter" onclick=" test()">
+
+                            <?php
+                          }
+                          ?>
                       </div>
                         <?php
                       }

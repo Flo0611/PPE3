@@ -44,7 +44,6 @@ function GestionHover(idListe, indice, nbEtoile){
 function ChoixSelection(idListe, indice, nbEtoile){
 	ArrListeEtoile[idListe] = indice;
 	var score = "score-" + idListe;
-	document.getElementById(score).innerHTML = " " + indice + "/" + nbEtoile;
 	return ArrListeEtoile
 }
 
@@ -85,7 +84,32 @@ function CreateListeEtoile(idListe, nbEtoile){
 
 	renduListe += "	</ul>";
 	renduListe += "</div>";
-	
+
+
+	document.getElementById(idListe).outerHTML = renduListe;
+}
+
+//-------------------------------------------------------
+// Creation d une liste de sans hover
+//-------------------------------------------------------
+function CreateListeEtoile2(idListe, nbEtoile){
+	ArrListeEtoile[idListe] = 0;
+
+	var renduListe = "";
+	renduListe += "<div class=\"listeEtoile\" onmouseout=\"GestionHover('" + idListe + "', -1, '" + nbEtoile + "')\">";
+	renduListe += "<ul>";
+
+	for(i=1; i<=nbEtoile; i++){
+		renduListe += "<li>";
+		renduListe += "<img id=\"staroff-" + idListe + "-" + i + "\" src=\"../images/horse.png\" border=\"0\" title=\"" + i + "\" style=\"border-width: 0px; display: block;\">";
+		renduListe += "<img id=\"staron-" + idListe + "-" + i + "\" src=\"../images/horseon.png\" border=\"0\" title=\"" + i + "\" style=\"border-width: 0px; display: none;\">";
+		renduListe += "</a>";
+		renduListe += "</li>";
+	}
+
+	renduListe += "	</ul>";
+	renduListe += "</div>";
+
 
 	document.getElementById(idListe).outerHTML = renduListe;
 }
