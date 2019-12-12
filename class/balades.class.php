@@ -10,8 +10,9 @@ Class balades
   private $titrebalades;
   private $photobalades;
   private $duree_balades;
+  private $valide;
 
-  Public function __construct($i, $date_bal, $h_bal, $des_bal, $gal_bal, $tit_bal, $pht_bal, $duree_bal)
+  Public function __construct($i, $date_bal, $h_bal, $des_bal, $gal_bal, $tit_bal, $pht_bal, $duree_bal, $v)
   {
     $this->id_balades = $i;
     $this->date_balades = $date_bal;
@@ -21,6 +22,7 @@ Class balades
     $this->titrebalades = $tit_bal;
     $this->photobalades= $pht_bal;
     $this->duree_balades= $duree_bal;
+    $this->valide= $v;
 
   }
 
@@ -62,10 +64,15 @@ Class balades
     Return $this->photobalades;
   }
 
-    Public function get_duree_balade()
-    {
-      Return $this->duree_balades;
-    }
+Public function get_duree_balade()
+{
+  Return $this->duree_balades;
+}
+
+Public function get_valide_balade()
+{
+  Return $this->valide;
+}
 
 
 
@@ -113,6 +120,15 @@ Class balades
     $this->duree_balades = $duree_bal;
   }
 
+  Public function set_valide_balades($v)
+  {
+    $this->valide = $v;
+  }
+
+
+  //*******************************Fonctions************************************
+
+
   public function ajouter_balades($date_bal, $h_bal, $des_bal, $gal_bal, $tit_bal, $pht_bal, $duree_bal, $conn)
   {
     $sql = "INSERT INTO balades (id_bal, date_bal, heure_bal, des_bal, galop_bal, titre_bal, photo_bal, duree_balade) VALUES(NULL, '$date_bal','$h_bal','$des_bal', '$gal_bal', '$tit_bal','$pht_bal','$duree_bal')";
@@ -123,7 +139,7 @@ Class balades
 
   public function select_balades($conn)
   {
-    $sql = "SELECT * from balades";
+    $sql = "SELECT * from balades where valide = 'oui'";
     $req = $conn->query($sql);
     return $req;
 

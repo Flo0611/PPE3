@@ -3,14 +3,20 @@ ini_set("display_errors","on");
 
 include'../all.class.php';
 include'../inc/bdd.inc.php';
+echo $_POST['titre_bal'];
+echo $_POST['description_bal'];
+echo $_POST['date_bal'];
+echo $_POST['debut_bal'];
+echo $_POST['duree_bal'];
+echo $_POST['galop_bal'];
 
 if (isset($_POST['valider']))
 {
-  if (isset($_POST['titre_bal']) AND isset($_POST['description_bal']) AND isset($_POST['date_bal']) AND isset($_POST['debut_bal']) AND isset($_POST['duree_bal']) AND isset($_POST['galop_bal']))
+  if (!empty($_POST['titre_bal']) AND !empty($_POST['description_bal']) AND !empty($_POST['date_bal']) AND !empty($_POST['debut_bal']) AND !empty($_POST['duree_bal']) AND !empty($_POST['galop_bal']))
   {
     $num_rand = rand(1,1000000);
     include'../inc/upload_file_balade.php';
-    $une_balades = new balades(" ", " ", " ", " ", " ", " ", " ", " ");
+    $une_balades = new balades(" ", " ", " ", " ", " ", " ", " ", " ", " ");
 
     $titre_balades = $_POST['titre_bal'];
     $description_balades = $_POST['description_bal'];
@@ -26,9 +32,6 @@ if (isset($_POST['valider']))
     if ($uploadOk != 0)
     {
       $une_balades->ajouter_balades($date_balades, $debut_balades, $description_balades, $galop_balades, $titre_balades, $photo_balades, $duree_balades, $conn);
-
-
-
       header("location:../public/admin/balades.php?succes=upload");
     }
     else

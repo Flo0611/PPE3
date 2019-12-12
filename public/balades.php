@@ -58,14 +58,14 @@
           $galop_balades = $res['galop_bal'];
           $titre_balades = $res['titre_bal'];
           $photo_balades = $res['photo_bal'];
-          $duree_balades = $res['duree_bal'];
+          $duree_balades = $res['duree_balade'];
 
          ?>
             <div class="container py-md-5">
                 <div class="row inner_sec_info">
 
                     <div class="col-md-6 banner_bottom_grid help">
-                        <img src="../images/<?php echo $photo_balades; ?>" alt=" " class="img-fluid">
+                        <img src="../images/uploads-balades/<?php echo $photo_balades; ?>" alt=" " class="img-fluid">
                     </div>
                     <div class="col-md-6 banner_bottom_left">
                         <h3>
@@ -73,7 +73,7 @@
                         <p><?php echo $description_balades; ?></p>
                         <p> Galop requis : <?php echo $galop_balades; ?></p>
                         <p> Debut de la balade : <?php echo $heure_balades; ?></p>
-                        <p> Durée : <?php echo $duree_bal; ?></p>
+                        <p> Durée : <?php echo $duree_balades."h"; ?></p>
 
                         <a class="btn more black mt-3" href="" role="button">Disponibilité</a>
                     </div>
