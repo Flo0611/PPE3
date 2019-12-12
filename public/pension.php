@@ -49,6 +49,7 @@
 
             ?>
   <div id="pen1" class="pop-overlay">
+            
                 <div class="popup">
                     <img src="../images/z3.jpg" alt="Popup Image" class="img-fluid-pop-up"  />
                     <div class="mt-4 desc-chevaux-popup">
@@ -59,8 +60,12 @@
                         <span class="label-pop-up">Box disponible : </span> <span class="text-popup"><b><?php echo $libre[1] ?></b></span><br>
                         <span class="label-pop-up">Description : </span> <span class="text-popup"><b>Box comfortable</b></span><br>
                       </p>
+                      <?php
+                      $pension = 1;
+                      ?>
 
                       <!-- <form action="../traitement/ajout_favoris_chevaux.trait.php?id_cheval=<?php echo $id_cheval ?>" method="POST"> -->
+                      <form action= "form_pension.php" method="POST">
                         <button type="submit" class="btn btn-warning" style="margin-top:5%;"
                         <?php if (empty($_SESSION))
                         {
@@ -72,7 +77,7 @@
                         <?php if (empty($_SESSION))
                         {
                           ?>
-                          <p style="color:rgba(255,0,0,0.7)">Vous devez être connecté pour pouvoir<br> ajouter un cheval en favoris.</p>
+                          <p style="color:rgba(255,0,0,0.7)">Vous devez être connecté pour pouvoir<br> ajouter un cheval à la pension.</p>
                           <?php
                         } ?>
 
@@ -95,13 +100,16 @@
                         <span class="label-pop-up">Box disponible : </span> <span class="text-popup"><b><?php echo $libre[2] ?></b></span><br>
                         <span class="label-pop-up">Description : </span> <span class="text-popup"><b>Box comfortable</b></span><br>
                       </p>
-
+                      <?php
+                      $pension = 2;
+                      ?>
+                      <form action= "form_pension.php" method="POST">
                       <!-- <form action="../traitement/ajout_favoris_chevaux.trait.php?id_cheval=<?php echo $id_cheval ?>" method="POST"> -->
                         <button type="submit" class="btn btn-warning" style="margin-top:5%;"
                         <?php if (empty($_SESSION))
                         {
                           ?>
-                          disabled
+                          
                           <?php
                         } ?>>Soumettre un formulaire</button>
 
@@ -131,7 +139,10 @@
                         <span class="label-pop-up">Place disponible : </span> <span class="text-popup"><b><?php echo $libre[3] ?></b></span><br>
                         <span class="label-pop-up">Description : </span> <span class="text-popup"><b>Grand pré</b></span><br>
                       </p>
-
+                      <?php
+                      $pension = 3;
+                      ?>
+                      <form action= "form_pension.php" method="POST">
                       <!-- <form action="../traitement/ajout_favoris_chevaux.trait.php?id_cheval=<?php echo $id_cheval ?>" method="POST"> -->
                         <button type="submit" class="btn btn-warning" style="margin-top:5%;"
                         <?php if (empty($_SESSION))
@@ -167,7 +178,10 @@
                         <span class="label-pop-up">Place disponible : </span> <span class="text-popup"><b><?php echo $libre[4] ?></b></span><br>
                         <span class="label-pop-up">Description : </span> <span class="text-popup"><b>Grand pré</b></span><br>
                       </p>
-
+                      <?php
+                      $pension = 4;
+                      ?>
+                      <form action= "form_pension.php" method="POST">
                       <!-- <form action="../traitement/ajout_favoris_chevaux.trait.php?id_cheval=<?php echo $id_cheval ?>" method="POST"> -->
                         <button type="submit" class="btn btn-warning" style="margin-top:5%;"
                         <?php if (empty($_SESSION))
