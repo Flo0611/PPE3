@@ -56,7 +56,7 @@ include'../all.class.php';
 
 				?>
 				<form class="login100-form validate-form" method="post" action="../traitement/inscription.trait.php">
-				
+
 					<span class="login100-form-title p-b-34 p-t-27">
 						Inscription Pension
 					</span>
@@ -64,6 +64,7 @@ include'../all.class.php';
 						<span class="label-input100">Race du cheval</span>
 						<select class="select" name="race_che">
                          <?php
+												 	$une_race = new race_chevaux(" ", " ");
                             $req = $une_race->select_race_chevaux($conn);
                             while($res = $req->fetch())
                              {
@@ -97,7 +98,7 @@ include'../all.class.php';
 						<span class="focus-input100"></span>
 					</div>
 
-					
+
 					<div class="wrap-input100 validate-input" data-validate = "Veuillez entrer votre numéro de téléphone">
 						<span class="label-input100">Sexe </span>
                         <select class="float select" name="sexe">
