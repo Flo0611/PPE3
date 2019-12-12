@@ -48,7 +48,10 @@ if (!isset($_SESSION['admin']) OR isset($_SESSION['super_admin']))
                 </div>
                  <!-- /. ROW  -->
 								 <?php
-								 if ($_GET['succes'] == "upload")
+								 if (
+
+
+									 $_GET['succes'] == "upload")
 								 {
 									 ?>
 									 <div class="alert alert-info" role="alert">
@@ -90,7 +93,7 @@ if (!isset($_SESSION['admin']) OR isset($_SESSION['super_admin']))
 
 									<label>Nombre de Galop :</label><br>
  				             <select class="float encadre" name="galop_bal" style="width:40%;">
-											 <option value="0" selected>Choisissez le nombre de Galop...</option> 
+											 <option value="0" selected>Choisissez le nombre de Galop...</option>
 												<option value="0">Pas de Galop Requis</option>
  				               <?php
 											 $un_galop = new galop(" "," ");
