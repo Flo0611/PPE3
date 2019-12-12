@@ -12,7 +12,7 @@ echo $_POST['galop_bal'];
 
 if (isset($_POST['valider']))
 {
-  if (!empty($_POST['titre_bal']) AND !empty($_POST['description_bal']) AND !empty($_POST['date_bal']) AND !empty($_POST['debut_bal']) AND !empty($_POST['duree_bal']) AND !empty($_POST['galop_bal']))
+  if (!empty($_POST['titre_bal']) AND !empty($_POST['description_bal']) AND !empty($_POST['date_bal']) AND !empty($_POST['debut_bal']) AND !empty($_POST['duree_bal']))
   {
     $num_rand = rand(1,1000000);
     include'../inc/upload_file_balade.php';
