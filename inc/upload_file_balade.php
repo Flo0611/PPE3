@@ -1,5 +1,5 @@
 <?php
-$target_dir = "../images/uploads-chevaux/";
+$target_dir = "../images/uploads-balades/";
 $target_file = $target_dir . basename($_FILES["fileToUpload"]["name"].$num_rand);
 $uploadOk = 1;
 $imageFileType = strtolower(pathinfo($target_file,PATHINFO_EXTENSION));

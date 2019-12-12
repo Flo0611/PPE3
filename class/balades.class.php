@@ -115,7 +115,7 @@ Class balades
 
   public function ajouter_balades($date_bal, $h_bal, $des_bal, $gal_bal, $tit_bal, $pht_bal, $duree_bal, $conn)
   {
-    $sql = "INSERT INTO balades (id_balades, date_balades, heure_balades, des_balades, galopbalades, titrebalades, photobalades, duree_balades  ) VALUES(NULL, '$date_bal','$h_bal','$des_bal', '$gal_bal', '$tit_bal','$pht_bal','$duree_bal')";
+    $sql = "INSERT INTO balades (id_bal, date_bal, heure_bal, des_bal, galop_bal, titre_bal, photo_bal, duree_balade) VALUES(NULL, '$date_bal','$h_bal','$des_bal', '$gal_bal', '$tit_bal','$pht_bal','$duree_bal')";
     $req = $conn->query($sql);
     return $req;
   }

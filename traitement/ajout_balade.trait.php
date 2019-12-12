@@ -3,20 +3,21 @@ ini_set("display_errors","on");
 
 include'../all.class.php';
 include'../inc/bdd.inc.php';
+
 if (isset($_POST['valider']))
 {
-  if (isset($_POST['titre_bal']) AND isset($_POST['description_bal']) AND isset($_POST['date_bal']) AND isset($_POST['debut_bal']) AND isset($_POST['Duree_bal']) AND isset($_POST['galop_bal']))
+  if (isset($_POST['titre_bal']) AND isset($_POST['description_bal']) AND isset($_POST['date_bal']) AND isset($_POST['debut_bal']) AND isset($_POST['duree_bal']) AND isset($_POST['galop_bal']))
   {
     $num_rand = rand(1,1000000);
     include'../inc/upload_file_balade.php';
-    $une_balades = new balades(" ", " ", " ", " ", " ", " ", " ", " ", " ");
+    $une_balades = new balades(" ", " ", " ", " ", " ", " ", " ", " ");
 
     $titre_balades = $_POST['titre_bal'];
     $description_balades = $_POST['description_bal'];
     $date_balades = $_POST['date_bal'];
     $galop_balades = $_POST['galop_bal'];
     $debut_balades = $_POST['debut_bal'];
-    $duree_balades = $_POST['Duree_bal'];
+    $duree_balades = $_POST['duree_bal'];
     $photo_balades = $_FILES["fileToUpload"]["name"].$num_rand;
 
 
@@ -32,6 +33,7 @@ if (isset($_POST['valider']))
     }
     else
     {
+
       header("location:../public/admin/balades.php?erreur=erreur");
     }
   }
