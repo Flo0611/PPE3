@@ -2,6 +2,7 @@
 ini_set("display_errors","off");
 include'all.class.php';
 include'inc/bdd.inc.php';
+$un_membre = new membre(" ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ");
 $une_actu = new actu(" ", " ", " ", " ", " ", " ", " ", " ");
 ?>
 <!DOCTYPE html>
@@ -30,11 +31,15 @@ $une_actu = new actu(" ", " ", " ", " ", " ", " ", " ", " ");
     while($res = $req->fetch())
     {
       $id_actu = $res['id_actu'];
+      $id_membre = $res['id_membre'];
+      $req_photo = $un_membre->select_photo_membre($id_membre, $conn);
+      $res_photo = $req_photo->fetch();
+      $lib_photo = $res_photo['photo_membre'];
       ?>
 <a href="#gal<?php echo $id_actu ?>">
             <div class="testimonial">
               <div class="test-info">
-                <img class="test-pic" src="images/uploads-actu/<?php echo $res['photo_actu'] ?>" alt="">
+                <img class="test-pic" src="images/images-profil/<?php echo $lib_photo ?>" alt="">
                 <div class="test-name">
                   <span><?php echo $res['prenom_actu']." ".$res['nom_actu'] ?></span>
                   <?php echo $res['date_actu'] ?>

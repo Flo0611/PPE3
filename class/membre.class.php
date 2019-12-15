@@ -238,6 +238,20 @@ public function select_photo_membre($id_membre, $conn)
 	return $req;
 }
 
+public function changement_photo_profil($id_membre, $lib_photo, $conn)
+{
+	$sql = "UPDATE membre SET photo_membre = '$lib_photo' where id_membre = '$id_membre'";
+	$req = $conn->query($sql);
+	return $req;
+}
+
+public function select_nom_prenom($id_membre, $conn)
+{
+	$sql = "SELECT nom_membre, prenom_membre, email_membre from membre where id_membre = '$id_membre'";
+	$req = $conn->query($sql);
+	return $req;
+}
+
 
 }
 ?>

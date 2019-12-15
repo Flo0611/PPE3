@@ -9,6 +9,8 @@
   padding:0.5%;
   margin-left: auto;
   margin-right: auto;
+  text-decoration: none;
+  color: black;
 }
 
 .block:hover
@@ -69,5 +71,82 @@
 .img_che_fav:hover
 {
   cursor:pointer;
-  opacity: 0.7;
+  opacity: 0.5;
+}
+
+.images_photo_profil
+{
+  position: absolute;
+  display: none;
+  width: 30%;
+  height: 40%;
+  margin-left: 65%;
+  margin-top: -35%;
+  text-align: center;
+}
+
+.images_photo_profil h1
+{
+  font-size: 1.8em;
+}
+
+.btn-valider-photo
+{
+  width: 20%;
+  border-radius: 5px;
+  margin-top: 3%;
+  height: 40px;
+  cursor: pointer;
+  border: 1px solid black;
+}
+
+.btn-valider-photo:hover
+{
+  border: 1px solid black;
+}
+
+.img_choix_profil
+{
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+}
+
+.modifier_photo_profil
+{
+  position: absolute;
+  display: none;
+  width: 30%;
+  height: 40%;
+  margin-top: -35%;
+  text-align: center;
+}
+
+.modifier_photo_profil h1
+{
+  font-size: 1.8em;
+}
+
+.img_modif_profil
+{
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+}
+
+.img_modif_profil::after
+{
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+}
+
+.supprimer
+{
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  margin-left: -12.5%;
+  margin-top:-3%;
+  opacity: 0.3;
 }

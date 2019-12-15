@@ -90,8 +90,8 @@ if (!isset($_SESSION['admin']) OR isset($_SESSION['super_admin']))
 
              <label>Date du post :</label><?php echo "<b> <u>".$date."</u></b><br>" ?>
 
-						 <label>Ajouter une photo : </label><br>
-             <input type="file" name="fileToUpload" id="fileToUpload">
+						 <label>Ajouter des photos à la galerie : </label><br>
+             <input type="file" name="fileToUpload[]" id="fileToUpload" multiple>
 
              <button type="submit" class="btn btn-success" name="valider">Valider</button>
 

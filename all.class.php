@@ -14,5 +14,8 @@
   require_once'class/galop.class.php';
   require_once'class/pension.class.php';
   require_once'class/note.class.php';
+  require_once'class/photo_profil.class.php';
+  require_once'class/images_membre.class.php';
+  require_once'class/images_actu.class.php';
 
 ?>

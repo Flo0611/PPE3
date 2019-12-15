@@ -64,7 +64,7 @@ while ($res = $req->fetch()) //sinon tant qu'il y a des resultats on recupere le
   </head>
   <body style="background-color:#EDEDED">
     <?php include'../inc/nav_public.php'; ?>
-    <div style="width:600px; height:550px; background-color:orange; margin-right:auto; margin-left:auto; padding:2%; margin-top: 3%; margin-bottom:10;">
+    <div style="width:45%; height:75%; background-color:orange; margin-right:auto; margin-left:auto; padding:2%; margin-top: 3%; margin-bottom:5%;">
       <h1 style="font-size:1.8em; text-align:center;">Modifier mes informations</h1>
       <div style="margin-left:auto; margin-right:auto">
         <form action="../traitement/membre_admin.trait.php?action=modif_membre&id=<?php echo $id_membre ?>" method="post" style="margin-top:5%; margin-left:10%;">
@@ -117,6 +117,6 @@ while ($res = $req->fetch()) //sinon tant qu'il y a des resultats on recupere le
       </div>
     </div>
 
-
+<?php include'../inc/footer_public.php'; ?>
   </body>
 </html>

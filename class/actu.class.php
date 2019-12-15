@@ -3,22 +3,22 @@
 Class actu
 {
 	private $id_actu;
+	private $id_membre;
   private $nom_actu;
   private $prenom_actu;
   private $text_actu;
   private $lien_actu;
-  private $photo_actu;
   private $date_actu;
 	private $titre;
 
-	Public function __construct($i, $n, $p, $t, $l, $photo, $d, $titre)
+	Public function __construct($i, $i_m, $n, $p, $t, $l, $d, $titre)
     {
       $this->id_actu = $i;
+			$this->id_membre = $i_m;
       $this->nom_actu = $n;
       $this->prenom_actu = $p;
       $this->text_actu = $t;
       $this->lien_actu = $l;
-      $this->photo_actu = $photo;
       $this->date_actu = $d;
 			$this->titre_actu = $titre;
     }
@@ -30,6 +30,11 @@ Class actu
 Public function get_id_actu()
 	{
 		Return $this->id_actu;
+  }
+
+Public function get_id_membre()
+	{
+		Return $this->id_membre;
   }
 
 Public function get_nom_actu()
@@ -52,11 +57,6 @@ Public function get_lien_actu()
 		Return $this->lien_actu;
   }
 
-Public function get_photo_actu()
-	{
-		Return $this->photo_actu;
-  }
-
 Public function get_date_actu()
 	{
 		Return $this->date_actu;
@@ -73,6 +73,11 @@ Public function get_titre_actu()
 Public function set_id_actu($i)
 	{
 		$this->id_actu = $i;
+  }
+
+Public function set_id_membre($i_m)
+	{
+		$this->id_membre = $i_m;
   }
 
 Public function set_nom_actu($n)
@@ -95,11 +100,6 @@ Public function set_lien_actu($l)
 		$this->lien_actu = $l;
   }
 
-Public function set_photo_actu($photo)
-	{
-		$this->photo_actu = $photo;
-  }
-
 Public function set_date_actu($d)
 	{
 		$this->date_actu = $d;
@@ -111,16 +111,16 @@ Public function set_titre_actu($titre)
   }
 
 //***********************************Function******************************
-Public function ajouter_actu($nom_actu, $prenom_actu, $text_actu, $lien_actu, $photo_actu, $date_actu, $titre, $conn)
+Public function ajouter_actu($id_membre, $nom_actu, $prenom_actu, $text_actu, $lien_actu, $date_actu, $titre, $conn)
 {
-	$sql = "INSERT INTO actualites (id_actu, nom_actu, prenom_actu, text_actu, lien_actu, photo_actu, date_actu, titre_actu) VALUES(NULL,'$nom_actu', '$prenom_actu', '$text_actu', '$lien_actu', '$photo_actu', '$date_actu', '$titre')";
+	$sql = "INSERT INTO actualites (id_actu, id_membre, nom_actu, prenom_actu, text_actu, lien_actu, date_actu, titre_actu) VALUES(NULL, '$id_membre', '$nom_actu', '$prenom_actu', '$text_actu', '$lien_actu', '$date_actu', '$titre')";
 	$req = $conn->query($sql);
 	return $req;
 }
 
 public function select_actu_recente($conn)
 {
-	$sql = "SELECT id_actu, nom_actu, prenom_actu, text_actu, lien_actu, photo_actu, date_actu FROM actualites order by id_actu desc limit 0,5 ";
+	$sql = "SELECT id_actu, id_membre, nom_actu, prenom_actu, text_actu, lien_actu, date_actu FROM actualites order by id_actu desc limit 0,5 ";
 	$req = $conn->query($sql);
 	return $req;
 }
