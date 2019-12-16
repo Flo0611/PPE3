@@ -3,7 +3,7 @@ ini_set("display_errors", "on");
 include'../inc/bdd.inc.php';
 require_once'../all.class.php';
 
-$un_membre = new membre(" ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ");
+$un_membre = new membre(" ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ");
 
 $email = $_POST['email_inscription'];
 $mdp = $_POST['pass_inscription'];

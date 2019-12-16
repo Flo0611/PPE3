@@ -31,7 +31,7 @@ if (!isset($_SESSION['admin']) OR isset($_SESSION['super_admin']))
 <body>
 
   <?php
-	$un_contact = new membre(" ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ");
+	$un_contact = new membre(" ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ");
   include'assets/inc/nav.php';
   ?>
 

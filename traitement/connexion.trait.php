@@ -4,7 +4,7 @@ session_start();
 include'../inc/bdd.inc.php';
 require_once'../all.class.php';
 
-$un_membre = new membre(" ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ");
+$un_membre = new membre(" ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ");
 
 $adresse_mail = $_POST['adresse_mail_conn']; //adresse mail ou id rentrer dans le formulaire de la page d'avant
 $mdp = $_POST['mdp_conn']; //mot de passe rentrer dans la page d'avant

@@ -1,0 +1,22 @@
+#container
+{
+  width: 80%;
+}
+
+#img_profil
+{
+  width: 8%;
+  height: 5%;
+  float: left;
+}
+
+#container h1
+{
+  font-size: 1.8em;
+}
+
+#container h2
+{
+  font-size: 0.9em;
+  opacity:0.5;
+}

@@ -379,8 +379,8 @@ include'all.class.php';
     <div class="logoperso">
         <h3 class="tittle-w3ls mb-3"><span class="pink">Suivez-Nous  </span>sur les Réseaux</h3>
 
-      <a href= "https://www.instagram.com/centreequestrecebg/"target="_blank"><img src="https://img.icons8.com/cute-clipart/128/000000/instagram-new.png"></a>
-      <a href= "https://www.facebook.com/centreequestre.cebg.9"target="_blank"><img src="https://img.icons8.com/color/125/000000/facebook.png"></a>
+      <a href= "https://www.instagram.com/centreequestrecebg/"target="_blank"><img src="images/instagram.png" class="logo_RS"></a>
+      <a href= "https://www.facebook.com/centreequestre.cebg.9"target="_blank"><img src="images/facebook.png" class="logo_RS"></a>
     </div>
 
     <!-- /news-letter -->
@@ -391,13 +391,25 @@ include'all.class.php';
                 <div class="row subscribe-sec">
                     <p class="news-para col-lg-3">Vous voulez être au courant ?</p>
                     <div class="col-lg-6 con-gd">
-                        <input type="email" class="form-control" id="email" placeholder="Votre email..." name="mail" required>
-
+                      <?php
+                      if (!empty($_GET['mail']))
+                      {
+                        $mail = $_GET['mail'];
+                        ?>
+                        <input type="email" class="form-control news_letter" id="email" value="<?php echo $mail ?>" placeholder="Votre email..." name="mail" required>
+                        <?php
+                      }
+                      else {
+                        ?>
+                        <input type="email" class="form-control news_letter" id="email" placeholder="Votre email..." name="mail" required>
+                        <?php
+                      }
+                      ?>
                     </div>
-                    <div class="col-lg-3 con-gd">
+
+                    <div class="col-lg-3 con-gd news_letter">
                         <button type="submit" name="inscription_newsletter" class="btn submit">S'inscrire</button>
                     </div>
-
                 </div>
 
             </form>

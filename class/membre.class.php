@@ -13,9 +13,10 @@ Class membre
   private $pass_membre;
 	private $code_p_membre;
 	private $num_rue;
+	private $photo_membre;
   //private $une_ville;
 
-	Public function __construct($i, $n, $p, $dn, $m, $t, $r, $c, $pa, $c_p_m, $n_r/*, $une_ville*/)
+	Public function __construct($i, $n, $p, $dn, $m, $t, $r, $c, $pa, $c_p_m, $n_r, $p_m/*, $une_ville*/)
     {
       $this->id_membre = $i;
       $this->nom_membre = $n;
@@ -28,6 +29,7 @@ Class membre
       $this->pass_membre = $pa;
 			$this->code_p_membre = $c_p_m;
 			$this->num_rue = $n_r;
+			$this->photo_membre = $p_m;
       //$this->une_ville = $une_ville;
     }
 
@@ -86,9 +88,14 @@ Public function get_code_p_membre()
 }
 
 Public function get_num_rue()
-	{
-		Return $this->num_rue;
-  }
+{
+	Return $this->num_rue;
+}
+
+Public function get_photo_membre()
+{
+	Return $this->photo_membre;
+}
 
 
 
@@ -142,13 +149,18 @@ Public function set_pass_membre($pa)
 
 Public function set_code_p_membre($c_p_m)
 {
-	$this->code_p_membre = $pa;
+	$this->code_p_membre = $c_p_m;
 }
 
-Public function set_num_rue($n_m)
+Public function set_num_rue($n_r)
 	{
-		$this->num_rue = $pa;
+		$this->num_rue = $n_r;
   }
+
+	Public function set_photo_membre($p_m)
+		{
+			$this->photo_membre = $p_m;
+	  }
 
 //***********************************Function******************************
 Public function ajouter_membre($email, $mdp, $prenom, $nom, $tel, $adresse, $complement, $date_naiss, $code_p_membre, $num_rue, $conn)
@@ -215,6 +227,27 @@ public function compte_nb_membres($conn)
 public function select_membre_actu_valide($conn)
 {
 	$sql = "SELECT id_membre, nom_membre, prenom_membre, email_membre, tel_membre, adresse_membre, complement_membre, daten_membre, code_p_membre, num_rue_membre FROM membre where valide = 'oui' order by id_membre desc limit 0,3 ";
+	$req = $conn->query($sql);
+	return $req;
+}
+
+public function select_photo_membre($id_membre, $conn)
+{
+	$sql = "SELECT photo_membre From membre where id_membre = '$id_membre'";
+	$req = $conn->query($sql);
+	return $req;
+}
+
+public function changement_photo_profil($id_membre, $lib_photo, $conn)
+{
+	$sql = "UPDATE membre SET photo_membre = '$lib_photo' where id_membre = '$id_membre'";
+	$req = $conn->query($sql);
+	return $req;
+}
+
+public function select_nom_prenom($id_membre, $conn)
+{
+	$sql = "SELECT nom_membre, prenom_membre, email_membre from membre where id_membre = '$id_membre'";
 	$req = $conn->query($sql);
 	return $req;
 }

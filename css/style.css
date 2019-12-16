@@ -65,6 +65,16 @@ body img {
     -ms-border-radius: 4px;
 }
 
+.logo_RS
+{
+  width: 7%;
+  height:7%;
+}
+
+.news_letter
+{
+  color:black !important;
+}
 /*-----------------Note Chevaux-----------------*/
 .listeEtoile ul {
   margin: 0;

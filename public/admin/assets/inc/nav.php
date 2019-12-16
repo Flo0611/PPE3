@@ -29,7 +29,7 @@
                 <a href="#"><i class="fa fa-edit "></i>My Link Three </a>
             </li>
             <li>
-                <a href="#"><i class="fa fa-table "></i>My Link Four</a>
+                <a href="../info.php"><i class="fa fa-user "></i>Mon compte</a>
             </li>
              <li>
                 <a href="../../index.php"><i class="fa fa-arrow-circle-left"></i>Retourner au site</a>

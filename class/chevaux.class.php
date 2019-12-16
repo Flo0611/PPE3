@@ -135,7 +135,7 @@ public function modifier_photo($id_che, $id_photo, $conn)
   return $req;
 }
 
-public function select_by_id_chevaux($conn)
+public function select_chevaux($conn)
 {
   $sql = "SELECT id_chevaux, nom_chevaux, prenom_chevaux, sexe_chevaux, race_chevaux, daten_chevaux, datea_chevaux, photo_chevaux from chevaux";
   $req = $conn->query($sql);
@@ -159,6 +159,13 @@ public function compte_nb_chevaux($conn)
 public function select_by_id_limit3_chevaux($conn)
 {
   $sql = "SELECT id_chevaux, nom_chevaux, prenom_chevaux, sexe_chevaux, race_chevaux, daten_chevaux, datea_chevaux, photo_chevaux from chevaux limit 3";
+  $req = $conn->query($sql);
+  return $req;
+}
+
+public function select_photo_cheval_by_id($id_cheval, $conn)
+{
+  $sql = "SELECT photo_chevaux from chevaux where id_chevaux = '$id_cheval'";
   $req = $conn->query($sql);
   return $req;
 }
