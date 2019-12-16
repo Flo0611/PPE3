@@ -22,7 +22,7 @@ if (isset($_POST['valider']))
 
     if ($uploadOk != 0)
     {
-      $une_actu->ajouter_actu($id_membre, $nom, $prenom, $des, $lien, $date, $titre, $conn);
+      $une_actu->ajouter_actu($id_membre, $nom, $prenom, $des, $date, $titre, $conn);
       $id_actu = $conn->lastinsertid();
       $photo = 0;
       while ($photo < $cpt)

@@ -5,9 +5,11 @@
 
 #img_profil
 {
-  width: 8%;
-  height: 5%;
+  width: 55px;
+  height: 50px;
+  border-radius: 50%;
   float: left;
+  margin-right: 2%;
 }
 
 #container h1
