@@ -155,7 +155,7 @@ if (!isset($_SESSION['admin']) OR isset($_SESSION['super_admin']))
                       <div class="div-square">
                            <a href="balades.php" >
  													<i class="fa fa-wechat fa-5x"></i>
-                      <h4>Gérer les balades</h4>
+                      <h4>Gérer les Balades</h4>
                       </a>
                       </div>
 
@@ -163,9 +163,9 @@ if (!isset($_SESSION['admin']) OR isset($_SESSION['super_admin']))
                   </div>
                   <div class="col-lg-2 col-md-2 col-sm-2 col-xs-6">
                       <div class="div-square">
-                           <a href="blank.php" >
+                           <a href="ajout_stages.php" >
  <i class="fa fa-bell-o fa-5x"></i>
-                      <h4>Notifications </h4>
+                      <h4>Gérer les Stages </h4>
                       </a>
                       </div>
 

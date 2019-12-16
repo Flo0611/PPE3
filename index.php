@@ -233,7 +233,7 @@ include'all.class.php';
     <!-- /projects -->
     <section class="projects py-5" id="gallery">
         <div class="container py-md-5">
-          <h3 class="tittle-w3ls text-left mb-5"><span class="pink">Nos chevaux</span> titrés</h3>
+          <h3 class="tittle-w3ls text-left mb-5"><span class="pink">Nos chevaux</span> les mieux notés</h3>
           <div class="row news-grids  text-center">
             <div class="row news-grids mt-md-5 mt-4 text-center">
 
