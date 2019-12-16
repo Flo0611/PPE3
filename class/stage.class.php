@@ -124,6 +124,7 @@ Class stage
   }
 
 <<<<<<< HEAD
+<<<<<<< HEAD
 //****************************function*****************************
 
   public function select_stage($conn)
@@ -151,6 +152,26 @@ Class stage
     }
 
 
+=======
+
+    public function select_stage($conn)
+    {
+      $sql = "SELECT * from stage where valide = 'oui'";
+      $req = $conn->query($sql);
+      return $req;
+
+    }
+
+
+    public function ajouter_stages($date_stage, $date_stage, $heure_stage, $heure_fin_stage, $pdfst, $galopst, $titrest, $photost, $conn)
+    {
+      $sql = "INSERT INTO stage (id_stage, date_stage, heure_stage, des_stage, heure_fin_stage, pdfst, galopst, titrest, photost) VALUES(NULL, '$date_stage','$date_stage','$heure_stage', '$des_stage', '$heure_fin_stage','$pdfst','$galopst','$titrest','$photost')";
+      $req = $conn->query($sql);
+      return $req;
+    }
+
+
+>>>>>>> 7ecc119e4846378d6dbdb3f55d104bc273c53531
 
 }
 
