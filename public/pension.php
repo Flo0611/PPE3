@@ -14,7 +14,7 @@ include'../inc/bdd.inc.php';
 <?php include'../inc/nav_public.php'; ?>
 
   <section class="projects py-5" id="gallery">
-
+<div>
           <h3 class="tittle-w3ls mb-5" style="text-align:center"><span class="pink">Notre</span> pensionnat</h3>
           <div class="row news-grids  text-center">
             <div class="row news-grids mt-md-5 mt-4 text-center py-md-5">
@@ -41,8 +41,10 @@ include'../inc/bdd.inc.php';
                   </div>
                 </div>
               </div>
-              </div>
-</section>
+            </div>
+          </div>
+</div>
+
 
 
 
@@ -91,7 +93,7 @@ include'../inc/bdd.inc.php';
 <?php
 }
 ?>
-
+</section>
 
 
 <?php include'../inc/footer_public.php'; ?>
