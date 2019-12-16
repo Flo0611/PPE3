@@ -7,18 +7,16 @@ Class actu
   private $nom_actu;
   private $prenom_actu;
   private $text_actu;
-  private $lien_actu;
   private $date_actu;
 	private $titre;
 
-	Public function __construct($i, $i_m, $n, $p, $t, $l, $d, $titre)
+	Public function __construct($i, $i_m, $n, $p, $t, $d, $titre)
     {
       $this->id_actu = $i;
 			$this->id_membre = $i_m;
       $this->nom_actu = $n;
       $this->prenom_actu = $p;
       $this->text_actu = $t;
-      $this->lien_actu = $l;
       $this->date_actu = $d;
 			$this->titre_actu = $titre;
     }
@@ -50,11 +48,6 @@ Public function get_prenom_actu()
 Public function get_text_actu()
 	{
 		Return $this->text_actu;
-  }
-
-Public function get_lien_actu()
-	{
-		Return $this->lien_actu;
   }
 
 Public function get_date_actu()
@@ -95,11 +88,6 @@ Public function set_text_actu($t)
 		$this->text_actu = $t;
   }
 
-Public function set_lien_actu($l)
-	{
-		$this->lien_actu = $l;
-  }
-
 Public function set_date_actu($d)
 	{
 		$this->date_actu = $d;
@@ -111,16 +99,23 @@ Public function set_titre_actu($titre)
   }
 
 //***********************************Function******************************
-Public function ajouter_actu($id_membre, $nom_actu, $prenom_actu, $text_actu, $lien_actu, $date_actu, $titre, $conn)
+Public function ajouter_actu($id_membre, $nom_actu, $prenom_actu, $text_actu, $date_actu, $titre, $conn)
 {
-	$sql = "INSERT INTO actualites (id_actu, id_membre, nom_actu, prenom_actu, text_actu, lien_actu, date_actu, titre_actu) VALUES(NULL, '$id_membre', '$nom_actu', '$prenom_actu', '$text_actu', '$lien_actu', '$date_actu', '$titre')";
+	$sql = "INSERT INTO actualites (id_actu, id_membre, nom_actu, prenom_actu, text_actu, date_actu, titre_actu) VALUES(NULL, '$id_membre', '$nom_actu', '$prenom_actu', '$text_actu', '$date_actu', '$titre')";
 	$req = $conn->query($sql);
 	return $req;
 }
 
 public function select_actu_recente($conn)
 {
-	$sql = "SELECT id_actu, id_membre, nom_actu, prenom_actu, text_actu, lien_actu, date_actu FROM actualites order by id_actu desc limit 0,5 ";
+	$sql = "SELECT id_actu, id_membre, nom_actu, prenom_actu, text_actu, date_actu FROM actualites order by id_actu desc limit 0,5 ";
+	$req = $conn->query($sql);
+	return $req;
+}
+
+public function select_actu_by_id($id_actu, $conn)
+{
+	$sql = "SELECT id_actu, id_membre, nom_actu, prenom_actu, text_actu, titre_actu, date_actu FROM actualites where id_actu = '$id_actu'";
 	$req = $conn->query($sql);
 	return $req;
 }

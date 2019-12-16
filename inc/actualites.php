@@ -3,7 +3,7 @@ ini_set("display_errors","off");
 include'all.class.php';
 include'inc/bdd.inc.php';
 $un_membre = new membre(" ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ");
-$une_actu = new actu(" ", " ", " ", " ", " ", " ", " ", " ");
+$une_actu = new actu(" ", " ", " ", " ", " ", " ", " ");
 ?>
 <!DOCTYPE html>
 <html lang="en" dir="ltr">
@@ -23,7 +23,6 @@ $une_actu = new actu(" ", " ", " ", " ", " ", " ", " ", " ");
       <div class="inner-width">
         <h1>Les actualités</h1>
         <div class="border"></div>
-
         <div class="slides owl-carousel">
 
     <?php
@@ -36,7 +35,7 @@ $une_actu = new actu(" ", " ", " ", " ", " ", " ", " ", " ");
       $res_photo = $req_photo->fetch();
       $lib_photo = $res_photo['photo_membre'];
       ?>
-<a href="#gal<?php echo $id_actu ?>">
+<a href="public/actualites_galerie.php?id=<?php echo $id_actu ?>">
             <div class="testimonial">
               <div class="test-info">
                 <img class="test-pic" src="images/images-profil/<?php echo $lib_photo ?>" alt="">

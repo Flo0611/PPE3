@@ -11,7 +11,7 @@ if (isset($_POST['valider']))
   {
     $num_rand = rand(1,1000000);
     include'../inc/upload_actu.php';
-    $une_actu = new actu(" ", " ", " ", " ", " ", " ", " ", " ");
+    $une_actu = new actu(" ", " ", " ", " ", " ", " ", " ");
     $titre = $_POST['titre_actu'];
     $des = $_POST['description_actu'];
     //$photo = $_FILES["fileToUpload"]["name"].$num_rand;
