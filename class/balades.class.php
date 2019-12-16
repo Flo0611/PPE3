@@ -139,7 +139,7 @@ Public function get_valide_balade()
 
   public function select_balades($conn)
   {
-    $sql = "SELECT * from balades where valide = 'oui'";
+    $sql = "SELECT * from balades where valide = 'oui' ORDER BY id_bal DESC";
     $req = $conn->query($sql);
     return $req;
 

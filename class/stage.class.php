@@ -108,7 +108,6 @@ Class stage
     $this->pdfst = $pdf_s;
   }
 
-
   Public function set_galopst($gal_s)
   {
     $this->galopst = $gal_s;
@@ -123,6 +122,8 @@ Class stage
   {
     $this->photost = $pht_s;
   }
+
+//****************************function*****************************
 
   public function select_stage($conn)
   {
