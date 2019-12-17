@@ -27,6 +27,7 @@
 
     <script type="text/javascript" src="../js/etoile.js"></script>
 
+    <script type="text/javascript" src="../js/barre_chevaux.js"></script>
     <script>
     function test(id_cheval)
     {
@@ -34,6 +35,8 @@
       test.document.getElementById("text_note").innerHTML ="Votre vote a bien été enregistrer " ;
     }
   </script>
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
 
 </head>
 
@@ -44,9 +47,9 @@
   <section class="projects py-5" id="gallery">
       <div class="container py-md-5">
           <h3 class="tittle-w3ls text-left mb-5"><span class="pink">Nos </span>chevaux</h3>
-          <input type="text" name="chercher" placeholder="Chercher un cheval ou race" style="float:right; margin-top:-7%; margin-right:10%; border-radius:5px; width:200px; height:40px; padding:5px">
-          <div class="row news-grids  text-center">
-
+          <input type="text" name="barre_recherche" id="barre_recherche" onkeyup="request()" placeholder="Chercher un cheval ou race" style="float:right; margin-top:-7%; margin-right:10%; border-radius:5px; width:200px; height:40px; padding:5px">
+          <div id="contenant"></div>
+          <div class="row news-grids  text-center affiche_tout">
           <?php
           $un_cheval = new chevaux(" ", " ", " ", " ", " ", " ", " ", " ", " ");
           $une_photo = new photo_cheval(" ", " "," ");
@@ -261,6 +264,7 @@
             <?php
           }
           ?>
+
 </div>
 
   </section>

@@ -12,11 +12,9 @@ session_start();
     <li><a class="navbar-brand px-0 mx-0" href="../index.php">CEBG <img src="../images/logo.png" style="width : 70px; height: 50px; margin-top:-5%;">
         </a></li>
 
-    <li><a href="../index.php">Accueil</a></li>
-
-
-
     <li><a href="presentation.php">Présentation</a></li>
+
+    <li><a href="galerie.php">Galerie</a></li>
 
     <li class="deroulant"><a href="#">Cavalerie &ensp;</a>
       <ul class="sous">

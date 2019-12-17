@@ -59,7 +59,7 @@ if (!isset($_SESSION['admin']) OR isset($_SESSION['super_admin']))
                   <div class="col-lg-2 col-md-2 col-sm-2 col-xs-6">
                       <div class="div-square">
                            <a href="stats.php" >
- <i class="fa fa-circle-o-notch fa-5x"></i>
+														 <i class="fas fa-chart-pie fa-5x"></i>
                       <h4>Statistiques</h4>
                       </a>
                       </div>
@@ -90,7 +90,7 @@ if (!isset($_SESSION['admin']) OR isset($_SESSION['super_admin']))
                   <div class="col-lg-2 col-md-2 col-sm-2 col-xs-6">
                       <div class="div-square">
                            <a href="archives_msg.php" >
-<i class="fa fa-inbox fa-5x"></i>
+														 <i class="fa fa-inbox fa-5x"></i>
                       <h4>Messages archivés</h4>
                       </a>
                       </div>
@@ -154,7 +154,7 @@ if (!isset($_SESSION['admin']) OR isset($_SESSION['super_admin']))
                   <div class="col-lg-2 col-md-2 col-sm-2 col-xs-6">
                       <div class="div-square">
                            <a href="balades.php" >
- 													<i class="fa fa-wechat fa-5x"></i>
+ 													<i class="fas fa-walking fa-5x"></i>
                       <h4>Gérer les Balades</h4>
                       </a>
                       </div>
@@ -164,7 +164,7 @@ if (!isset($_SESSION['admin']) OR isset($_SESSION['super_admin']))
                   <div class="col-lg-2 col-md-2 col-sm-2 col-xs-6">
                       <div class="div-square">
                            <a href="ajout_stages.php" >
- <i class="fa fa-bell-o fa-5x"></i>
+ <i class="fas fa-tasks fa-5x"></i>
                       <h4>Gérer les Stages </h4>
                       </a>
                       </div>
@@ -173,9 +173,9 @@ if (!isset($_SESSION['admin']) OR isset($_SESSION['super_admin']))
                   </div>
                   <div class="col-lg-2 col-md-2 col-sm-2 col-xs-6">
                       <div class="div-square">
-                           <a href="blank.php" >
- <i class="fa fa-rocket fa-5x"></i>
-                      <h4>Launch</h4>
+                           <a href="ajout_membre_equipe.php" >
+ <i class="fas fa-plus-circle fa-5x"></i>
+                      <h4>Ajouter des membres d'équipe</h4>
                       </a>
                       </div>
 

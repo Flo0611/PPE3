@@ -1,5 +1,6 @@
 <?php
 session_start();
+include'../../inc/icons.php';
 ini_set("display_errors","on");
 include'../../inc/bdd.inc.php';
 include'../../all.class.php';
@@ -116,12 +117,14 @@ if (!isset($_SESSION['admin']) OR isset($_SESSION['super_admin']))
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
 
-    <script type="text/javascript">
-    $('#tableau').DataTable(
-			"language": {
-				"url": "//cdn.datatables.net/plug-ins/9dcbecd42ad/i18n/French.json"
-		}
-);
+		<script type="text/javascript">
+    $(document).ready(function() {
+    $('#tableau').DataTable( {
+				"language": {
+            "url": "//cdn.datatables.net/plug-ins/9dcbecd42ad/i18n/French.json"
+        }
+    } );
+} );
     </script>
 
 </body>

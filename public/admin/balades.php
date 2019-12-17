@@ -1,5 +1,6 @@
 <?php
 session_start();
+include'../../inc/icons.php';
 include'../../all.class.php';
 include'../../inc/bdd.inc.php';
 if (!isset($_SESSION['admin']) OR isset($_SESSION['super_admin']))

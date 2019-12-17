@@ -1,4 +1,5 @@
 <?php
+include'../../inc/icons.php';
 session_start();
 ini_set("display_errors","on");
 include'../../inc/bdd.inc.php';

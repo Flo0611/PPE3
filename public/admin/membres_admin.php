@@ -1,5 +1,6 @@
 <?php
 session_start();
+include'../../inc/icons.php';
 ini_set("display_errors","off");
 include'../../inc/bdd.inc.php';
 include'../../all.class.php';
@@ -31,7 +32,7 @@ if (!isset($_SESSION['admin']) OR isset($_SESSION['super_admin']))
 <body>
 
   <?php
-	$un_contact = new membre(" ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ");
+	$un_membre = new membre(" ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ");
   include'assets/inc/nav.php';
   ?>
 
@@ -59,7 +60,7 @@ if (!isset($_SESSION['admin']) OR isset($_SESSION['super_admin']))
                 ?>
 
                  <form action="" method="post">
-                 <div style="width:90%;">
+                 <div style="width:100%;">
                      <table id="tableau" class="table table-striped table-bordered" style="width:100%; z-index:0">
                          <thead>
                              <tr>
@@ -78,7 +79,7 @@ if (!isset($_SESSION['admin']) OR isset($_SESSION['super_admin']))
                          <tbody>
 
                            <?php
-                             $req = $un_contact->select_membre_valide($conn);
+                             $req = $un_membre->select_membre_valide($conn);
                              while ($res = $req->fetch())
                              {
                                $id_membre = $res['id_membre'];

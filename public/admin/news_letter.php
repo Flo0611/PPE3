@@ -1,5 +1,6 @@
 <?php
 session_start();
+include'../../inc/icons.php';
 if (!isset($_SESSION['admin']) OR isset($_SESSION['super_admin']))
 {
 	header("location:../../index.php");

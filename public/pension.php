@@ -9,6 +9,7 @@ include'../inc/bdd.inc.php';
 <title>Centre équestre - Pension</title>
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <link rel="stylesheet" href="../css/style.css">
+<link rel="stylesheet" href="../css/style_pension.css">
 <link rel="stylesheet" href="../css/bootstrap.css">
 <body>
 <?php include'../inc/nav_public.php'; ?>
@@ -52,9 +53,9 @@ include'../inc/bdd.inc.php';
         <div id="pension<?php echo $id_pension ?>" class="pop-overlay">
 
                       <div class="popup">
-                          <img src="../images/<?php echo $photo ?>" alt="Popup Image" class="img-fluid-pop-up"  />
-                          <div class="mt-4 desc-chevaux-popup">
-                            <h1 style="font-size:1.5em;"><b><?php echo $lib_pension ?></b></h1><br>
+                          <img src="../images/<?php echo $photo ?>" alt="Popup Image" class="img-fluid-pop-up-pension"  />
+                          <div class="mt-4 <?php if (!empty($_SESSION['membre_connecter']) OR !empty($_SESSION['admin']) OR !empty($_SESSSION['super_admin'])){echo "desc-chevaux-popup-pension";}else{echo "desc-chevaux-popup-deco-pension";} ?>">
+                            <h1 style="font-size:1.5em; margin-top:-75%; margin-left:20%;"><b><?php echo $lib_pension ?></b></h1><br>
                             <p>
                               <span class="label-pop-up">Prix : </span> <span class="text-popup"><b><?php echo $prix_pension ?></b></span><br>
                               <span class="label-pop-up">Surface : </span> <span class="text-popup"><b><?php echo $surface_pension ?></b></span><br>
@@ -62,9 +63,8 @@ include'../inc/bdd.inc.php';
                               <span class="label-pop-up">Description : </span> <span class="text-popup"><b><?php echo $desc_pension ?></b></span><br>
                             </p>
 
-                            <!-- <form action="../traitement/ajout_favoris_chevaux.trait.php?id_cheval=<?php echo $id_cheval ?>" method="POST"> -->
                             <form action= "form_pension.php?pension=<?php echo $id_pension ?>" method="POST">
-                              <button type="submit" class="btn btn-warning" style="margin-top:5%;"
+                              <button type="submit" class="btn btn-warning" style="margin-top:5%; margin-left:20%;"
                               <?php if (empty($_SESSION))
                               {
                                 ?>
@@ -75,7 +75,7 @@ include'../inc/bdd.inc.php';
                               <?php if (empty($_SESSION))
                               {
                                 ?>
-                                <p style="color:rgba(255,0,0,0.7)">Vous devez être connecté pour pouvoir<br> ajouter un cheval à la pension.</p>
+                                <p style="color:rgba(255,0,0,0.7); margin-left:20%;">Vous devez être connecté pour pouvoir<br> ajouter un cheval à la pension.</p>
                                 <?php
                               } ?>
 

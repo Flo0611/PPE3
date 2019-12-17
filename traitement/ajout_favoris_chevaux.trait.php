@@ -23,6 +23,14 @@ if(isset($_POST['supprimer_fav']))
   $un_cheval_favoris->supprimer_cheval_favoris($id_membre, $id_cheval, $conn);
 }
 
-header("location:../public/chevaux.php#gal$id_cheval");
+if ($_GET['page'] == "index")
+{
+  header("location:../index.php#gal$id_cheval");
+}
+else
+{
+  header("location:../public/chevaux.php#gal$id_cheval");
+}
+
 
 ?>

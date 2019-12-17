@@ -136,6 +136,15 @@ include'all.class.php';
         <?php
       }
 
+      if ($_GET['success'] == "form_envoyer")
+      {
+        ?>
+        <div class="alert alert-success" role="alert" style="margin-top:-52%; margin-bottom: 48%; width:30%; left:65%;">
+          Votre formulaire a été transmis a notre équipe. Nous vous informerons de la réponse par mail.
+        </div>
+        <?php
+      }
+
       if ($_GET['success'] == "deconnexion")
       {
         ?>
@@ -242,6 +251,8 @@ include'all.class.php';
           $un_cheval = new chevaux(" ", " ", " ", " ", " ", " ", " ", " ", " ");
           $une_photo = new photo_cheval(" ", " "," ");
           $une_race = new race_chevaux(" ", " ");
+          $un_cheval_fav = new chevaux_fav(" ", " ");
+          $id_membre = $_SESSION['id_membre'];
 
           $req = $un_cheval->select_by_id_limit3_chevaux($conn);
           while ($res = $req->fetch())
@@ -279,7 +290,7 @@ include'all.class.php';
             <div id="gal<?php echo $id_cheval ?>" class="pop-overlay">
                 <div class="popup">
                     <img src="images/uploads-chevaux/<?php echo $photo['lib_photo'] ?>" alt="Popup Image" class="img-fluid-pop-up"  />
-                    <div class="mt-4 desc-chevaux-popup">
+                    <div class="mt-4 desc-chevaux-popup-index">
                       <h1 style="font-size:1.5em;"><b><?php echo $prenom." ".$nom; ?></b></h1><br>
                       <p>
                         <span class="label-pop-up">Sexe : </span> <span class="text-popup"><b><?php echo $sexe ?></b></span><br>
@@ -288,21 +299,36 @@ include'all.class.php';
                         <span class="label-pop-up">Date d'arriver au centre : </span> <span class="text-popup"><b><?php echo $datea ?></b></span><br>
                       </p>
 
-                      <form action="../traitement/ajout_favoris_chevaux.trait.php?id_cheval=<?php echo $id_cheval ?>" method="POST">
-                        <button type="submit" class="btn btn-warning" style="margin-top:5%;"
-                        <?php if (empty($_SESSION))
+                      <form action="traitement/ajout_favoris_chevaux.trait.php?id_cheval=<?php echo $id_cheval ?>&page=index" method="POST">
+                        <?php
+                        $req_fav = $un_cheval_fav->select_by_id_membre_chevaux($id_membre, $id_cheval, $conn);
+                        $res_fav = $req_fav->fetch();
+                        $id_fav = $res_fav['id_chevaux_fav'];
+                        if (empty($id_fav))
                         {
                           ?>
-                          disabled
-                          <?php
-                        } ?>>Ajouter aux favoris</button>
+                          <button type="submit" name="ajout_fav" class="btn btn-warning" style="margin-top:5%; margin-left:20%;"
+                          <?php if (empty($_SESSION))
+                          {
+                          	?>
+                            disabled
+                            <?php
+                          } ?>>Ajouter aux favoris</button>
 
-                        <?php if (empty($_SESSION))
+                          <?php if (empty($_SESSION))
+                          {
+                            ?>
+                            <p style="color:rgba(255,0,0,0.7); margin-left:20%;">Vous devez être connecté pour pouvoir<br> ajouter un cheval en favoris.</p>
+                            <?php
+                          }
+                        }
+                        else
                         {
                           ?>
-                          <p style="color:rgba(255,0,0,0.7)">Vous devez être connecté pour pouvoir<br> ajouter un cheval en favoris.</p>
-                          <?php
-                        } ?>
+                          <button type="submit" name="supprimer_fav" class="btn btn-warning" style="margin-top:5%; margin-left:20%;">Supprimer de mes favoris</button>
+                            <?php
+                        }
+                        ?>
 
                       </form>
 

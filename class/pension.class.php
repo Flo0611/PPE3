@@ -108,5 +108,12 @@ Public function select_pension($conn)
   return $req;
 }
 
+Public function select_pension_by_id($id_pension, $conn)
+{
+  $sql = "SELECT lib_pension FROM pension where id_pension = '$id_pension'";
+  $req = $conn->query($sql);
+  return $req;
+}
+
 }
 ?>
