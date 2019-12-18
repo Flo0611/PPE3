@@ -8,7 +8,11 @@ $une_photo = new photo_cheval(" ", " "," ");
 $une_race = new race_chevaux(" ", " ");
 $une_note = new note(" ", " ", " ", " ");
 $un_cheval_fav = new chevaux_fav(" ", " ");
-$id_membre = $_SESSION['id_membre'];
+if (isset($_SESSION['id_membre']))
+{
+  $id_membre = $_SESSION['id_membre'];
+}
+
 $nom = $_POST['name'];
 $req_chevauxjs = $un_cheval->select_cheval_js($nom, $conn);
 ?>
