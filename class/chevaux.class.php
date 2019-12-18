@@ -177,6 +177,13 @@ public function select_cheval_js($nom, $conn)
   return $req;
 }
 
+public function select_nom_chevaux($conn)
+{
+  $sql = "SELECT id_chevaux, nom_chevaux, prenom_chevaux from chevaux";
+  $req = $conn->query($sql);
+  return $req;
+}
+
   }
 
 ?>
