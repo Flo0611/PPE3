@@ -349,7 +349,11 @@ function ouvre_jour(nom_jour) {
 
 
 </script>
-
+<form action = "planning.cours.php" style = text-align:center>
+  <div class="form-group mx-auto mt-3">
+    <button type="submit" class="btn btn-default morebtn more black con-submit" name="envoyer">Planning cours</button>
+  </div>
+</form>
 <?php include'../inc/footer_public.php'; ?>
 
 </body>
