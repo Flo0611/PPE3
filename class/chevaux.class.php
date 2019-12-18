@@ -184,6 +184,13 @@ public function select_nom_chevaux($conn)
   return $req;
 }
 
+public function select_nom_chevaux_by_id($id_cheval, $conn)
+{
+  $sql = "SELECT nom_chevaux, prenom_chevaux from chevaux where id_chevaux = '$id_cheval'";
+  $req = $conn->query($sql);
+  return $req;
+}
+
   }
 
 ?>

@@ -5,6 +5,8 @@ include'../all.class.php';
 $un_box = new box(" ", " ", " ");
 $une_pension = new pension(" ", " ", " ", " ", " ", " ", " ");
 
+if (isset($_POST['valider']))
+{
 $id_cheval = $_POST['id_cheval'];
 $id_pension = $_POST['id_pension'];
 
@@ -43,6 +45,22 @@ if ($nb_box == 0)
 else
 {
   header("location:../public/admin/ajout_pension.php?erreur=erreur");
+}
+}
+
+
+if (isset($_POST['valider_detail']))
+{
+  $id_pension = $_POST['pension_detail'];
+  header("location:../public/admin/ajout_pension.php?action=detail&id_pension=$id_pension");
+}
+
+if ($_GET['action'] == "supprimer")
+{
+  $id_box = $_GET['id'];
+  $un_box->delete_box($id_box, $conn);
+  
+  header("location:../public/admin/ajout_pension.php?action=supprimer");
 }
 
 ?>
