@@ -62,6 +62,20 @@ public function ajout_cheval_favoris($id_pension, $id_cheval, $conn)
   return $req;
 }
 
+public function select_cheval($id_cheval, $conn)
+{
+	$sql = "SELECT count(*) as nb from box where id_cheval = '$id_cheval'";
+	$req = $conn->query($sql);
+	return $req;
+}
+
+public function select_nb_place($id_pension, $conn)
+{
+	$sql = "SELECT count(*) as nb_pension from box where id_pension = '$id_pension'";
+	$req = $conn->query($sql);
+	return $req;
+}
+
 
 }
 ?>

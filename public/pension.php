@@ -51,7 +51,19 @@ include'../inc/bdd.inc.php';
 
         <!-- popup-->
         <div id="pension<?php echo $id_pension ?>" class="pop-overlay">
+                      <?php
+                      $un_box = new box(" ", " ", " ");
+                      $une_pension = new pension(" ", " ", " ", " ", " ", " ", " ");
+                      $req_place = $un_box->select_nb_place($id_pension, $conn);
+                      $res_place = $req_place->fetch();
+                      $nb_place = $res_place['nb_pension'];
 
+                      $req_place_max = $une_pension->select_place_dispo_pension($id_pension, $conn);
+                      $res_place_max = $req_place_max->fetch();
+                      $place_max = $res_place_max['place_max'];
+
+                      $place_dispo = $place_max - $nb_place;
+                      ?>
                       <div class="popup">
                           <img src="../images/<?php echo $photo ?>" alt="Popup Image" class="img-fluid-pop-up-pension"  />
                           <div class="mt-4 <?php if (!empty($_SESSION['membre_connecter']) OR !empty($_SESSION['admin']) OR !empty($_SESSSION['super_admin'])){echo "desc-chevaux-popup-pension";}else{echo "desc-chevaux-popup-deco-pension";} ?>">
@@ -59,7 +71,17 @@ include'../inc/bdd.inc.php';
                             <p>
                               <span class="label-pop-up">Prix : </span> <span class="text-popup"><b><?php echo $prix_pension ?></b></span><br>
                               <span class="label-pop-up">Surface : </span> <span class="text-popup"><b><?php echo $surface_pension ?></b></span><br>
-                              <span class="label-pop-up">Box disponible : </span> <span class="text-popup"><b></b></span><br>
+                              <span class="label-pop-up">Places disponibles : </span> <span class="text-popup" style="margin-left:8%;"><b><?php echo $place_dispo ?>
+                                <?php
+                                if ($place_dispo != 0)
+                                {
+                                  echo "<img src='../images/point_vert.jpg'>";
+                                }
+                                else {
+                                  echo "<img src='../images/point_rouge.jpg'>";
+                                }
+                                ?>
+                             </b></span><br>
                               <span class="label-pop-up">Description : </span> <span class="text-popup"><b><?php echo $desc_pension ?></b></span><br>
                             </p>
 
