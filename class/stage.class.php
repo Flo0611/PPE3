@@ -108,6 +108,7 @@ Class stage
     $this->pdfst = $pdf_s;
   }
 
+
   Public function set_galopst($gal_s)
   {
     $this->galopst = $gal_s;
@@ -123,15 +124,14 @@ Class stage
     $this->photost = $pht_s;
   }
 
-  //*******************************Function************************************
 
+    public function select_stage($conn)
+    {
+      $sql = "SELECT * from stage where valide = 'oui'";
+      $req = $conn->query($sql);
+      return $req;
 
-  public function select_stage($conn)
-  {
-    $sql = "SELECT * from stage";
-    $req = $conn->query($sql);
-    return $req;
-}
+    }
 
 public function ajouter_stages($date_stage, $heure_stage, $heure_fin_stage, $pdfst, $galopst, $titrest, $photost, $conn)
 {
