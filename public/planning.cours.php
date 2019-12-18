@@ -25,19 +25,19 @@
     <tr style="height:  50px;">
       <td>horaire</td>
       <td>Cours</td>
-      <td>Professeur</td>
+      <td>Type</td>
     </tr>
     <tr style="height: 150px;">
       <td>8h - 12h</td>
-      <td> Galops 5+ <br><b> (Equitation)</b></td>
-      <td> jeanne ausecours</td>
+      <td> Galops 5+ </td>
+      <td> Equitation</td>
     </tr>
 
     <!--***************************Après midi******************************* -->
     <tr style="height: 150px;">
       <td>14h - 18h</td>
-      <td> Galops 1+ <br><b> (Equitation/attelage)</b></td>
-      <td>Jean rennet/Ali baba</td>
+      <td> Galops 1+ </td>
+      <td> Attelage </td>
     </tr>
   </table>
 </div>
@@ -50,20 +50,19 @@
     <tr style="height:  50px;">
       <td>horaire</td>
       <td>Cours</td>
-      <td>Professeur</td>
+      <td>Type</td>
     </tr>
     <tr style="height: 150px;">
       <td>8h - 12h</td>
-      <td> Galops 5+ <br><b> (Equitation)</b></td>
-      <td> jeanne ausecours</td>
+      <td> Galops 5+ </td>
+      <td> Equitation</td>
     </tr>
 
     <!--***************************Après midi******************************* -->
-
     <tr style="height: 150px;">
       <td>14h - 18h</td>
-      <td> Galops 1+ <br><b> (Equitation/attelage)</b></td>
-      <td>Jean rennet/Ali baba</td>
+      <td> Galops 1+ </td>
+      <td> Attelage </td>
     </tr>
   </table>
 </div>
@@ -76,20 +75,19 @@
     <tr style="height:  50px;">
       <td>horaire</td>
       <td>Cours</td>
-      <td>Professeur</td>
+      <td>Type</td>
     </tr>
     <tr style="height: 150px;">
       <td>8h - 12h</td>
-      <td> Galops 5+ <br><b> (Equitation)</b></td>
-      <td> jeanne ausecours</td>
+      <td> Galops 5+ </td>
+      <td> Equitation</td>
     </tr>
 
     <!--***************************Après midi******************************* -->
-
     <tr style="height: 150px;">
       <td>14h - 18h</td>
-      <td> Galops 1+ <br><b> (Equitation/attelage)</b></td>
-      <td>Jean rennet/Ali baba</td>
+      <td> Galops 1+ </td>
+      <td> Attelage </td>
     </tr>
   </table>
 </div>
@@ -102,20 +100,19 @@
     <tr style="height:  50px;">
       <td>horaire</td>
       <td>Cours</td>
-      <td>Professeur</td>
+      <td>Type</td>
     </tr>
     <tr style="height: 150px;">
       <td>8h - 12h</td>
-      <td> Galops 5+ <br><b> (Equitation)</b></td>
-      <td> jeanne ausecours</td>
+      <td> Galops 5+ </td>
+      <td> Equitation</td>
     </tr>
 
     <!--***************************Après midi******************************* -->
-
     <tr style="height: 150px;">
       <td>14h - 18h</td>
-      <td> Galops 1+ <br><b> (Equitation/attelage)</b></td>
-      <td>Jean rennet/Ali baba</td>
+      <td> Galops 1+ </td>
+      <td> Attelage </td>
     </tr>
   </table>
 </div>
@@ -128,20 +125,19 @@
     <tr style="height:  50px;">
       <td>horaire</td>
       <td>Cours</td>
-      <td>Professeur</td>
+      <td>Type</td>
     </tr>
     <tr style="height: 150px;">
       <td>8h - 12h</td>
-      <td> Galops 5+ <br><b> (Equitation)</b></td>
-      <td> jeanne ausecours</td>
+      <td> Galops 5+ </td>
+      <td> Equitation</td>
     </tr>
 
     <!--***************************Après midi******************************* -->
-
     <tr style="height: 150px;">
       <td>14h - 18h</td>
-      <td> Galops 1+ <br><b> (Equitation/attelage)</b></td>
-      <td>Jean rennet/Ali baba</td>
+      <td> Galops 1+ </td>
+      <td> Attelage </td>
     </tr>
   </table>
 </div>
@@ -155,20 +151,19 @@
     <tr style="height:  50px;">
       <td>horaire</td>
       <td>Cours</td>
-      <td>Professeur</td>
+      <td>Type</td>
     </tr>
     <tr style="height: 150px;">
       <td>8h - 12h</td>
-      <td> Galops 5+ <br><b> (Equitation)</b></td>
-      <td> jeanne ausecours</td>
+      <td> Galops 5+ </td>
+      <td> Equitation</td>
     </tr>
 
     <!--***************************Après midi******************************* -->
-
     <tr style="height: 150px;">
       <td>14h - 18h</td>
-      <td> Galops 1+ <br><b> (Equitation/attelage)</b></td>
-      <td>Jean rennet/Ali baba</td>
+      <td> Galops 1+ </td>
+      <td> Attelage </td>
     </tr>
   </table>
 </div>
@@ -182,23 +177,20 @@
     <tr style="height:  50px;">
       <td>horaire</td>
       <td>Cours</td>
-      <td>Professeur</td>
+      <td>Type</td>
     </tr>
     <tr style="height: 150px;">
       <td>8h - 12h</td>
-      <td> Galops 5+ <br><b> (Equitation)</b></td>
-      <td> jeanne ausecours</td>
+      <td> Galops 5+ </td>
+      <td> Equitation</td>
     </tr>
-
 
     <!--***************************Après midi******************************* -->
-
     <tr style="height: 150px;">
       <td>14h - 18h</td>
-      <td> Galops 1+ <br><b> (Equitation/attelage)</b></td>
-      <td>Jean rennet/Ali baba</td>
+      <td> Galops 1+ </td>
+      <td> Attelage </td>
     </tr>
-
   </table>
 </div>
 </div>
