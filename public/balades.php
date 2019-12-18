@@ -71,6 +71,7 @@
                         <span class="pink">Balades : </span><?php echo $titre_balades; ?> </a></h3>
                         <p><?php echo $description_balades; ?></p>
                         <p> Galop requis : <?php echo $galop_balades; ?></p>
+                        <p> Date de la balade : <b><u><?php echo $date_balades; ?></u></b></p>
                         <p> Debut de la balade : <?php echo $heure_balades; ?></p>
                         <p> Durée : <?php echo $duree_balades."h"; ?></p>
 
