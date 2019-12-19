@@ -89,6 +89,16 @@
                         <p> Galop Requis : <?php echo $lib_galop; ?></p>
                         <p> Nombre d'heure de stage : <?php echo $heure_stage; ?></p>
                         <p> Date du stage : <?php echo $date_stage; ?></p>
+                        <p>Places disponibles : </span><b><?php echo $place_dispo ?>
+                        <?php
+                                if ($place_dispo > 0)
+                                {
+                                  echo "<img src='../images/point_vert.jpg'>";
+                                }
+                                else {
+                                  echo "<img src='../images/point_rouge.jpg'>";
+                                }
+                        ?></span><br>
                         <form class="login100-form validate-form" method="post" action="../traitement/inscription_activite.php?activite=2&stage=<?php echo $id_stage ?>">
                         <button class="btn more black mt-3"name="envoyer"
                         <?php if (empty($_SESSION) or $place_dispo == 0)
@@ -98,15 +108,7 @@
                                 <?php
                               } ?>>Inscription</button>
                         </form>
-                        <?php
-                                if ($place_dispo > 0)
-                                {
-                                  echo "<img src='../images/point_vert.jpg'>";
-                                }
-                                else {
-                                  echo "<img src='../images/point_rouge.jpg'>";
-                                }
-                                ?>
+
                     </div>
                 </div>
             </div>

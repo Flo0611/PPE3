@@ -90,6 +90,17 @@
                         <p> Date de la balade : <b><u><?php echo $date_balades; ?></u></b></p>
                         <p> Debut de la balade : <?php echo $heure_balades; ?></p>
                         <p> Durée : <?php echo $duree_balades."h"; ?></p>
+                        <p>Places disponibles : </span><b><?php echo $place_dispo ?>
+                        <?php
+                                if ($place_dispo > 0)
+                                {
+                                  echo "<img src='../images/point_vert.jpg'>";
+                                }
+                                else {
+                                  echo "<img src='../images/point_rouge.jpg'>";
+                                }
+                        ?></span><br>
+                                
                         <form class="login100-form validate-form" method="post" action="../traitement/inscription_activite.php?activite=1&balade=<?php echo $id_balades ?>">
                         <button class="btn more black mt-3"name="envoyer"
                         <?php if (empty($_SESSION) or $place_dispo == 0)
@@ -99,15 +110,7 @@
                                 <?php
                               } ?>>Inscription</button>
                         </form>
-                        <?php
-                                if ($place_dispo > 0)
-                                {
-                                  echo "<img src='../images/point_vert.jpg'>";
-                                }
-                                else {
-                                  echo "<img src='../images/point_rouge.jpg'>";
-                                }
-                        ?>
+
                     </div>
                 </div>
             </div>
