@@ -154,7 +154,13 @@ Public function get_valide_balade()
     return $req;
   }
 
+  public function select_nbplace_balades($id_balades, $conn)
+  {
+    $sql = "SELECT place_max from balades where id_bal = '$id_balades'";
+    $req = $conn->query($sql);
+    return $req;
 
+  }
 
 }
 
