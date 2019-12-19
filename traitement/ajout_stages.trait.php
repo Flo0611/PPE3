@@ -17,6 +17,7 @@ if (isset($_POST['valider']))
     $description_stage = $_POST['description_stage'];
     $galop_stage = $_POST['galop_stage'];
     $titre_stage = $_POST['titre_stage'];
+    $place_max =$_POST['place_max'];
     $photo_stage = $_FILES["fileToUpload"]["name"].$num_rand;
 
 
@@ -24,7 +25,7 @@ if (isset($_POST['valider']))
 
     if ($uploadOk != 0)
     {
-      $un_stage->ajouter_stages($date_stage, $heure_stage, $description_stage, $galop_stage, $titre_stage,$photo_stage, $conn);
+      $un_stage->ajouter_stages($date_stage, $description_stage ,$heure_stage, $galop_stage, $titre_stage, $photo_stage, $place_max, $conn);
       header("location:../public/admin/ajout_stages.php?succes=upload");
     }
     else
@@ -34,7 +35,6 @@ if (isset($_POST['valider']))
   }
   else
   {
-    echo "Veuillez remplir tous les champs";
     header("location:../public/admin/ajout_stages.php?erreur=champs");
   }
 

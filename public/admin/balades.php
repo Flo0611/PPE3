@@ -133,6 +133,10 @@ if (!isset($_SESSION['admin']) OR isset($_SESSION['super_admin']))
 		              </select>
 									<br>
 
+									<label>Nombre de place disponible :</label><br>
+ 		             <input type="number" name="place_max" id="place_max">
+								 <br>
+
 									<label>Photos de la Balade :</label><br>
  		             <input type="file" name="fileToUpload" id="fileToUpload">
 								 <br>

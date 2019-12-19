@@ -122,9 +122,9 @@ Class stage
     }
 
 
-    public function ajouter_stages($date_stage, $description_stage ,$heure_stage, $galop_stage, $titre_stage, $photo_stage, $conn)
+    public function ajouter_stages($date_stage, $description_stage ,$heure_stage, $galop_stage, $titre_stage, $photo_stage, $place_max, $conn)
     {
-      $sql = "INSERT INTO stage (id_stage, date_stage, heure_stage, description_stage, galop_stage, titre_stage, photo_stage, valide) VALUES(NULL,'$date_stage','$heure_stage',' $description_stage','$galop_stage','$titre_stage','$photo_stage','$valide')";
+      $sql = "INSERT INTO stage (id_stage, date_stage, heure_stage, description_stage, galop_stage, titre_stage, photo_stage, place_max) VALUES(NULL,'$date_stage','$heure_stage',' $description_stage','$galop_stage','$titre_stage','$photo_stage', '$place_max')";
       $req = $conn->query($sql);
       return $req;
     }
@@ -141,7 +141,7 @@ Class stage
       $sql = "SELECT place_max from stage where id_stage = '$id_stage'";
       $req = $conn->query($sql);
       return $req;
-  
+
     }
 
 }
