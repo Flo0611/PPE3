@@ -39,6 +39,7 @@ $lib_jour = $res_jour['lib_jour'];
         <td>horaire</td>
         <td>Cours</td>
         <td>Galop requis</td>
+        <td>Inscription</td>
       </tr>
 <?php
 
@@ -56,6 +57,7 @@ while ($res_cours = $req_cours->fetch())
     <td><?php echo $debut_horaires." - ".$fin_horaires ?></td>
     <td><?php echo $titre_cours ?></td>
     <td><?php echo $lib_galop ?></td>
+    <td><button type="button" class="btn btn-warning">S'inscrire</button></td>
   </tr>
 
         <!--***************************Matin******************************* -->
