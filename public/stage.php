@@ -45,20 +45,23 @@
             </div>
         </div>
         <?php
-        $une_stage = new stage(" ", " ", " ", " ", " ", " ", " ", " ", " ");
+        $un_stage = new stage(" ", " ", " ", " ", " ", " ", " ");
+        $un_galop = new galop(" ", " ");
 
-        $req = $une_stage->select_stage($conn);
+        $req = $un_stage->select_stage($conn);
         while ($res = $req->fetch())
         {
-          $id_stage = $res['idst'];
-          $date_stage = $res['datest'];
-          $heure_stage = $res['heurest'];
-          $description_stage = $res['desst'];
-          $heure_fin_stage = $res['heurefin'];
-          $pdf_stage = $res['pdfst'];
-          $galop_stage = $res['galopst'];
-          $titre_stage = $res['titrest'];
-          $photo_stage = $res['photost'];
+          $id_stage = $res['id_stage'];
+          $date_stage = $res['date_stage'];
+          $heure_stage = $res['heure_stage'];
+          $description_stage = $res['description_stage'];
+          $galop_stage = $res['galop_stage'];
+          $titre_stage = $res['titre_stage'];
+          $photo_stage = $res['photo_stage'];
+
+          $req_galop = $un_galop->select_galop_by_id($galop_stage, $conn);
+          $res_galop = $req_galop->fetch();
+          $lib_galop = $res_galop['lib_galop'];
 
 
          ?>
@@ -66,14 +69,15 @@
                 <div class="row inner_sec_info">
 
                     <div class="col-md-6 banner_bottom_grid help">
-                        <img src="../images/<?php echo $photo_stage; ?>" alt=" " class="img-fluid">
+                        <img src="../images/uploads_stage/<?php echo $photo_stage; ?>" alt=" " class="img-fluid">
                     </div>
                     <div class="col-md-6 banner_bottom_left">
                         <h3>
                         <span class="pink">Stages : </span><?php echo $titre_stage; ?> </a></h3>
                         <p><?php echo $description_stage; ?></p>
-                        <p> Nombre de Galop : <?php echo $galop_stage; ?></p>
-                        <a class="btn more black mt-3" href="<?php echo $pdf_stage ?>" role="button">Nos tarif</a>
+                        <p> Galop Requis : <?php echo $lib_galop; ?></p>
+                        <p> Nombre d'heure de stage : <?php echo $heure_stage; ?></p>
+                        <p> Date du stage : <?php echo $date_stage; ?></p>
                     </div>
                 </div>
             </div>

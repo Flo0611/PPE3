@@ -6,23 +6,19 @@ Class stage
   private $date_stage;
   private $heure_stage;
   private $des_stage;
-  private $heure_fin_stage;
-  private $pdfst;
-  private $galopst;
-  private $titrest;
-  private $photost;
+  private $galop_stage;
+  private $titre_stage;
+  private $photo_stage;
 
-  Public function __construct($i, $date_s, $h_d, $des_s, $h_f, $pdf_s, $gal_s, $tit_s, $pht_s)
+  Public function __construct($i, $date_s, $h_d, $des_s, $gal_s, $tit_s, $pht_s)
   {
     $this->id_stage = $i;
     $this->date_stage = $date_s;
     $this->heure_stage = $h_d;
-    $this->des_stage = $des_s;
-    $this->heure_fin_stage = $h_f;
-    $this->pdfst = $pdf_s;
-    $this->galopst = $gal_s;
-    $this->titrest = $tit_s;
-    $this->photost= $pht_s;
+    $this->description_stage = $des_s;
+    $this->galop_stage = $gal_s;
+    $this->titre_stage = $tit_s;
+    $this->photo_stage= $pht_s;
 
   }
 
@@ -43,34 +39,24 @@ Class stage
     Return $this->heure_stage;
   }
 
-  Public function get_des_stage()
+  Public function get_description_stage()
   {
-    Return $this->des_stage;
+    Return $this->desription_stage;
   }
 
-  Public function get_heure_fin_stage()
+  Public function get_galop_stage()
   {
-    Return $this->heure_fin_stage;
+    Return $this->galop_stage;
   }
 
-  Public function get_pdfst()
+  Public function get_titre_stage()
   {
-    Return $this->pdfst;
+    Return $this->titre_stage;
   }
 
-  Public function get_galopst()
+  Public function get_photo_stage()
   {
-    Return $this->galopst;
-  }
-
-  Public function get_titrest()
-  {
-    Return $this->titrest;
-  }
-
-  Public function get_photost()
-  {
-    Return $this->photost;
+    Return $this->photo_stage;
   }
 
 
@@ -93,50 +79,39 @@ Class stage
     $this->heure_stage = $h_d;
   }
 
-  Public function set_des_stage($des_s)
+  Public function set_description_stage($des_s)
   {
-    $this->des_stage = $des_s;
+    $this->description_stage = $des_s;
   }
-
-  Public function set_heure_fin_stage($h_f)
-  {
-    $this->heure_fin_stage = $h_f;
-  }
-
-  Public function set_pdfst($pdf_s)
-  {
-    $this->pdfst = $pdf_s;
-  }
-
 
   Public function set_galopst($gal_s)
   {
     $this->galopst = $gal_s;
   }
 
-  Public function set_titrest($tit_s)
+  Public function set_titre_stage($tit_s)
   {
-    $this->titrest = $tit_s;
+    $this->titre_stage = $tit_s;
   }
 
-  Public function set_photost($pht_s)
+  Public function set_photo_stage($pht_s)
   {
-    $this->photost = $pht_s;
+    $this->photo_stage = $pht_s;
   }
 
 
     public function select_stage($conn)
     {
-      $sql = "SELECT * from stage where valide = 'oui'";
+      $sql = "SELECT * from stage ORDER BY id_stage DESC";
       $req = $conn->query($sql);
       return $req;
 
     }
 
 
-    public function ajouter_stages($date_stage, $date_stage, $heure_stage, $heure_fin_stage, $pdfst, $galopst, $titrest, $photost, $conn)
+    public function ajouter_stages($date_stage, $description_stage ,$heure_stage, $galop_stage, $titre_stage, $photo_stage, $conn)
     {
-      $sql = "INSERT INTO stage (id_stage, date_stage, heure_stage, des_stage, heure_fin_stage, pdfst, galopst, titrest, photost) VALUES(NULL, '$date_stage','$date_stage','$heure_stage', '$des_stage', '$heure_fin_stage','$pdfst','$galopst','$titrest','$photost')";
+      $sql = "INSERT INTO stage (id_stage, date_stage, heure_stage, description_stage, galop_stage, titre_stage, photo_stage) VALUES(NULL,'$date_stage','$heure_stage',' $description_stage','$galop_stage','$titre_stage','$photo_stage')";
       $req = $conn->query($sql);
       return $req;
     }

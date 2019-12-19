@@ -1,8 +1,9 @@
 <?php
 session_start();
+ini_set("display_errors","off");
 include'../../inc/bdd.inc.php';
 include'../../all.class.php';
-$une_race = new race_chevaux(" ", " ");
+
 if (!isset($_SESSION['admin']) OR isset($_SESSION['super_admin']))
 {
 	header("location:../../index.php");
@@ -12,7 +13,7 @@ if (!isset($_SESSION['admin']) OR isset($_SESSION['super_admin']))
 <html>
   <head>
     <meta charset="utf-8">
-    <title>Ajouter des chevaux</title>
+    <title>Ajouter des Stages</title>
 
 <!-- BOOTSTRAP STYLES-->
   <link href="assets/css/bootstrap.css" rel="stylesheet" />
@@ -79,42 +80,55 @@ if (!isset($_SESSION['admin']) OR isset($_SESSION['super_admin']))
        				?>
 
             <form action="../../traitement/ajout_stages.trait.php" method="post" enctype="multipart/form-data">
-              <label>Nom du stages :</label><br>
-             <input type="text" name="prenom_stage" placeholder="Veuillez entrer le prénom du cheval"><br>
+              <label>Titre du stages :</label><br>
+             <input type="text" name="titre_stage" placeholder="Veuillez entrer le titre du stage"><br>
 
-             <label class="float">Nom du stages:</label><br>
-             <input type="text" name="nom_stage" class="float" placeholder="Veuillez entrer le nom du cheval"><br>
+             <label>Description du stages:</label><br>
+             <textarea name="description_stage" style="width:40%; padding-left:10px;" class="encadre" placeholder="Veuillez entrer la description du stage"></textarea><br>
 
-             <label>Date de naissance :</label><br>
-             <input type="text" id="datepicker" name="daten_che" placeholder="Veuillez entrer la date de naissance du cheval"><br>
+             <label>Date du stage</label><br>
+             <input type="text" name="date_stage" value="<?php echo date('d\/m\/Y') ?>"><br>
 
-             <label class="float">Race :</label><br>
-             <select class="float select" name="race_che">
-               <?php
-                $req = $une_race->select_race_chevaux($conn);
-                while($res = $req->fetch())
-                {
-                  $id_race = $res['id_race_chevaux'];
-                  $lib_race = $res['lib_race_chevaux'];
-                  ?>
-                  <option value="<?php echo $id_race ?>"><?php echo $lib_race ?></option>
-                  <?php
-                }
-               ?>
-             </select>
+						 <label>Nombre d'heure de stage :</label><br>
+						 <select class="encadre" name="heure_stage" style="width:40%;">
+							 <option selected>Choisissez la durée du stage...</option>
+							 <option value="1">1 heure</option>
+							 <option value="2">2 heures</option>
+							 <option value="3">3 heures</option>
+							 <option value="4">4 heures</option>
+							 <option value="5">5 heures</option>
+							 <option value="6">6 heures</option>
+							 <option value="7">7 heures</option>
+							 <option value="8">8 heures</option>
+							 <option value="8">Toute la journée</option>
+						 </select>
+						 <br>
 
-             <label>Date d'arriver au centre</label><br>
-             <input type="text" name="datea_che" value="<?php echo date('d\/m\/Y') ?>"><br>
+<br>
+						 <label>Nombre de galop :</label><br>
+						 <select class="encadre" name="galop_stage" style="width:40%;">
 
-             <label class="float">Sexe :</label><br>
-             <select class="float select" name="sexe">
-               <option value="nul" selected>Choisissez une option...</option>
-               <option value="male">Mâle</option>
-               <option value="femelle">Femelle</option>
-             </select>
+									<option value="0" selected>Choisissez le nombre de Galop...</option>
+									<?php
+									$un_galop = new galop(" "," ");
 
-             <input type="file" name="fileToUpload" id="fileToUpload">
-             <button type="submit" class="btn btn-success" name="valider">Valider</button>
+									 $req_g = $un_galop->select_galop($conn);
+									 while($res_g = $req_g->fetch())
+									 {
+										 $id_g = $res_g['id_galop'];
+										 $lib_g = $res_g['lib_galop'];
+										 ?>
+										 <option value="<?php echo $id_g ?>"><?php echo $lib_g?></option>
+										 <?php
+									 }
+									?>
+								</select>
+								<br>
+						 <label>Photos du stage :</label><br>
+						<input type="file" name="fileToUpload" id="fileToUpload">
+						<br>
+						<button type="submit" class="btn btn-success" name="valider">Valider</button>
+
 
            </form>
 
