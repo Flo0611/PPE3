@@ -3,6 +3,7 @@ ini_set("display_errors","on");
 
 include'../all.class.php';
 include'../inc/bdd.inc.php';
+$un_stage = new stage(" ", " ", " ", " ", " ", " ", " ", " ");
 
 if (isset($_POST['valider']))
 {
@@ -10,7 +11,6 @@ if (isset($_POST['valider']))
   {
     $num_rand = rand(1,1000000);
     include'../inc/upload_file_stage.php';
-    $un_stage = new stage(" ", " ", " ", " ", " ", " ", " ");
 
     $date_stage = $_POST['date_stage'];
     $heure_stage = $_POST['heure_stage'];
@@ -37,5 +37,18 @@ if (isset($_POST['valider']))
     echo "Veuillez remplir tous les champs";
     header("location:../public/admin/ajout_stages.php?erreur=champs");
   }
+
 }
+
+if ($_GET['action'] == "supprimer")
+{
+  $id_stage = $_GET['id'];
+  $un_stage->supr_stages($id_stage, $conn);
+
+  header("location:../public/admin/ajout_stages.php?success=supprimer");
+}
+
+
+
+
 ?>

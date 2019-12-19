@@ -1,8 +1,13 @@
 <?php
 session_start();
+ini_set("display_errors","off");
 include'../../inc/icons.php';
 include'../../all.class.php';
 include'../../inc/bdd.inc.php';
+
+
+$une_balade = new balades(" ", " ", " ", " ", " ", " ", " ", " ", " ");
+
 if (!isset($_SESSION['admin']) OR isset($_SESSION['super_admin']))
 {
 	header("location:../../index.php");
@@ -29,6 +34,10 @@ if (!isset($_SESSION['admin']) OR isset($_SESSION['super_admin']))
 		<!-- Style-CSS -->
 		<!-- font-awesome-icons -->
 		<link href="css/font-awesome.css" rel="stylesheet">
+
+		<link href='https://cdn.datatables.net/1.10.20/css/jquery.dataTables.min.css' rel='stylesheet' type='text/css' />
+
+		<link href='https://cdn.datatables.net/plug-ins/1.10.20/i18n/French.json' rel='stylesheet' type='text/css' />
      <!-- GOOGLE FONTS-->
    <link href='http://fonts.googleapis.com/css?family=Open+Sans' rel='stylesheet' type='text/css' />
 </head>
@@ -129,10 +138,64 @@ if (!isset($_SESSION['admin']) OR isset($_SESSION['super_admin']))
 								 <br>
  		             <button type="submit" class="btn btn-success" name="valider">Valider</button>
 
- 		           </form>
 
+
+
+							 <div style="width:60%; margin-left:5%; margin-top:5%;">
+									 <table id="tableau" class="table table-striped table-bordered" style="width:100%">
+											 <thead>
+													 <tr>
+															 <th>Id</th>
+															 <th>Date</th>
+															 <th>Heure</th>
+															 <th>Description</th>
+															 <th>Galop</th>
+															 <th>Titre</th>
+															 <th>Photo</th>
+															 <th>Durée</th>
+															 <th>Supprimer</th>
+													 </tr>
+											 </thead>
+											 <tbody>
+
+												 <?php
+													 $req = $une_balade->select_balades($conn);
+													 while ($res = $req->fetch())
+													 {
+														 $id_balades = $res['id_bal'];
+														 $date_balades = $res['date_bal'];
+														 $heure_balades = $res['heure_bal'];
+														 $des_balades = $res['des_bal'];
+														 $galopbalades = $res['galop_bal'];
+														 $titrebalades = $res['titre_bal'];
+														 $photobalades = $res['photo_bal'];
+														 $duree_balade = $res['duree_balade'];
+
+														 ?>
+
+
+														 <tr>
+															 <td><?php echo $id_balades ?></td>
+															 <td><?php echo $date_balades?></td>
+															 <td><?php echo $heure_balades ?></td>
+															 <td><?php echo $des_balades?></td>
+															 <td><?php echo $galopbalades ?></td>
+															 <td><?php echo $titrebalades ?></td>
+															 <td><?php echo $photobalades ?></td>
+															  <td><?php echo $duree_balade ?></td>
+
+															 <td><a href="../../traitement/ajout_balade.trait.php?action=supprimer&id=<?php echo $id_balades ?>"><i style="color:red" class="fa fa-minus-circle fa-2x"></i></a></td>
+															 </tr>
+
+
+														 <?php
+													 }
+												 ?>
+											 </tbody>
+										 </table>
+									 	</form>
                  <!-- /. ROW  -->
-    </div>
+    			 	</div>
              <!-- /. PAGE INNER  -->
             </div>
          <!-- /. PAGE WRAPPER  -->
@@ -153,6 +216,33 @@ if (!isset($_SESSION['admin']) OR isset($_SESSION['super_admin']))
       <!-- CUSTOM SCRIPTS -->
     <script src="assets/js/custom.js"></script>
 
+		<script src="https://cdn.datatables.net/1.10.20/js/jquery.dataTables.min.js"></script>
+
+		<script src="https://code.jquery.com/jquery-3.3.1.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+		<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+
+		<script src="https://cdn.datatables.net/buttons/1.6.0/js/dataTables.buttons.min.js"></script>
+		<script src="https://cdn.datatables.net/buttons/1.6.0/js/buttons.flash.min.js"></script>
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/jszip/3.1.3/jszip.min.js"></script>
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.1.53/pdfmake.min.js"></script>
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.1.53/vfs_fonts.js"></script>
+		<script src="https://cdn.datatables.net/buttons/1.6.0/js/buttons.html5.min.js"></script>
+		<script src="https://cdn.datatables.net/buttons/1.6.0/js/buttons.print.min.js"></script>
+
+		<script type="text/javascript">
+		$(document).ready(function() {
+		$('#tableau').DataTable( {
+				dom: 'Bfrtip',
+				buttons: [
+						'excel', 'pdf', 'print'
+				],
+				"language": {
+						"url": "//cdn.datatables.net/plug-ins/9dcbecd42ad/i18n/French.json"
+				}
+		} );
+		} );
+		</script>
 
 </body>
 </html>

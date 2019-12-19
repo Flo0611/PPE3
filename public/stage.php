@@ -45,7 +45,7 @@
             </div>
         </div>
         <?php
-        $un_stage = new stage(" ", " ", " ", " ", " ", " ", " ");
+        $un_stage = new stage(" ", " ", " ", " ", " ", " ", " ", " ");
         $un_galop = new galop(" ", " ");
 
         $req = $un_stage->select_stage($conn);
