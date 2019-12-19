@@ -79,8 +79,9 @@
                         <p> Date de la balade : <b><u><?php echo $date_balades; ?></u></b></p>
                         <p> Debut de la balade : <?php echo $heure_balades; ?></p>
                         <p> Durée : <?php echo $duree_balades."h"; ?></p>
-
-                        <a class="btn more black mt-3" href="" role="button">Inscription</a>
+                        <form class="login100-form validate-form" method="post" action="../traitement/inscription_activite.php?activite=1&balade=<?php echo $id_balades ?>">
+                        <button class="btn more black mt-3"name="envoyer">Inscription</button>
+                        </form>
                     </div>
                 </div>
             </div>
