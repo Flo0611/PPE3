@@ -136,6 +136,13 @@ Class stage
       return $req;
     }
 
+    public function select_nbplace_stages($id_stage, $conn)
+    {
+      $sql = "SELECT place_max from stage where id_stage = '$id_stage'";
+      $req = $conn->query($sql);
+      return $req;
+  
+    }
 
 }
 

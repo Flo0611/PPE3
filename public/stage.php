@@ -64,6 +64,17 @@
           $lib_galop = $res_galop['lib_galop'];
 
 
+          $req_place_max = $un_stage->select_nbplace_stages($id_stage, $conn);
+          $res_place_max = $req_place_max->fetch();
+          $place_max = $res_place_max['place_max'];
+
+          $sql = "SELECT count(*) as nb_stage from inscription_activite where id_spe = '$id_stage' and id_acti = '2'";
+          $req_nbplace = $conn->query($sql);
+          $res_nbplace = $req_nbplace->fetch();
+          $nb_place = $res_nbplace['nb_stage'];
+
+          $place_dispo = $place_max - $nb_place;
+
          ?>
             <div class="container py-md-5">
                 <div class="row inner_sec_info">
@@ -78,6 +89,24 @@
                         <p> Galop Requis : <?php echo $lib_galop; ?></p>
                         <p> Nombre d'heure de stage : <?php echo $heure_stage; ?></p>
                         <p> Date du stage : <?php echo $date_stage; ?></p>
+                        <form class="login100-form validate-form" method="post" action="../traitement/inscription_activite.php?activite=2&stage=<?php echo $id_stage ?>">
+                        <button class="btn more black mt-3"name="envoyer"
+                        <?php if (empty($_SESSION) or $place_dispo == 0)
+                              {
+                                ?>
+                                disabled
+                                <?php
+                              } ?>>Inscription</button>
+                        </form>
+                        <?php
+                                if ($place_dispo > 0)
+                                {
+                                  echo "<img src='../images/point_vert.jpg'>";
+                                }
+                                else {
+                                  echo "<img src='../images/point_rouge.jpg'>";
+                                }
+                                ?>
                     </div>
                 </div>
             </div>

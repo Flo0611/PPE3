@@ -8,7 +8,7 @@ session_start();
 $id_membre = $_SESSION['id_membre'];
 $id_activite = $_GET['activite'];
 if(isset($_POST['envoyer'])){
-    if($id_activite = 1)
+    if($id_activite == 1)
     {
         $id_balade = $_GET['balade'];
         $sql = "INSERT INTO inscription_activite (id_membre, id_acti, id_spe) VALUES('$id_membre', '$id_activite', '$id_balade' )";
@@ -17,7 +17,10 @@ if(isset($_POST['envoyer'])){
     }
     else
     {
-
+      $id_stage = $_GET['stage'];
+      $sql = "INSERT INTO inscription_activite (id_membre, id_acti, id_spe) VALUES('$id_membre', '$id_activite', '$id_stage' )";
+        $req = $conn->query($sql);
+        header("location:../index.php");
     }
     
 }
