@@ -58,6 +58,7 @@ while ($res_jour = $req_jour->fetch())
         <td>horaire</td>
         <td>Cours</td>
         <td>Galop requis</td>
+        <td>Inscription</td>
       </tr>
   <?php
 
@@ -75,6 +76,18 @@ while ($res_jour = $req_jour->fetch())
     <td><?php echo $debut_horaires." - ".$fin_horaires ?></td>
     <td><?php echo $titre_cours ?></td>
     <td><?php echo $lib_galop ?></td>
+    <td>
+      <?php
+      if (!isset($_SESSION['admin']) OR !isset($_SESSION['super_admin']) OR !isset($_SESSION['admin']))
+      {
+        ?>
+          <button type="button" class="btn btn-warning" disabled>S'inscrire</button>
+          <p>Veuillez vous connecter</p>
+        <?php
+      }
+      ?>
+      <button type="button" class="btn btn-warning">S'inscrire</button>
+    </td>
   </tr>
 
         <!--***************************Matin******************************* -->
