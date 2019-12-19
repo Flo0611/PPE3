@@ -3,6 +3,8 @@ session_start();
 ini_set("display_errors","off");
 include'../../inc/bdd.inc.php';
 include'../../all.class.php';
+$un_stage = new stage(" ", " ", " ", " ", " ", " ", " ", " ");
+
 
 if (!isset($_SESSION['admin']) OR isset($_SESSION['super_admin']))
 {
@@ -29,6 +31,9 @@ if (!isset($_SESSION['admin']) OR isset($_SESSION['super_admin']))
   <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
   <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
 
+		<link href='https://cdn.datatables.net/1.10.20/css/jquery.dataTables.min.css' rel='stylesheet' type='text/css' />
+
+		<link href='https://cdn.datatables.net/plug-ins/1.10.20/i18n/French.json' rel='stylesheet' type='text/css' />
    <!-- GOOGLE FONTS-->
  <link href='http://fonts.googleapis.com/css?family=Open+Sans' rel='stylesheet' type='text/css' />
 </head>
@@ -46,7 +51,8 @@ if (!isset($_SESSION['admin']) OR isset($_SESSION['super_admin']))
                   <div class="col-md-12">
                    <h2>Ajouter un stages </h2>
                   </div>
-              </div>
+								</div>
+
                <!-- /. ROW  -->
                <?php
        				if ($_GET['erreur'] == "erreur")
@@ -104,7 +110,7 @@ if (!isset($_SESSION['admin']) OR isset($_SESSION['super_admin']))
 						 </select>
 						 <br>
 
-<br>
+						 <br>
 						 <label>Nombre de galop :</label><br>
 						 <select class="encadre" name="galop_stage" style="width:40%;">
 
@@ -130,15 +136,66 @@ if (!isset($_SESSION['admin']) OR isset($_SESSION['super_admin']))
 						<button type="submit" class="btn btn-success" name="valider">Valider</button>
 
 
-           </form>
 
-               <!-- /. ROW  -->
-  </div>
-           <!-- /. PAGE INNER  -->
+						<div style="width:60%; margin-left:5%; margin-top:5%;">
+								<table id="tableau" class="table table-striped table-bordered" style="width:100%">
+										<thead>
+												<tr>
+														<th>Id</th>
+														<th>Date</th>
+														<th>Heure</th>
+														<th>Description</th>
+														<th>Galop</th>
+														<th>Titre</th>
+														<th>Photos</th>
+														<th>Supprimer</th>
+												</tr>
+										</thead>
+										<tbody>
+
+											<?php
+												$req = $un_stage->select_stage($conn);
+												while ($res = $req->fetch())
+												{
+													$id_stage = $res['id_stage'];
+													$date_stage = $res['date_stage'];
+													$heure_stage = $res['heure_stage'];
+													$description_stage = $res['description_stage'];
+													$galop_stage = $res['galop_stage'];
+													$titre_stage = $res['titre_stage'];
+													$photo_stage = $res['photo_stage'];
+
+													?>
+
+
+													<tr>
+														<td><?php echo $id_stage ?></td>
+														<td><?php echo $date_stage?></td>
+														<td><?php echo $heure_stage ?></td>
+														<td><?php echo $description_stage?></td>
+														<td><?php echo $galop_stage ?></td>
+														<td><?php echo $titre_stage ?></td>
+														<td><?php echo $photo_stage ?></td>
+														<td><a href="../../traitement/ajout_stages.trait.php?action=supprimer&id=<?php echo $id_stage ?>"><i style="color:red" class="fa fa-minus-circle fa-2x"></i></a></td>
+														</tr>
+
+
+													<?php
+												}
+											?>
+										</tbody>
+									</table>
+           </form>
+ 				 <!-- /. ROW  -->
+  			</div>
+       <!-- /. PAGE INNER  -->
+				 </div>
           </div>
+				</div>
+
        <!-- /. PAGE WRAPPER  -->
-      </div>
   <?php include'assets/inc/footer.php'; ?>
+
 
 
    <!-- /. WRAPPER  -->
@@ -150,15 +207,36 @@ if (!isset($_SESSION['admin']) OR isset($_SESSION['super_admin']))
     <!-- CUSTOM SCRIPTS -->
   <script src="assets/js/custom.js"></script>
 
-	<script>
-	$( function() {
-	    $( "#datepicker" ).datepicker({
-	      changeMonth: true,
-	      changeYear: true
-	    });
-	  } );
+	<script src="https://cdn.datatables.net/1.10.20/js/jquery.dataTables.min.js"></script>
 
+	<script src="https://code.jquery.com/jquery-3.3.1.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+	<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+
+	<script src="https://cdn.datatables.net/buttons/1.6.0/js/dataTables.buttons.min.js"></script>
+	<script src="https://cdn.datatables.net/buttons/1.6.0/js/buttons.flash.min.js"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/jszip/3.1.3/jszip.min.js"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.1.53/pdfmake.min.js"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.1.53/vfs_fonts.js"></script>
+	<script src="https://cdn.datatables.net/buttons/1.6.0/js/buttons.html5.min.js"></script>
+	<script src="https://cdn.datatables.net/buttons/1.6.0/js/buttons.print.min.js"></script>
+
+	<script type="text/javascript">
+	$(document).ready(function() {
+	$('#tableau').DataTable( {
+			dom: 'Bfrtip',
+			buttons: [
+					'excel', 'pdf', 'print'
+			],
+			"language": {
+					"url": "//cdn.datatables.net/plug-ins/9dcbecd42ad/i18n/French.json"
+			}
+	} );
+	} );
 	</script>
+
+
+
 
 
 </body>

@@ -12,6 +12,7 @@ Class balades
   private $duree_balades;
   private $valide;
 
+
   Public function __construct($i, $date_bal, $h_bal, $des_bal, $gal_bal, $tit_bal, $pht_bal, $duree_bal, $v)
   {
     $this->id_balades = $i;
@@ -140,6 +141,22 @@ Public function get_valide_balade()
   public function select_balades($conn)
   {
     $sql = "SELECT * from balades where valide = 'oui' ORDER BY id_bal DESC";
+    $req = $conn->query($sql);
+    return $req;
+
+  }
+
+
+  public function supr_balades($id_balades,$conn)
+  {
+    $sql = "UPDATE balades SET valide='non' WHERE id_bal = $id_balades";
+    $req = $conn->query($sql);
+    return $req;
+  }
+
+  public function select_nbplace_balades($id_balades, $conn)
+  {
+    $sql = "SELECT place_max from balades where id_bal = '$id_balades'";
     $req = $conn->query($sql);
     return $req;
 
