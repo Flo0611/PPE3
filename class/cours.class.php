@@ -123,6 +123,13 @@ Public function select_cours_jour_filtre($id_jour, $conn)
   return $req;
 }
 
+Public function select_lib_cours($id_cours, $conn)
+{
+  $sql = "SELECT id_cours, titre_cours FROM cours where id_cours = '$id_cours'";
+  $req = $conn->query($sql);
+  return $req;
+}
+
 Public function supprimer_cours($id_cours, $conn)
 {
   $sql = "UPDATE cours SET valide = 'non' where id_cours = '$id_cours'";
