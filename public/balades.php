@@ -80,7 +80,7 @@
                         <p> Debut de la balade : <?php echo $heure_balades; ?></p>
                         <p> Durée : <?php echo $duree_balades."h"; ?></p>
 
-                        <a class="btn more black mt-3" href="" role="button">Disponibilité</a>
+                        <a class="btn more black mt-3" href="" role="button">Inscription</a>
                     </div>
                 </div>
             </div>
