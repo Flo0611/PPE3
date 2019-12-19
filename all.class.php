@@ -17,5 +17,11 @@
   require_once'class/photo_profil.class.php';
   require_once'class/images_membre.class.php';
   require_once'class/images_actu.class.php';
+  require_once'class/presentation.class.php';
+  require_once'class/box.class.php';
+  require_once'class/designation.class.php';
+  require_once'class/cours.class.php';
+  require_once'class/horaires.class.php';
+  require_once'class/jours.class.php';
 
 ?>

@@ -22,7 +22,7 @@
         <div class="row footer-grids">
             <div class="col-lg-4 mt-4">
 
-                <h2> <a class="navbar-brand px-0 mx-0 mb-4" href="index.php">Infinitude
+                <h2> <a class="navbar-brand px-0 mx-0 mb-4" href="index.php">CEBG
                     </a>
                 </h2>
                 <p class="mb-3">Lorem Ipsum is simply text the printing and typesetting standard industry. Onec Consequat sapien ut cursus rhoncus. Nullam dui mi, vulputate ac metus.</p>

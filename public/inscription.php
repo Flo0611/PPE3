@@ -58,6 +58,8 @@ $id_membre = $_GET['1'];
 
 </script>
 
+<script src="https://www.google.com/recaptcha/api.js" async defer></script>
+
 </head>
 <body>
 	<?php include'../inc/nav_public.php'; ?>
@@ -88,6 +90,15 @@ $id_membre = $_GET['1'];
 					?>
 					<div class="alert alert-danger" role="alert">
 			  		Vos mot de passe ne correspondent pas.
+					</div>
+					<?php
+				}
+
+				if ($_GET['erreur'] == "captcha")
+				{
+					?>
+					<div class="alert alert-danger" role="alert">
+			  		Veuillez remplir le captcha.
 					</div>
 					<?php
 				}
@@ -171,6 +182,8 @@ $id_membre = $_GET['1'];
 						<span class="focus-input100"></span>
 					</div>
 
+					<div class="g-recaptcha" data-sitekey="6LeuQMgUAAAAAGov4m5atjZiat_rBJ_wOaVoNrnH"></div>
+
 					<div class="flex-m w-full p-b-33">
 						<div class="contact100-form-checkbox">
 							<input class="input-checkbox100" id="ckb1" type="checkbox" name="remember-me">
@@ -195,7 +208,7 @@ $id_membre = $_GET['1'];
 							</button>
 						</div>
 					</div>
-					<div style="margin-left:20%; margin-top:5%;"><p style="color: white;">Vous avez déjà un compte ? Vous pouvez vous connecter <a  style="color:blue; text-decoration:underline" href="connexion.php">ici</a></p></div>
+					<div style="margin-left:15%; margin-top:5%;"><p style="color: white;">Vous avez déjà un compte ? Vous pouvez vous connecter <a  style="color:blue; text-decoration:underline" href="connexion.php">ici</a></p></div>
 
 				</form>
 			</div>

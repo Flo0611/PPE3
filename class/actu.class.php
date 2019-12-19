@@ -120,6 +120,14 @@ public function select_actu_by_id($id_actu, $conn)
 	return $req;
 }
 
+public function select_all_actu($conn)
+{
+	$sql = "SELECT id_actu, titre_actu, id_membre, nom_actu, prenom_actu, text_actu, date_actu FROM actualites order by id_actu desc";
+	$req = $conn->query($sql);
+	return $req;
+}
+
+
 function resume_xmots($MaChaine,$xmots)
 {
 	 $msg= " ";

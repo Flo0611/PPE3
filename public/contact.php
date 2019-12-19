@@ -36,6 +36,7 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css" integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous">
 
+    <script src="https://www.google.com/recaptcha/api.js" async defer></script>
 
 </head>
 
@@ -48,6 +49,15 @@ License URL: http://creativecommons.org/licenses/by/3.0/
       ?>
       <div class="alert alert-success" role="alert">
         Votre message a bien été envoyé. Merci de votre message, une réponse vous sera adressée dans les plus brefs délais.
+      </div>
+      <?php
+    }
+
+    if ($_GET['erreur'] == "captcha")
+    {
+      ?>
+      <div class="alert alert-danger" role="alert">
+        Veuillez remplir le captcha.
       </div>
       <?php
     }
@@ -64,7 +74,7 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 
                     <div class="contact-hny-form mt-lg-5 mt-3">
                         <h3 class="title-hny mb-lg-5 mb-3">
-                            Ecrire le message
+                            Ecrire un message
                         </h3>
                         <form method="post" action="../traitement/contact_mail.php">
                             <div class="row">
@@ -88,6 +98,9 @@ License URL: http://creativecommons.org/licenses/by/3.0/
                                         <textarea name="message" id="message"></textarea>
                                     </div>
                                 </div>
+
+                                <div class="g-recaptcha" data-sitekey="6LeuQMgUAAAAAGov4m5atjZiat_rBJ_wOaVoNrnH"></div><br>
+
                                 <div class="form-group mx-auto mt-3">
                                     <button type="submit" class="btn btn-default morebtn more black con-submit" name="envoyer">Envoyer</button>
                                 </div>

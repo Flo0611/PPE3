@@ -112,21 +112,6 @@
   border-radius: 50%;
 }
 
-.modifier_photo_profil
-{
-  position: absolute;
-  display: none;
-  width: 30%;
-  height: 40%;
-  margin-top: -35%;
-  text-align: center;
-}
-
-.modifier_photo_profil h1
-{
-  font-size: 1.8em;
-}
-
 .img_modif_profil
 {
   width: 50px;
@@ -149,4 +134,19 @@
   margin-left: -12.5%;
   margin-top:-3%;
   opacity: 0.3;
+}
+
+#modifier_images
+{
+  position: absolute;
+  display: none;
+  width: 30%;
+  height: 40%;
+  margin-top: -35%;
+  text-align: center;
+}
+
+#modifier_images h1
+{
+  font-size: 1.8em;
 }

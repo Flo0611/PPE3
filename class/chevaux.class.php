@@ -170,6 +170,27 @@ public function select_photo_cheval_by_id($id_cheval, $conn)
   return $req;
 }
 
+public function select_cheval_js($nom, $conn)
+{
+  $sql = "SELECT id_chevaux, nom_chevaux, prenom_chevaux, sexe_chevaux, race_chevaux, daten_chevaux, datea_chevaux, photo_chevaux from chevaux where nom_chevaux like '%$nom%' OR prenom_chevaux LIKE '%$nom%'";
+  $req = $conn->query($sql);
+  return $req;
+}
+
+public function select_nom_chevaux($conn)
+{
+  $sql = "SELECT id_chevaux, nom_chevaux, prenom_chevaux from chevaux";
+  $req = $conn->query($sql);
+  return $req;
+}
+
+public function select_nom_chevaux_by_id($id_cheval, $conn)
+{
+  $sql = "SELECT nom_chevaux, prenom_chevaux from chevaux where id_chevaux = '$id_cheval'";
+  $req = $conn->query($sql);
+  return $req;
+}
+
   }
 
 ?>

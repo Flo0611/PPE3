@@ -1,4 +1,4 @@
-<div class="modifier_photo_profil" id="modifier_images">
+<div id="modifier_images">
   <?php
       $req_count = $une_images_membre->count_all_images_membre($id_membre, $conn);
       $res_count = $req_count->fetch();

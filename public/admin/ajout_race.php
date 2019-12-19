@@ -1,4 +1,5 @@
 <?php
+include'../../inc/icons.php';
 session_start();
 include'../../inc/bdd.inc.php';
 include'../../all.class.php';

@@ -1,5 +1,6 @@
 <?php
 session_start();
+include'../../inc/icons.php';
 include'../../inc/bdd.inc.php';
 include'../../all.class.php';
 $une_race = new race_chevaux(" ", " ");
