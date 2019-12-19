@@ -23,8 +23,8 @@
 
     <li class="deroulant"><a href="#">Activités &ensp;</a>
       <ul class="sous">
+        <li><a href="public/cours.php">Cours</a></li>
         <li><a href="public/stage.php">Stages</a></li>
-        <li><a href="public/planning.php">Planning</a></li>
             <li><a href="public/balades.php">Balades</a></li>
       </ul>
     </li>

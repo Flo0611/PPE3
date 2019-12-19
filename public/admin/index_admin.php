@@ -191,7 +191,21 @@ if (!isset($_SESSION['admin']) OR isset($_SESSION['super_admin']))
 
 
                   </div>
+
               </div>
+
+							<div class="row text-center pad-top">
+							<div class="col-lg-2 col-md-2 col-sm-2 col-xs-2">
+							 <div class="div-square">
+										<a href="gestion_cours.php" >
+<i class="fas fa-briefcase fa-5x"></i>
+							 <h4>Gestion de cours</h4>
+							 </a>
+							 </div>
+
+
+					 </div>
+				 </div>
 
     </div>
              <!-- /. PAGE INNER  -->

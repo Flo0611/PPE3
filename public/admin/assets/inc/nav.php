@@ -65,6 +65,10 @@
             </li>
 
             <li>
+                <a href="gestion_cours.php"><i class="fas fa-briefcase"></i>Gestion de cours</a>
+            </li>
+
+            <li>
                 <a href="../info.php"><i class="fa fa-user "></i>Mon compte</a>
             </li>
              <li>

@@ -55,7 +55,13 @@ public function select_galop($conn)
   $sql = "SELECT * from galop";
   $req = $conn->query($sql);
   return $req;
+}
 
+public function select_galop_by_id($id_galop, $conn)
+{
+  $sql = "SELECT * from galop where id_galop = '$id_galop'";
+  $req = $conn->query($sql);
+  return $req;
 }
 
 }

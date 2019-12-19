@@ -95,7 +95,6 @@ if (!isset($_SESSION['admin']) OR isset($_SESSION['super_admin']))
 									<label>Nombre de Galop :</label><br>
  				             <select class="float encadre" name="galop_bal" style="width:40%;">
 											 <option value="0" selected>Choisissez le nombre de Galop...</option>
-												<option value="0">Pas de Galop Requis</option>
  				               <?php
 											 $un_galop = new galop(" "," ");
 
