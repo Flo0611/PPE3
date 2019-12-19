@@ -43,7 +43,7 @@ $id_jour = $_POST['name'];
        <tbody>
 
          <?php
-         $req_cour_detail = $un_cour->select_cours_jour($id_jour, $conn);
+         $req_cour_detail = $un_cour->select_cours_jour_filtre($id_jour, $conn);
          while ($res_cour_detail = $req_cour_detail->fetch())
          {
            $id_cours = $res_cour_detail['id_cours'];
@@ -68,7 +68,7 @@ $id_jour = $_POST['name'];
                <td><?php echo $titre_cours ?></td>
                <td><?php echo $debut_horaires."-".$fin_horaires ?></td>
                <td><?php echo $lib_galop ?></td>
-               <td><a href="../../traitement/gestion_cours.trait.php?action=supprimer&id_cours=<?php echo $id_cours ?>"><i style="color:red" class="fa fa-minus-circle fa-2x"></i></a></td>
+               <td><a href="afficher_membre_cours.php?action=voir&id_cours=<?php echo $id_cours ?>"><i class="fas fa-eye fa-2x"></i></a>        <a href="../../traitement/gestion_cours.trait.php?action=supprimer&id_cours=<?php echo $id_cours ?>"><i style="color:red" class="fa fa-minus-circle fa-2x"></i></a></td>
                </tr>
              <?php
            }
