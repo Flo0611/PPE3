@@ -67,6 +67,7 @@ while ($res_cours = $req_cours->fetch())
         $id_membre = $_SESSION['id_membre'];
         $req_insc = $une_inscription_cours->verif_existe_cours($id_membre, $id_cours, $conn);
         $res_insc = $req_insc->fetch();
+
         $req_inscription = $une_inscription_cours->select_cours_by_id($id_membre, $id_cours, $conn);
         $res_inscription = $req_inscription->fetch();
         $id_inscription = $res_inscription['id_inscription_cours'];

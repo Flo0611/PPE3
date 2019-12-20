@@ -3,7 +3,7 @@ session_start();
 ini_set("display_errors","on");
 include'../all.class.php';
 include'../inc/bdd.inc.php';
-$un_cheval = new chevaux(" ", " ", " ", " ", " ", " ", " ", " ", " ");
+$un_cheval = new chevaux(" ", " ", " ", " ", " ", " ", " ", " ", " ", " ");
 $une_photo = new photo_cheval(" ", " "," ");
 $une_race = new race_chevaux(" ", " ");
 $une_note = new note(" ", " ", " ", " ");

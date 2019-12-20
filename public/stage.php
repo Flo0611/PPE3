@@ -1,17 +1,17 @@
 <?php
     include"../inc/bdd.inc.php";
     include"../all.class.php";
+    $une_inscription_activite = new inscription_activite(" ", " ", " ", " ");
  ?>
 
 <!DOCTYPE html>
 <html lang="fr">
 
 <head>
-    <title>Infinitude Corporate Category Bootstrap Responsive Web Template | About :: W3layouts</title>
+    <title>Stages - Centre équestre</title>
     <!-- Meta tag Keywords -->
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta charset="UTF-8" />
-    <meta name="keywords" content="Infinitude Responsive web template, Bootstrap Web Templates, Flat Web Templates, Android Compatible web template, Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, SonyEricsson, Motorola web design" />
     <script>
         addEventListener("load", function() {
             setTimeout(hideURLbar, 0);
@@ -37,6 +37,34 @@
 <body>
   <?php
   include'../inc/nav_public.php';
+  ?>
+  <?php
+  if ($_GET['success'] == "inscris")
+  {
+    ?>
+    <div class="alert alert-success" role="alert" >
+      Votre inscription a bien été pris en compte.
+    </div>
+    <?php
+  }
+
+  if ($_GET['erreur'] == "deja_inscris")
+  {
+    ?>
+    <div class="alert alert-warning" role="alert" >
+      Vous êtes déjà inscris a ce stage.
+    </div>
+    <?php
+  }
+
+  if ($_GET['success'] == "desinscris")
+  {
+    ?>
+    <div class="alert alert-info" role="alert" >
+      Vous êtes maintenant désinscris du stage.
+    </div>
+    <?php
+  }
   ?>
         <div class="container py-md-5">
             <div class="about-hny-info text-left pr-lg-5">
@@ -87,7 +115,7 @@
                         <span class="pink">Stages : </span><?php echo $titre_stage; ?> </a></h3>
                         <p><?php echo $description_stage; ?></p>
                         <p> Galop Requis : <?php echo $lib_galop; ?></p>
-                        <p> Nombre d'heure de stage : <?php echo $heure_stage; ?></p>
+                        <p> Durée du stage : <?php echo $heure_stage; ?></p>
                         <p> Date du stage : <?php echo $date_stage; ?></p>
                         <p>Places disponibles : </span><b><?php echo $place_dispo ?>
                         <?php
@@ -99,15 +127,40 @@
                                   echo "<img src='../images/point_rouge.jpg'>";
                                 }
                         ?></span><br>
-                        <form class="login100-form validate-form" method="post" action="../traitement/inscription_activite.php?activite=2&stage=<?php echo $id_stage ?>">
-                        <button class="btn more black mt-3"name="envoyer"
-                        <?php if (empty($_SESSION) or $place_dispo == 0)
+                        <?php
+                        if (empty($_SESSION))
                               {
                                 ?>
-                                disabled
+                                <button class="btn more black mt-3" name="envoyer" disabled>Inscription</button>
                                 <?php
-                              } ?>>Inscription</button>
-                        </form>
+                              }
+                              else
+                              {
+                                $id_membre = $_SESSION['id_membre'];
+                                $id_activite = 2;
+                                $req_stage = $une_inscription_activite->verif_existe_activite($id_membre, $id_activite, $id_stage, $conn);
+                                $res_stage = $req_stage->fetch();
+
+                                $nb = $res_stage['nb'];
+                                if (!isset($nb))
+                                {
+                                  ?>
+                                  <form class="login100-form validate-form" method="post" action="../traitement/inscription_activite.php?activite=2&stage=<?php echo $id_stage ?>">
+                                  <button class="btn more black mt-3" name="envoyer">Inscription</button>
+                                      </form>
+                                  <?php
+                                }
+                                else
+                                {
+                                  ?>
+                                  <form action="../traitement/inscription_activite.php?action=desinscription&activite=2&stage=<?php echo $id_stage ?>" method="POST">
+                                  <button class="btn more black mt-3" type="submit" name="desinscription_stage">Se désinscrire</button>
+                                </form>
+                                  <?php
+                                }
+
+                              }
+                        ?>
 
                     </div>
                 </div>

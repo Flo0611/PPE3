@@ -48,7 +48,7 @@ $id_cours = $_GET['id_cours'];
              <div id="page-inner">
                  <div class="row">
                      <div class="col-md-12">
-                      <h2>Les membres du cours </h2>
+                      <h2>Les membres inscris au cours </h2>
                      </div>
                  </div>
                   <!-- /. ROW  -->

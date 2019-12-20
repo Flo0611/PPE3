@@ -11,8 +11,9 @@
     private $datea_cheval;
     private $photo_cheval;
     private $type_pension;
+    private $valide;
 
-    function __construct($i, $n, $p, $s, $r, $d_n, $d_a, $photo, $pension)
+    function __construct($i, $n, $p, $s, $r, $d_n, $d_a, $photo, $pension, $v)
     {
       $this->id_cheval = $i;
       $this->nom_cheval = $n;
@@ -23,6 +24,7 @@
       $this->datea_cheval = $d_a;
       $this->photo_cheval = $photo;
       $this->type_pension = $pension;
+      $this->valide = $v;
     }
 
     //*****************************************GETTER**********************************
@@ -73,6 +75,11 @@
     		Return $this->type_pension;
       }
 
+    Public function get_valide_cheval()
+    	{
+    		Return $this->valide;
+      }
+
       //*****************************************SETTER**********************************
 
     Public function set_id_cheval($i)
@@ -120,6 +127,11 @@
     		$this->type_pension = $pension;
       }
 
+    Public function set_valide_cheval($v)
+    	{
+    		$this->valide = $v;
+      }
+
 //***********************************Function******************************
 Public function ajouter_chevaux($nom, $prenom, $sexe, $race, $date_n, $datea, $conn)
   {
@@ -137,7 +149,7 @@ public function modifier_photo($id_che, $id_photo, $conn)
 
 public function select_chevaux($conn)
 {
-  $sql = "SELECT id_chevaux, nom_chevaux, prenom_chevaux, sexe_chevaux, race_chevaux, daten_chevaux, datea_chevaux, photo_chevaux from chevaux";
+  $sql = "SELECT id_chevaux, nom_chevaux, prenom_chevaux, sexe_chevaux, race_chevaux, daten_chevaux, datea_chevaux, photo_chevaux from chevaux where valide = 'oui'";
   $req = $conn->query($sql);
   return $req;
 }
@@ -158,7 +170,7 @@ public function compte_nb_chevaux($conn)
 
 public function select_by_id_limit3_chevaux($conn)
 {
-  $sql = "SELECT id_chevaux, nom_chevaux, prenom_chevaux, sexe_chevaux, race_chevaux, daten_chevaux, datea_chevaux, photo_chevaux from chevaux limit 3";
+  $sql = "SELECT id_chevaux, nom_chevaux, prenom_chevaux, sexe_chevaux, race_chevaux, daten_chevaux, datea_chevaux, photo_chevaux from chevaux where valide = 'oui' limit 3 ";
   $req = $conn->query($sql);
   return $req;
 }
@@ -172,14 +184,14 @@ public function select_photo_cheval_by_id($id_cheval, $conn)
 
 public function select_cheval_js($nom, $conn)
 {
-  $sql = "SELECT id_chevaux, nom_chevaux, prenom_chevaux, sexe_chevaux, race_chevaux, daten_chevaux, datea_chevaux, photo_chevaux from chevaux where nom_chevaux like '%$nom%' OR prenom_chevaux LIKE '%$nom%'";
+  $sql = "SELECT id_chevaux, nom_chevaux, prenom_chevaux, sexe_chevaux, race_chevaux, daten_chevaux, datea_chevaux, photo_chevaux from chevaux where nom_chevaux like '%$nom%' OR prenom_chevaux LIKE '%$nom%' AND valide = 'oui'";
   $req = $conn->query($sql);
   return $req;
 }
 
 public function select_nom_chevaux($conn)
 {
-  $sql = "SELECT id_chevaux, nom_chevaux, prenom_chevaux from chevaux";
+  $sql = "SELECT id_chevaux, nom_chevaux, prenom_chevaux from chevaux where valide = 'oui'";
   $req = $conn->query($sql);
   return $req;
 }
@@ -187,6 +199,13 @@ public function select_nom_chevaux($conn)
 public function select_nom_chevaux_by_id($id_cheval, $conn)
 {
   $sql = "SELECT nom_chevaux, prenom_chevaux from chevaux where id_chevaux = '$id_cheval'";
+  $req = $conn->query($sql);
+  return $req;
+}
+
+public function supprimer_chevaux($id_chevaux, $conn)
+{
+  $sql = "UPDATE chevaux SET valide = 'non' where id_chevaux = '$id_chevaux'";
   $req = $conn->query($sql);
   return $req;
 }

@@ -41,7 +41,7 @@
             </li>
 
             <li>
-                <a href="news_letter.php"><i class="fa fa-comments-o"></i>Mails</a>
+                <a href="gestion_cours.php"><i class="fas fa-briefcase"></i>Gestion de cours</a>
             </li>
 
             <li>
@@ -62,10 +62,6 @@
 
             <li>
                 <a href="ajout_membre_equipe.php"><i class="fas fa-plus-circle"></i>Ajouter des membres d'équipe</a>
-            </li>
-
-            <li>
-                <a href="gestion_cours.php"><i class="fas fa-briefcase"></i>Gestion de cours</a>
             </li>
 
             <li>

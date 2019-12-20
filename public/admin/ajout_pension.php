@@ -3,7 +3,7 @@ session_start();
 include'../../inc/icons.php';
 include'../../inc/bdd.inc.php';
 include'../../all.class.php';
-$un_cheval = new chevaux(" ", " ", " ", " ", " ", " ", " ", " ", " ");
+$un_cheval = new chevaux(" ", " ", " ", " ", " ", " ", " ", " ", " ", " ");
 $une_pension = new pension(" ", " ", " ", " ", " ", " ", " ");
 $un_box = new box(" ", " ", " ");
 if (!isset($_SESSION['admin']) OR isset($_SESSION['super_admin']))
@@ -31,6 +31,8 @@ if (!isset($_SESSION['admin']) OR isset($_SESSION['super_admin']))
 
   <link href='https://cdn.datatables.net/plug-ins/1.10.20/i18n/French.json' rel='stylesheet' type='text/css' />
 
+	<script src="../../js/gestion_pension.js"></script>
+
 
    <!-- GOOGLE FONTS-->
  <link href='http://fonts.googleapis.com/css?family=Open+Sans' rel='stylesheet' type='text/css' />
@@ -47,7 +49,7 @@ if (!isset($_SESSION['admin']) OR isset($_SESSION['super_admin']))
           <div id="page-inner">
               <div class="row">
                   <div class="col-md-12">
-                   <h2>Ajouter un cheval </h2>
+                   <h2>Ajouter un cheval à une pension</h2>
                   </div>
               </div>
                <!-- /. ROW  -->
@@ -134,8 +136,7 @@ if (!isset($_SESSION['admin']) OR isset($_SESSION['super_admin']))
            </form>
 
            <h2>Voir les pensions</h2>
-           <form action="../../traitement/ajout_pension.trait.php?action=detail" method="post">
-             <select class="select" name="pension_detail">
+             <select class="select" name="pension_detail" id="pension_detail" onchange="affiche_pension()">
                <option value="nul" selected>Choisissez une option...</option>
              <?php
               $req_pension = $une_pension->select_pension($conn);
@@ -150,59 +151,8 @@ if (!isset($_SESSION['admin']) OR isset($_SESSION['super_admin']))
               }
              ?>
            </select><br><br>
-             <button type="submit" class="btn btn-success" name="valider_detail">Voir le détail</button>
-           </form>
 
-           <?php
-          if ($_GET['action'] == "detail")
-          {
-            $id_pension = $_GET['id_pension'];
-            $req_lib_pens = $une_pension->select_pension_by_id($id_pension, $conn);
-            $res_lib_pens = $req_lib_pens->fetch();
-
-            $lib_pension = $res_lib_pens['lib_pension']; //libellé de la pension
-              ?>
-              <br>
-              <table id="tableau" class="table table-striped table-bordered" style="width:100%; z-index:0">
-                  <thead>
-                      <tr>
-                          <th>Pension</th>
-                          <th>Nom du cheval</th>
-                          <th>Prenom du cheval</th>
-                          <th>Action</th>
-                      </tr>
-                  </thead>
-                  <tbody>
-
-                    <?php
-                    $req_id_che = $un_box->select_id_cheval($id_pension, $conn);
-                    while ($res_id_che = $req_id_che->fetch())
-                    {
-                      $id_box = $res_id_che['id_box'];
-                      $id_cheval = $res_id_che['id_cheval'];
-
-                      $req_n_p_c = $un_cheval->select_nom_chevaux_by_id($id_cheval, $conn);
-                      $res_n_p_c = $req_n_p_c->fetch();
-                      $nom_che = $res_n_p_c['nom_chevaux'];
-                      $prenom_che = $res_n_p_c['prenom_chevaux'];
-                    ?>
-                        <tr>
-                          <td><?php echo $lib_pension ?></td>
-                          <td><?php echo $prenom_che ?></td>
-                          <td><?php echo $nom_che ?></td>
-                          <td><a href="../../traitement/ajout_pension.trait.php?action=supprimer&id=<?php echo $id_box ?>"><i style="color:red" class="fa fa-minus-circle fa-2x"></i></a></td>
-                          </tr>
-                        <?php
-                      }
-                    ?>
-
-                  </tbody>
-              </table>
-              <?php
-            }
-
-
-            ?>
+           <div id="voir_pension"></div>
 
                <!-- /. ROW  -->
   </div>

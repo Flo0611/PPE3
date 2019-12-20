@@ -1,6 +1,7 @@
 <?php
 session_start();
 ini_set("display_errors","off");
+include'../../inc/icons.php';
 include'../../inc/bdd.inc.php';
 include'../../all.class.php';
 $un_stage = new stage(" ", " ", " ", " ", " ", " ", " ", " ");
@@ -98,15 +99,15 @@ if (!isset($_SESSION['admin']) OR isset($_SESSION['super_admin']))
 						 <label>Nombre d'heure de stage :</label><br>
 						 <select class="encadre" name="heure_stage" style="width:40%;">
 							 <option selected>Choisissez la durée du stage...</option>
-							 <option value="1">1 heure</option>
-							 <option value="2">2 heures</option>
-							 <option value="3">3 heures</option>
-							 <option value="4">4 heures</option>
-							 <option value="5">5 heures</option>
-							 <option value="6">6 heures</option>
-							 <option value="7">7 heures</option>
-							 <option value="8">8 heures</option>
-							 <option value="8">Toute la journée</option>
+							 <option value="1 heure">1 heure</option>
+							 <option value="2 heures">2 heures</option>
+							 <option value="3 heures">3 heures</option>
+							 <option value="4 heures">4 heures</option>
+							 <option value="5 heures">5 heures</option>
+							 <option value="6 heures">6 heures</option>
+							 <option value="7 heures">7 heures</option>
+							 <option value="8 heures">8 heures</option>
+							 <option value="Toute la journée">Toute la journée</option>
 						 </select>
 						 <br>
 
@@ -130,7 +131,7 @@ if (!isset($_SESSION['admin']) OR isset($_SESSION['super_admin']))
 									?>
 								</select>
 								<br>
-								
+
 								<label>Nombre de place du stage :</label><br>
 	 							<input type="number" name="place_max" id="place_max">
 

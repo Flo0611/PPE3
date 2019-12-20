@@ -112,6 +112,10 @@ Class stage
     $this->valide = $v;
   }
 
+  
+
+  //*******************************SETTER************************************
+
 
     public function select_stage($conn)
     {
@@ -120,7 +124,6 @@ Class stage
       return $req;
 
     }
-
 
     public function ajouter_stages($date_stage, $description_stage ,$heure_stage, $galop_stage, $titre_stage, $photo_stage, $place_max, $conn)
     {

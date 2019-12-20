@@ -3,14 +3,14 @@ ini_set("display_errors","on");
 
 include'../all.class.php';
 include'../inc/bdd.inc.php';
+$un_cheval = new chevaux(" ", " ", " ", " ", " ", " ", " ", " ", " ", " ");
+$une_photo = new photo_cheval(" ", " "," ");
 if (isset($_POST['valider']))
 {
   if (isset($_POST['prenom_che']) AND isset($_POST['nom_che']) AND isset($_POST['daten_che']) AND isset($_POST['race_che']) AND isset($_POST['datea_che']) AND isset($_POST['sexe']))
   {
     $num_rand = rand(1,1000000);
     include'../inc/upload_file.php';
-    $un_cheval = new chevaux(" ", " ", " ", " ", " ", " ", " ", " ", " ");
-    $une_photo = new photo_cheval(" ", " "," ");
     $nom = $_POST['nom_che'];
     $prenom = $_POST['prenom_che'];
     $sexe = $_POST['sexe'];
@@ -40,5 +40,12 @@ if (isset($_POST['valider']))
     echo "Veuillez remplir tous les champs";
     header("location:../public/admin/ajout_chevaux.php?erreur=champs");
   }
+}
+
+if ($_GET['action'] == "supprimer")
+{
+  $id_cheval = $_GET['id_cheval'];
+  $un_cheval->supprimer_chevaux($id_cheval, $conn);
+  header("location:../public/admin/ajout_chevaux.php?success=supprimer");
 }
 ?>

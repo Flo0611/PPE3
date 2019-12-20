@@ -5,7 +5,7 @@ include'../inc/bdd.inc.php';
 include'../all.class.php';
 $id_membre = $_SESSION['id_membre'];
 $un_membre = new membre(" ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ");
-$un_cheval = new chevaux(" ", " ", " ", " ", " ", " ", " ", " ", " ");
+$un_cheval = new chevaux(" ", " ", " ", " ", " ", " ", " ", " ", " ", " ");
 $un_cheval_fav = new chevaux_fav(" ", " ");
 $une_photo_cheval = new photo_cheval(" ", " ", " ");
 $une_photo_profil = new photo_profil(" ", " ");

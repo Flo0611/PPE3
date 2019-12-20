@@ -93,6 +93,9 @@ if (!isset($_SESSION['admin']) OR isset($_SESSION['super_admin']))
 
 						 <label>Ajouter des photos à la galerie : </label><br>
              <input type="file" name="fileToUpload[]" id="fileToUpload" multiple>
+						 <div style="color:black; opacity:0.5;">* Vous pouvez ajouter plusieurs photo en même temps : <br>
+						 - Par selection multiple (en appuyant sur le bouton "Choisir les fichiers" puis en selectionnant vos images tout en maintenant la touche Ctrl de votre clavier)<br>
+					 	- Par un glisser déposer de une ou plusieurs photo (glisser déposer sur le bouton)</div><br>
 
              <button type="submit" class="btn btn-success" name="valider">Valider</button>
 

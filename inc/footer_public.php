@@ -35,28 +35,28 @@
                         <li><a href="../index.php"><span class="fa fa-angle-double-right" aria-hidden="true"></span> Accueil</a></li>
                         <li><a href="presentation.php"><span class="fa fa-angle-double-right" aria-hidden="true"></span> Présentation</a></li>
                         <li><a href="chevaux.php"><span class="fa fa-angle-double-right" aria-hidden="true"></span> Chevaux</a></li>
-                        <li><a href=".php"><span class="fa fa-angle-double-right" aria-hidden="true"></span> Pensionnat</a></li>
+                        <li><a href="pension.php"><span class="fa fa-angle-double-right" aria-hidden="true"></span> Pensionnat</a></li>
                     </ul>
                     <ul class="list-info-wthree ml-5">
 
                         <li>
-                            <a href=".php"><span class="fa fa-angle-double-right" aria-hidden="true"></span>
+                            <a href="stage.php"><span class="fa fa-angle-double-right" aria-hidden="true"></span>
                                 Stages
                             </a>
                         </li>
                         <li>
-                            <a href=".php"><span class="fa fa-angle-double-right" aria-hidden="true"></span>
-                                Planning
+                            <a href="cours.php"><span class="fa fa-angle-double-right" aria-hidden="true"></span>
+                                Cours
+                            </a>
+                        </li>
+                        <li>
+                            <a href="balades.php"><span class="fa fa-angle-double-right" aria-hidden="true"></span>
+                                Balades
                             </a>
                         </li>
                         <li>
                             <a href="contact.php"><span class="fa fa-angle-double-right" aria-hidden="true"></span>
                                 Contact
-                            </a>
-                        </li>
-                        <li>
-                            <a href="connexion.php"><span class="fa fa-angle-double-right" aria-hidden="true"></span>
-                                Connexion
                             </a>
                         </li>
                     </ul>

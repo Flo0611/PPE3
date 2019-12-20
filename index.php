@@ -200,7 +200,7 @@ include'all.class.php';
 
       <!-- about -->
       <section class="about py-5">
-          <div class="container p-md-5">
+          <div class="container p-md-5">            
               <div class="about-hny-info text-left px-md-5">
                   <h3 class="tittle-w3ls mb-3"><span class="pink">Société  </span>Equitation CEBG</h3>
                   <p class="sub-tittle mt-3 mb-4">Notre centre équestre CEBG est l’un des plus beaux centres équestres de France et, plus que par sa taille ou par son ancienneté, c’est par son ambition pédagogique qu’elle se caractérise. École d’équitation,a pour vocation d’apprendre à tous à monter à cheval ou à poney et progresser à son rythme, de l’initiation jusqu’à la compétition (dressage, obstacle, voltige, travail à pied, attelage, éthologie…).
@@ -223,7 +223,7 @@ include'all.class.php';
             <div class="row inner_sec_info">
 
                 <div class="col-md-6 banner_bottom_grid help">
-                    <img src="images/ab.jpg" alt=" " class="img-fluid">
+                    <img src="images/pensionnat.jpg" alt=" " class="img-fluid">
                 </div>
                 <div class="col-md-6 banner_bottom_left mt-lg-0 mt-4">
                     <h4><a class="link-hny" href="public/pension.php">
@@ -248,7 +248,7 @@ include'all.class.php';
 
 
           <?php
-          $un_cheval = new chevaux(" ", " ", " ", " ", " ", " ", " ", " ", " ");
+          $un_cheval = new chevaux(" ", " ", " ", " ", " ", " ", " ", " ", " ", " ");
           $une_photo = new photo_cheval(" ", " "," ");
           $une_race = new race_chevaux(" ", " ");
           $un_cheval_fav = new chevaux_fav(" ", " ");

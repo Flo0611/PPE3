@@ -35,28 +35,28 @@
                         <li><a href="index.php"><span class="fa fa-angle-double-right" aria-hidden="true"></span> Accueil</a></li>
                         <li><a href="public/presentation.php"><span class="fa fa-angle-double-right" aria-hidden="true"></span> Présentation</a></li>
                         <li><a href="public/chevaux.php"><span class="fa fa-angle-double-right" aria-hidden="true"></span> Chevaux</a></li>
-                        <li><a href="public/.php"><span class="fa fa-angle-double-right" aria-hidden="true"></span> Pensionnat</a></li>
+                        <li><a href="public/pension.php"><span class="fa fa-angle-double-right" aria-hidden="true"></span> Pensionnat</a></li>
                     </ul>
                     <ul class="list-info-wthree ml-5">
 
                         <li>
-                            <a href="public/.php"><span class="fa fa-angle-double-right" aria-hidden="true"></span>
+                            <a href="public/stage.php"><span class="fa fa-angle-double-right" aria-hidden="true"></span>
                                 Stages
                             </a>
                         </li>
                         <li>
-                            <a href="public/.php"><span class="fa fa-angle-double-right" aria-hidden="true"></span>
-                                Planning
+                            <a href="public/cours.php"><span class="fa fa-angle-double-right" aria-hidden="true"></span>
+                                Cours
+                            </a>
+                        </li>
+                        <li>
+                            <a href="public/balades.php"><span class="fa fa-angle-double-right" aria-hidden="true"></span>
+                                Balades
                             </a>
                         </li>
                         <li>
                             <a href="public/contact.php"><span class="fa fa-angle-double-right" aria-hidden="true"></span>
                                 Contact
-                            </a>
-                        </li>
-                        <li>
-                            <a href="public/connexion.php"><span class="fa fa-angle-double-right" aria-hidden="true"></span>
-                                Connexion
                             </a>
                         </li>
                     </ul>

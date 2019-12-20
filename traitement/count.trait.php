@@ -3,7 +3,7 @@
   $un_membre = new membre(" ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ");
   $une_race = new race_chevaux(" ", " ");
   $un_contact = new contact(" ", " ", " ", " ", " ");
-  $un_cheval = new chevaux(" ", " ", " ", " ", " ", " ", " ", " ", " ");
+  $un_cheval = new chevaux(" ", " ", " ", " ", " ", " ", " ", " ", " ", " ");
 
   $req_membre = $un_membre->compte_nb_membres($conn);
   $nb_membre = $req_membre->fetch();

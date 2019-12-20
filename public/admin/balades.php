@@ -7,6 +7,7 @@ include'../../inc/bdd.inc.php';
 
 
 $une_balade = new balades(" ", " ", " ", " ", " ", " ", " ", " ", " ");
+$une_horaire = new horaires(" ", " ");
 
 if (!isset($_SESSION['admin']) OR isset($_SESSION['super_admin']))
 {
@@ -18,7 +19,7 @@ if (!isset($_SESSION['admin']) OR isset($_SESSION['super_admin']))
 <head>
       <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Simple Responsive Admin</title>
+    <title>Gérer les balades</title>
 	<!-- BOOTSTRAP STYLES-->
     <link href="assets/css/bootstrap.css" rel="stylesheet" />
      <!-- FONTAWESOME STYLES-->
@@ -99,7 +100,23 @@ if (!isset($_SESSION['admin']) OR isset($_SESSION['super_admin']))
  		             <input type="text" name="date_bal" class="encadre" style="width:40%; padding-left:10px;" value="<?php echo date('d\/m\/Y') ?>"><br>
 
 								 <label>Début de la balade :</label><br>
-									<input type="text" id="datepicker" class="encadre" style="width:40%; padding-left:10px;" name="debut_bal" placeholder="Veuillez entrer la date de la balade"><br>
+									<select class="select" name="debut_bal" style="width:40%; padding-left:10px;">
+										<option value="nul" selected>Choisissez une option...</option>
+
+										<?php
+										$req_horaires = $une_horaire->select_horaires($conn);
+										while ($res_horaires = $req_horaires->fetch())
+										{
+											$id_horaires = $res_horaires['id_horaires'];
+											$lib_horaires = $res_horaires['lib_horaires'];
+
+											 ?>
+											 <option value="<?php echo $id_horaires ?>"><?php echo $lib_horaires ?></option>
+											 <?php
+										 }
+										?>
+
+									</select><br>
 
 									<label>Nombre de Galop :</label><br>
  				             <select class="float encadre" name="galop_bal" style="width:40%;">
@@ -168,12 +185,16 @@ if (!isset($_SESSION['admin']) OR isset($_SESSION['super_admin']))
 													 {
 														 $id_balades = $res['id_bal'];
 														 $date_balades = $res['date_bal'];
-														 $heure_balades = $res['heure_bal'];
+														 $id_horaires = $res['heure_bal'];
 														 $des_balades = $res['des_bal'];
 														 $galopbalades = $res['galop_bal'];
 														 $titrebalades = $res['titre_bal'];
 														 $photobalades = $res['photo_bal'];
 														 $duree_balade = $res['duree_balade'];
+
+														 $req_heure = $une_horaire->select_horaires_by_id($id_horaires, $conn);
+									           $res_heure = $req_heure->fetch();
+									           $lib_horaires = $res_heure['lib_horaires'];
 
 														 ?>
 
@@ -181,7 +202,7 @@ if (!isset($_SESSION['admin']) OR isset($_SESSION['super_admin']))
 														 <tr>
 															 <td><?php echo $id_balades ?></td>
 															 <td><?php echo $date_balades?></td>
-															 <td><?php echo $heure_balades ?></td>
+															 <td><?php echo $lib_horaires ?></td>
 															 <td><?php echo $des_balades?></td>
 															 <td><?php echo $galopbalades ?></td>
 															 <td><?php echo $titrebalades ?></td>

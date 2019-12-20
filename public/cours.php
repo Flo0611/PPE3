@@ -10,7 +10,7 @@ $une_inscription_cours = new inscription_cours(" ", " ", " ");
 ?>
 <!DOCTYPE html>
 <html>
-<title>Centre équestre - Planning</title>
+<title>Cours - Centre équestre</title>
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <link rel="stylesheet" href="../css/planning.css">
 <link rel="stylesheet" href="../css/bootstrap.css">
@@ -43,7 +43,42 @@ while ($res_jour = $req_jour->fetch())
 }
 
 ?>
+
 </div>
+
+<?php
+if ($_GET['success'] == "ajouter")
+{
+  ?>
+  <div class="alert alert-success" role="alert" >
+    Vous êtes bien inscris au cours choisis.
+  </div>
+  <?php
+}
+?>
+
+<?php
+if ($_GET['success'] == "supprimer")
+{
+  ?>
+  <div class="alert alert-info" role="alert" >
+    Vous avez bien annuler votre inscription.
+  </div>
+  <?php
+}
+?>
+
+<?php
+if ($_GET['erreur'] == "existe")
+{
+  ?>
+  <div class="alert alert-danger" role="alert" >
+    Vous êtes déjà inscris au cours.
+  </div>
+  <?php
+}
+?>
+
 
 <div id="Contenu" style="margin-top:3%;"></div>
 
@@ -57,32 +92,7 @@ while ($res_jour = $req_jour->fetch())
   ?>
   <div id="conteneur" style="margin-bottom:10%;">
 
-    <?php
-    if ($_GET['success'] == "ajouter")
-    {
-      ?>
-      <h3 style="text-align:center"><span style="color:green">Vous êtes bien inscris au cours choisis.</span></h3>
-      <?php
-    }
-    ?>
 
-    <?php
-    if ($_GET['success'] == "supprimer")
-    {
-      ?>
-      <h3 style="text-align:center"><span style="color:green">Vous avez bien annuler votre inscription.</span></h3>
-      <?php
-    }
-    ?>
-
-    <?php
-    if ($_GET['erreur'] == "existe")
-    {
-      ?>
-      <h3 style="text-align:center"><span style="color:red">Vous êtes déjà inscris au cours.</span></h3>
-      <?php
-    }
-    ?>
 
   <h2 style="text-align:center"><span class="pink">Planning Cours</span></h2>
 
@@ -130,7 +140,7 @@ while ($res_jour = $req_jour->fetch())
         {
           ?>
           <form action="../traitement/inscription_cours.trait.php?action=annuler&id_insc_cours=<?php echo $id_inscription ?>" method="post">
-            <button type="submit" class="btn btn-warning" style="margin-top:3%; margin-bottom:3%;">Annuler l'inscription</button>
+            <button type="submit" class="btn btn-warning" style="margin-top:3%; margin-bottom:3%;">Se désinscrire</button>
           </form>
           <?php
         }

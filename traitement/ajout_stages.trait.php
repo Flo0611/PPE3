@@ -4,6 +4,7 @@ ini_set("display_errors","on");
 include'../all.class.php';
 include'../inc/bdd.inc.php';
 $un_stage = new stage(" ", " ", " ", " ", " ", " ", " ", " ");
+$une_inscription_activite = new inscription_activite(" ", " ", " ", " ");
 
 if (isset($_POST['valider']))
 {

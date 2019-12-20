@@ -51,7 +51,7 @@
           <div id="contenant"></div>
           <div class="row news-grids  text-center affiche_tout">
           <?php
-          $un_cheval = new chevaux(" ", " ", " ", " ", " ", " ", " ", " ", " ");
+          $un_cheval = new chevaux(" ", " ", " ", " ", " ", " ", " ", " ", " ", " ");
           $une_photo = new photo_cheval(" ", " "," ");
           $une_race = new race_chevaux(" ", " ");
           $une_note = new note(" ", " ", " ", " ");
@@ -122,7 +122,7 @@
                                 <div type="button" id='<?php echo $id_cheval ?>'><script type='text/javascript'>CreateListeEtoile('<?php echo $id_cheval ?>',5);GestionHover('<?php echo $id_cheval ?>', <?php echo $nb_etoile ?>, 5);</script></div>
                               </div>
                               <input type="button" id="button-note" name="note<?php echo $id_cheval; ?>" value="Noter" onclick="envoiedonnee(<?php echo $id_cheval ?>); test(<?php echo $id_cheval ?>);">
-                              <span id="text_note"></span>
+                              <br><span id="text_note">Moyenne du cheval : <?php echo $moy ?>/5</span>
 
 
                               <?php
@@ -133,8 +133,8 @@
                               <div>
                                 <div type="button" id='<?php echo $id_cheval ?>'><script type='text/javascript'>CreateListeEtoile('<?php echo $id_cheval ?>',5);</script></div>
                               </div>
-                              <input type="button" id="button-note" name="note<?php echo $id_cheval; ?>" value="Noter" onclick=" test()">
-
+                              <input type="button" id="button-note" name="note<?php echo $id_cheval; ?>" value="Noter" onclick="envoiedonnee(<?php echo $id_cheval ?>);test()">
+                              <br><span id="text_note">Moyenne du cheval : <?php echo $moy ?>/5</span>
                             <?php
                           }
                           ?>
@@ -206,7 +206,7 @@
                   <form action="../traitement/modif_chevaux.trait.php?id_cheval=<?php echo $id_cheval ?>" method="POST">
                     <div class="popup">
                         <img src="../images/uploads-chevaux/<?php echo $photo['lib_photo'] ?>" alt="Popup Image" class="img-fluid-pop-up"  />
-                        <div class="mt-4 desc-chevaux-popup">
+                        <div class="mt-4 desc-chevaux-popup-deco">
                           <h1 style="font-size:1.5em;"><b><input style="margin-right:2%;" type="text" name="prenom_modif" value="<?php echo $prenom?>"><input type="text" name="nom_modif" value="<?php echo $nom?>"></b></h1><br>
                           <p>
                             <span class="label-pop-up">Sexe : </span> <span class="text-popup">
