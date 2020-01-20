@@ -25,5 +25,6 @@
   require_once'class/jours.class.php';
   require_once'class/inscription_cours.class.php';
   require_once'class/inscription_activite.class.php';
+  require_once'class/maladie.class.php';
 
 ?>

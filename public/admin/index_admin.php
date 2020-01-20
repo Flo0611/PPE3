@@ -191,8 +191,20 @@ if (!isset($_SESSION['admin']) OR isset($_SESSION['super_admin']))
                   </div>
 
               </div>
+							<div class="row text-center pad-top">
+
+							 <div class="col-lg-2 col-md-2 col-sm-2 col-xs-6">
+										<div class="div-square">
+												 <a href="../vierge.php" >
+					<i class="fa fa-tasks fa-5x"></i>
+										<h4>Gestion des maladies</h4>
+										</a>
+										</div>
+									</div>
+								</div>
 
     </div>
+
              <!-- /. PAGE INNER  -->
             </div>
          <!-- /. PAGE WRAPPER  -->
